@@ -627,6 +627,9 @@ a:hover {
 }
 
 @media (max-width: 640px) {
+    .hero {
+        margin-top: 70px;
+    }
     .profile-avatar {
         width: 80px;
         height: 80px;
