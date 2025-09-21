@@ -614,3 +614,18 @@ window.addEventListener('error', function(e) {
 window.addEventListener('unhandledrejection', function(e) {
     console.error('Unhandled Promise Rejection:', e.reason);
 });
+
+// ===== MODERN SECTION ANIMATION ON SCROLL =====
+function animateSectionsOnScroll() {
+    const animatedEls = document.querySelectorAll(
+        '.section-header, .about-card, .feature-card, .timeline-item, .project-card, .cert-item, .contact-card, .contact-form-container'
+    );
+    animatedEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+            el.classList.add('aos-animate');
+        }
+    });
+}
+window.addEventListener('scroll', animateSectionsOnScroll);
+window.addEventListener('DOMContentLoaded', animateSectionsOnScroll);

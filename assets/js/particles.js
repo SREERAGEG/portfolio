@@ -192,23 +192,25 @@ class ParticleSystem {
         let mouseX = 0;
         let mouseY = 0;
         let isMouseOver = false;
-        
+
         this.container.addEventListener('mousemove', (e) => {
             const rect = this.container.getBoundingClientRect();
             mouseX = e.clientX - rect.left;
             mouseY = e.clientY - rect.top;
             isMouseOver = true;
-            
-            // Attract particles to mouse
+
+            // Attract particles to mouse and change color
             this.particles.forEach(particle => {
                 const dx = mouseX - particle.x;
                 const dy = mouseY - particle.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
-                
+
                 if (distance < 100) {
                     const force = (100 - distance) / 100;
                     particle.vx += (dx / distance) * force * 0.01;
                     particle.vy += (dy / distance) * force * 0.01;
+                    // Modern effect: change color on hover
+                    particle.color = 'rgba(59, 130, 246, ';
                 }
             });
         });

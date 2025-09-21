@@ -1880,3 +1880,94 @@ img {
         padding: var(--spacing-lg) 0;
     }
 }
+
+/* Glassmorphism Card Effect */
+.about-card,
+.feature-card,
+.project-card,
+.cert-item,
+.contact-card,
+.contact-form-container {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255,255,255,0.18);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+[data-theme="dark"] .about-card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .cert-item,
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .contact-form-container {
+    background: rgba(31,41,55,0.7);
+    border: 1px solid rgba(31,41,55,0.18);
+}
+
+/* Navbar Glassmorphism */
+.navbar {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 24px rgba(59,130,246,0.08);
+}
+
+[data-theme="dark"] .navbar {
+    background: rgba(31,41,55,0.85);
+}
+
+/* Button Gradient Hover */
+.btn-primary {
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-lg);
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #3b82f6 0%, #764ba2 100%);
+    box-shadow: 0 12px 24px rgba(59,130,246,0.15);
+}
+
+/* Card Hover Animation */
+.project-card:hover,
+.feature-card:hover,
+.cert-item:hover,
+.strength-item:hover,
+.language-item:hover,
+.tech-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 32px rgba(59,130,246,0.12);
+}
+
+/* Floating Icon Glow */
+.floating-icon {
+    box-shadow: 0 0 24px 4px rgba(59,130,246,0.15), var(--shadow-lg);
+    border: 2px solid rgba(59,130,246,0.12);
+    transition: box-shadow 0.3s;
+}
+.floating-icon:hover {
+    box-shadow: 0 0 32px 8px rgba(59,130,246,0.25), var(--shadow-xl);
+}
+
+/* Section Fade-in Animation */
+.section-header,
+.about-card,
+.feature-card,
+.timeline-item,
+.project-card,
+.cert-item,
+.contact-card,
+.contact-form-container {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+}
+.section-header.aos-animate,
+.about-card.aos-animate,
+.feature-card.aos-animate,
+.timeline-item.aos-animate,
+.project-card.aos-animate,
+.cert-item.aos-animate,
+.contact-card.aos-animate,
+.contact-form-container.aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
