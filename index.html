@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sreerag E G - Full-Stack Developer Portfolio</title>
+    <meta name="description" content="Professional portfolio of Sreerag E G - Full-Stack Python Developer specializing in Web Development, Automation, and Data Processing">
+    <meta name="keywords" content="Python Developer, Full-Stack Developer, Django, React, Node.js, Web Development, Automation">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <h2>Loading Portfolio...</h2>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Sreerag<span class="accent-color">.EG</span></a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-particles"></div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="accent-color typing-animation">Sreerag E G</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Full-Stack Python Developer</h2>
+                    <p class="hero-description">
+                        Results-driven Python and Full-Stack Developer with experience in building and automating 
+                        scalable web applications. Proficient in backend technologies, automation, data processing, 
+                        and full-stack development with expertise in the US healthcare insurance domain.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Get In Touch
+                        </a>
+                        <a href="assets/resume/Sreerag_EG_Resume.pdf" class="btn btn-secondary" download>
+                            <i class="fas fa-download"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="mailto:sreerageg@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+919567870963" class="social-link">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/sreerag-e-g" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/sreerageg" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+                    <div class="image-container">
+                        <div class="profile-placeholder">
+                            <div class="profile-avatar">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="profile-name">Sreerag E G</div>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="floating-elements">
+                                <div class="floating-icon"><i class="fab fa-python"></i></div>
+                                <div class="floating-icon"><i class="fab fa-react"></i></div>
+                                <div class="floating-icon"><i class="fas fa-database"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Professional Background & Expertise</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <div class="about-card">
+                        <h3>Professional Summary</h3>
+                        <p>
+                            Results-driven Python and Full-Stack Developer with experience in building and automating 
+                            scalable web applications. Proficient in backend technologies, automation, data processing, 
+                            and full-stack development with expertise in the US healthcare insurance domain.
+                        </p>
+                        <p>
+                            Passionate about clean, maintainable code with strong experience in Python, JavaScript, 
+                            Django, React.js, and various databases. Experienced in automation, CI/CD, and cloud deployment.
+                        </p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="stat-number">2+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-features" data-aos="fade-left" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Full-Stack Development</h4>
+                        <p>Expert in Python, JavaScript, Django, React.js, Node.js, and MERN stack development</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>Automation & Testing</h4>
+                        <p>Proficient in Selenium automation, PyTest, Unit Testing, and CI/CD pipelines</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4>Cloud & DevOps</h4>
+                        <p>Experience with AWS (EC2, S3, Lambda), Docker, Git, and cloud deployment strategies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Work Experience</h2>
+                <p class="section-subtitle">Professional Journey & Achievements</p>
+            </div>
+
+            <div class="timeline" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 2025 - Present</div>
+                        <h3>Software Developer</h3>
+                        <h4>Kalki Safalya Pvt. Ltd.</h4>
+                        <p>
+                            Automated data entry for insurance claim portals using Python and Selenium, improving 
+                            submission speed by 40%. Built internal tools for claims tracking and processing using 
+                            Django and Pandas. Collaborated with Ruby on Rails developers to integrate APIs and 
+                            streamline workflows.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Selenium</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">API Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Nov 2024 - May 2025</div>
+                        <h3>Full Stack Developer Intern</h3>
+                        <h4>Aspire Systems - Python/Django</h4>
+                        <p>
+                            Developed REST APIs with Django Rest Framework and optimized MySQL queries. 
+                            Built features like user authentication, CRUD operations, and Google OAuth. 
+                            Participated in Agile sprints, code reviews, and API documentation using Swagger.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="skill-tag">Django REST Framework</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">OAuth</span>
+                            <span class="skill-tag">Swagger</span>
+                            <span class="skill-tag">Agile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 2024 - Oct 2024</div>
+                        <h3>Freelance Python Developer</h3>
+                        <h4>Independent Contractor</h4>
+                        <p>
+                            Created automation scripts for insurance web applications using Selenium. 
+                            Optimized backend performance and handled third-party API integrations 
+                            for various clients in the healthcare and insurance domains.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="skill-tag">Web Automation</span>
+                            <span class="skill-tag">API Integration</span>
+                            <span class="skill-tag">Performance Optimization</span>
+                            <span class="skill-tag">Client Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Showcase of My Work & Innovations</p>
+            </div>
+
+            <div class="projects-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Insurance Claim Web Automation</h3>
+                        <p>
+                            Automated insurance form submission on US portals using Python and Selenium. 
+                            Handled CAPTCHA challenges and generated comprehensive logs for tracking submissions.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">Web Scraping</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Image Recognition & Classification</h3>
+                        <p>
+                            AI-powered system built using TensorFlow and OpenCV with 95% accuracy in object 
+                            detection and classification tasks for real-time applications.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AVI (App for Visually Impaired)</h3>
+                        <p>
+                            Android-based accessibility app using Python backend with real-time object detection 
+                            and audio output conversion using MediaPlayer API.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Object Detection</span>
+                            <span class="tech-tag">Accessibility</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Color Lab System</h3>
+                        <p>
+                            Cloud-based collaborative image editor using Flask and React with authentication 
+                            and real-time updates for multiple users working simultaneously.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">WebSockets</span>
+                            <span class="tech-tag">Cloud</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Library Management System</h3>
+                        <p>
+                            Full-stack Django application with MySQL integration, comprehensive REST API support, 
+                            secure login system, and intuitive admin dashboard.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">Authentication</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Technologies & Tools I Work With</p>
+            </div>
+
+            <div class="skills-content">
+                <div class="skills-category" data-aos="fade-right">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">SQL</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category" data-aos="fade-left" data-aos-delay="200">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Django/DRF</span>
+                            <span class="skill-percentage">93%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 93%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">React.js</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Node.js/Express</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Flask</span>
+                            <span class="skill-percentage">87%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 87%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">TensorFlow/ML</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-stack" data-aos="fade-up" data-aos-delay="300">
+                <h3>Technologies & Tools</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-docker"></i>
+                        <span>Docker</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-linux"></i>
+                        <span>Linux</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-robot"></i>
+                        <span>Selenium</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages Section -->
+            <div class="languages-section" data-aos="fade-up" data-aos-delay="400">
+                <h3>Languages</h3>
+                <div class="languages-grid">
+                    <div class="language-item">
+                        <div class="language-flag">🇬🇧</div>
+                        <h4>English</h4>
+                        <p>Professional</p>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-flag">🇮🇳</div>
+                        <h4>Malayalam</h4>
+                        <p>Native</p>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-flag">🇮🇳</div>
+                        <h4>Hindi</h4>
+                        <p>Professional</p>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-flag">🕉️</div>
+                        <h4>Sanskrit</h4>
+                        <p>Full Proficiency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Education & Certifications</h2>
+                <p class="section-subtitle">Academic Background & Professional Development</p>
+            </div>
+
+            <div class="education-timeline" data-aos="fade-up" data-aos-delay="200">
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <div class="education-year">2019 - 2023</div>
+                        <h3>B.Tech in Computer Science and Engineering</h3>
+                        <h4>Christ College of Engineering, Thrissur, Kerala</h4>
+                        <div class="education-grade">
+                            <i class="fas fa-star"></i>
+                            <span>CGPA: 7.85 / 10</span>
+                        </div>
+                        <p>
+                            Specialized in software engineering, data structures, algorithms, and web technologies. 
+                            Strong foundation in computer science principles with focus on practical application.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="certifications" data-aos="fade-up" data-aos-delay="300">
+                <h3>Professional Certifications</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h4>IBM Python for Data Science</h4>
+                        <p>IBM</p>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <h4>AWS Certified Cloud Practitioner</h4>
+                        <p>Amazon Web Services</p>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>AI For Everyone</h4>
+                        <p>Andrew Ng - Coursera</p>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Python for Everybody</h4>
+                        <p>University of Michigan</p>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h4>Django for Web Development</h4>
+                        <p>Udemy</p>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Data Engineering with PySpark</h4>
+                        <p>Self-paced Learning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's Connect & Discuss Opportunities</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-card">
+                        <h3>Let's Work Together</h3>
+                        <p>
+                            I'm always open to discussing new opportunities, projects, or 
+                            collaborative ventures. Feel free to reach out if you're looking 
+                            for a dedicated Full-Stack Python Developer.
+                        </p>
+                    </div>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:sreerageg@gmail.com">sreerageg@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+919567870963">+91 95678 70963</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Thrissur, India</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>LinkedIn</h4>
+                                <a href="https://linkedin.com/in/sreerag-e-g" target="_blank">linkedin.com/in/sreerag-e-g</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/sreerageg" target="_blank">github.com/sreerageg</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container" data-aos="fade-left" data-aos-delay="200">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Sreerag E G. All rights reserved.</p>
+                    <p>Designed & Developed with <i class="fas fa-heart accent-color"></i></p>
+                </div>
+                <div class="footer-social">
+                    <a href="mailto:sreerageg@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+919567870963" class="social-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/sreerag-e-g" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/sreerageg" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#home" class="back-to-top">
+                        <i class="fas fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
