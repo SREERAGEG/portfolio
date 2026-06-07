@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize typing animation
     const typingElement = document.querySelector('.typing-animation');
     if (typingElement) {
-        const words = ['Sreerag E G', 'Python Developer', 'Full-Stack Developer', 'Automation Expert'];
+        const words = ['Sreerag E G', 'SDET & Automation Architect', 'Automation Architect', 'Full-Stack Python Developer'];
         typeWriter(typingElement, words);
     }
 

@@ -1000,6 +1000,17 @@ a:hover {
     margin-bottom: var(--spacing-md);
 }
 
+.timeline-content ul {
+    margin: var(--spacing-md) 0;
+    padding-left: var(--spacing-lg);
+    list-style-type: disc;
+}
+
+.timeline-content li {
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-secondary);
+}
+
 .timeline-skills {
     display: flex;
     gap: var(--spacing-xs);
