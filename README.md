@@ -1,6 +1,6 @@
-# Sreerag E G - Full-Stack Developer Portfolio
+# Sreerag E G - SDET & Automation Architect Portfolio
 
-A modern, responsive portfolio website showcasing the professional background and expertise of Sreerag E G, a results-driven Python and Full-Stack Developer specializing in web development, automation, and data processing.
+A modern, responsive portfolio website showcasing the professional background and expertise of Sreerag E G, a performance-driven SDET and Automation Architect specializing in engineering distributed automation platforms using Python, FastAPI, and AWS.
 
 ## 🌟 Features
 
@@ -186,13 +186,9 @@ For production deployment, consider integrating:
 
 ### Performance Tips
 - Enable Gzip compression
-- Set up CDN for global delivery
-- Configure proper caching headers
-- Optimize images for web delivery
+- Set ## 👨‍💻 About Sreerag E G
 
-## 👨‍💻 About Sreerag E G
-
-**Full-Stack Python Developer & Automation Expert**
+**SDET & Automation Architect**
 
 ### Contact Information
 - 📧 Email: sreerageg@gmail.com
@@ -202,42 +198,41 @@ For production deployment, consider integrating:
 - 📍 Location: Thrissur, India
 
 ### Professional Experience
-- **Software Developer** at Kalki Safalya Pvt. Ltd. (May 2025 - Present)
-  - Automated insurance claim portals using Python and Selenium (40% speed improvement)
-  - Built internal tools for claims tracking using Django and Pandas
-  - Collaborated with Ruby on Rails developers for API integration
+- **Software Developer (SDET / Automation Architect)** at Kalki Safalya Consulting Services LLP (May 2025 - Present)
+  - **Architected a Distributed Automation Gateway:** Developed a high-performance orchestration layer using FastAPI to dynamically route automation tasks based on incoming JSON payloads.
+  - **Scalable Infrastructure Deployment:** Deployed a containerized worker pool on AWS ECS, utilizing AWS SQS as a message broker to handle asynchronous claim submissions at scale.
+  - **Performance Engineering:** Designed a multi-portal automation platform that increased insurance claim submission speed by 40% while maintaining production-grade reliability.
+  - **Reliability & Compliance:** Implemented automated error classification, screenshot evidence capture for audits, and sensitive data masking to maintain strict HIPAA compliance.
+  - **Internal Tooling:** Built claims tracking systems using Pandas and integrated browser automations with enterprise Rails backends via message queues.
 
-- **Full Stack Developer Intern** at Aspire Systems (Nov 2024 - May 2025)
-  - Developed REST APIs with Django Rest Framework
-  - Optimized MySQL queries and implemented OAuth authentication
-  - Participated in Agile sprints and API documentation
+- **Full Stack Developer (Intern)** at Aspire Systems (Nov 2024 - May 2025)
+  - **API Engineering:** Developed and optimized REST APIs using Django Rest Framework (DRF) and MySQL, ensuring seamless data flow for enterprise applications.
+  - **Quality Assurance:** Led automated API documentation using Swagger and participated in Agile sprints, focusing on code reviews and modular system design.
+  - **Auth Systems:** Implemented secure authentication flows, including Google OAuth and CRUD operations for internal portals.
 
-- **Freelance Python Developer** (May 2024 - Oct 2024)
-  - Created automation scripts for insurance web applications
-  - Optimized backend performance and handled third-party integrations
+- **Freelance Python Developer (Automation)** (May 2024 - Nov 2024)
+  - **Legacy Transformation:** Converted one-off Selenium scripts into maintainable, framework-compliant code for insurance web applications.
+  - **Third-Party Integration:** Integrated external APIs to optimize backend performance and automation reliability.
 
 ### Education & Certifications
 - **B.Tech Computer Science & Engineering** - Christ College of Engineering (2019-2023) - CGPA: 7.85/10
-- **IBM Python for Data Science** - IBM Certified
-- **AWS Certified Cloud Practitioner** - Amazon Web Services
-- **AI For Everyone** - Andrew Ng (Coursera)
-- **Python for Everybody** - University of Michigan
-- **Django for Web Development** - Udemy
 - **Data Engineering with PySpark** - Self-paced Learning
+- **IBM Python for Data Science** - IBM Certified
+- **AI For Everyone** - Andrew Ng (Coursera)
+- **Django for Web Development** - Udemy
 
 ### Technical Skills
-- **Languages**: Python (95%), JavaScript (90%), Java (80%), SQL (88%), HTML/CSS (92%)
-- **Frameworks**: Django/DRF (93%), React.js (88%), Node.js/Express (85%), Flask (87%), TensorFlow/ML (80%)
-- **Databases**: MySQL, PostgreSQL, MongoDB
-- **Cloud & DevOps**: AWS (EC2, S3, Lambda), Docker, Git, Linux
-- **Testing & Automation**: Selenium, PyTest, Unit Testing, CI/CD
+- **Languages**: Python (Advanced OOP & Framework Design), SQL, JavaScript, Java
+- **Automation**: Playwright, Selenium, Web Scraping, PDF Data Extraction
+- **Backend & Orchestration**: FastAPI, Django, REST API Design, Async Processing
+- **Cloud & DevOps**: AWS (ECS, SQS, EC2, S3, Lambda), Docker, Git, CI/CD Pipelines
+- **Frameworks**: Page Object Model (POM), Error Classification & Self-Healing Logic, Retry Mechanisms
+- **Domain Specialization**: US Healthcare Insurance, Claims Processing, HIPAA Compliance, EOB/CMS-1500
 
 ### Featured Projects
-1. **Insurance Claim Web Automation** - Python, Selenium, Web Scraping
-2. **Image Recognition & Classification** - TensorFlow, OpenCV (95% accuracy)
-3. **AVI (App for Visually Impaired)** - Python backend, Android, Object Detection
-4. **Color Lab System** - Flask, React, WebSockets, Real-time collaboration
-5. **Library Management System** - Django, MySQL, REST API, Authentication
+1. **Insurance Claim Web Automation** - Python, Selenium, Web Scraping, CAPTCHA handling, robust logging, POM
+2. **AI-Powered Image Recognition** - TensorFlow, OpenCV (95% accuracy)
+3. **AVI (App for Visually Impaired)** - Python backend, Android, Object Detection, audio feedback
 
 ### Languages
 - **English**: Professional proficiency
