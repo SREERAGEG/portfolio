@@ -209,4 +209,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 *Portfolio designed to showcase full-stack development expertise and passion for clean, maintainable code*
 
-*Last updated: September 2025*
+*Last updated: June 2026*
