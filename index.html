@@ -750,7 +750,7 @@
                 <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/sreerageg" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><i class="fab fa-github"></i></a>
             </div>
-            <p class="text-[10px] text-slate-400 dark:text-slate-600">&copy; 2026 Sreerag E G &middot; Built with <i class="fas fa-heart text-brandViolet text-[9px]"></i> &amp; precision</p>
+            <p class="text-[10px] text-slate-400 dark:text-slate-600">&copy; 2026 Sreerag E G &middot; Built with <i class="fas fa-heart text-brandViolet text-[9px]"></i> &amp; precision <span id="visitor-count-badge" class="hidden">&middot; <i class="fas fa-eye text-[9px] text-brandBlue"></i> <span id="visitor-count-val">0</span> views</span></p>
         </div>
     </div>
 </footer>
@@ -781,13 +781,99 @@ document.addEventListener("DOMContentLoaded",()=>{
     let ri=0,ci=0,del=false,sp=100;
     function tw(){const cur=roles[ri];el.textContent=del?cur.substring(0,ci-1):cur.substring(0,ci+1);if(del){ci--;sp=40;}else{ci++;sp=90;}if(!del&&ci===cur.length){del=true;sp=2200;}else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;sp=500;}setTimeout(tw,sp);}
     tw();
+    // Supabase serverless logging configuration
+    const SUPABASE_URL = "YOUR_SUPABASE_URL";
+    const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+    const hasSupabase = SUPABASE_URL && SUPABASE_URL !== "YOUR_SUPABASE_URL" && SUPABASE_ANON_KEY && SUPABASE_ANON_KEY !== "YOUR_SUPABASE_ANON_KEY";
+
     const form=document.getElementById("contact-form"),sb=document.getElementById("submit-btn");
-    if(form){form.addEventListener("submit",e=>{e.preventDefault();const n=document.getElementById("name").value,em=document.getElementById("email").value,s=document.getElementById("subject").value,m=document.getElementById("message").value;sb.disabled=true;const orig=sb.innerHTML;sb.innerHTML='<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';setTimeout(()=>{window.location.href="mailto:sreerageg@gmail.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+em+"\n\nMessage:\n"+m);form.reset();sb.disabled=false;sb.innerHTML=orig;},1000);});}
+    if(form){form.addEventListener("submit",e=>{
+        e.preventDefault();
+        const n=document.getElementById("name").value,em=document.getElementById("email").value,s=document.getElementById("subject").value,m=document.getElementById("message").value;
+        sb.disabled=true;
+        const orig=sb.innerHTML;
+        sb.innerHTML='<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+
+        if (hasSupabase) {
+            fetch(`${SUPABASE_URL}/rest/v1/visitors`, {
+                method: "POST",
+                headers: {
+                    "apikey": SUPABASE_ANON_KEY,
+                    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+                    "Content-Type": "application/json",
+                    "Prefer": "return=minimal"
+                },
+                body: JSON.stringify({ name: n, email: em, subject: s, message: m, is_unique_visit: false })
+            }).then(res => {
+                sb.disabled=false;
+                sb.innerHTML=orig;
+                if (res.ok) {
+                    alert("Thank you! Your message has been logged successfully.");
+                    form.reset();
+                } else {
+                    alert("Database logging failed. Launching default mail client fallback...");
+                    window.location.href="mailto:sreerageg@gmail.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+em+"\n\nMessage:\n"+m);
+                }
+            }).catch(err => {
+                sb.disabled=false;
+                sb.innerHTML=orig;
+                window.location.href="mailto:sreerageg@gmail.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+em+"\n\nMessage:\n"+m);
+            });
+        } else {
+            setTimeout(()=>{
+                window.location.href="mailto:sreerageg@gmail.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+em+"\n\nMessage:\n"+m);
+                form.reset();
+                sb.disabled=false;
+                sb.innerHTML=orig;
+            },1000);
+        }
+    });}
+
     const secs=document.querySelectorAll("section[id]"),nls=document.querySelectorAll(".nav-link");
     function updateNav(){let cur="";secs.forEach(s=>{if(window.scrollY>=s.offsetTop-180)cur=s.id;});nls.forEach(l=>{l.classList.remove("active");if(l.getAttribute("href")==="#"+cur)l.classList.add("active");});}
     window.addEventListener("scroll",updateNav,{passive:true});updateNav();
     const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:"0px 0px -60px 0px"});
     document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+
+    // Handle anonymous page logging & total counter
+    if (hasSupabase) {
+        const hasVisited = localStorage.getItem("has_visited_portfolio");
+        if (!hasVisited) {
+            fetch(`${SUPABASE_URL}/rest/v1/visitors`, {
+                method: "POST",
+                headers: {
+                    "apikey": SUPABASE_ANON_KEY,
+                    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+                    "Content-Type": "application/json",
+                    "Prefer": "return=minimal"
+                },
+                body: JSON.stringify({ is_unique_visit: true })
+            }).then(res => {
+                if (res.ok) localStorage.setItem("has_visited_portfolio", "true");
+            }).catch(err => console.error("Database unique logging failed:", err));
+        }
+
+        // Fetch exact total count
+        fetch(`${SUPABASE_URL}/rest/v1/visitors?is_unique_visit=eq.true&select=id`, {
+            method: "GET",
+            headers: {
+                "apikey": SUPABASE_ANON_KEY,
+                "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+                "Prefer": "count=exact"
+            }
+        }).then(res => {
+            const countHeader = res.headers.get("content-range");
+            if (countHeader) {
+                const count = countHeader.split("/")[1];
+                const badge = document.getElementById("visitor-count-badge");
+                const val = document.getElementById("visitor-count-val");
+                if (badge && val) {
+                    val.textContent = count;
+                    badge.classList.remove("hidden");
+                }
+            }
+        }).catch(err => console.error("Database count query failed:", err));
+    }
 });
 </script>
 </body>
