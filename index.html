@@ -3,1038 +3,792 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sreerag E G - SDET & Automation Architect Portfolio</title>
-    <meta name="description" content="Professional portfolio of Sreerag E G - SDET & Automation Architect specializing in Python, Playwright, Selenium, FastAPI, and AWS distributed automation frameworks">
-    <meta name="keywords" content="SDET, Automation Architect, Python, Playwright, Selenium, FastAPI, Django, AWS, Distributed Automation, HIPAA">
-    
-    <!-- Favicon -->
+    <title>Sreerag E G | RPA &amp; Automation Architect</title>
+    <meta name="description" content="Portfolio of Sreerag E G - RPA &amp; Automation Engineer specializing in Python, FastAPI, Playwright, Selenium, AWS ECS/SQS, and HIPAA-compliant US Healthcare automation.">
+    <meta name="keywords" content="RPA, Automation Engineer, Python, Playwright, Selenium, FastAPI, Django, AWS, ECS, SQS, HIPAA, US Healthcare">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Tailwind CSS Play CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
+            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#3b82f6', // bright blue
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                        },
-                        violetaccent: {
-                            500: '#8b5cf6', // purple
-                            600: '#7c3aed',
-                        }
+                        darkBg: "#040610",
+                        brandBlue: "#0ea5e9",
+                        brandViolet: "#a855f7",
+                        brandGreen: "#10b981",
+                        brandAmber: "#f59e0b",
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-                        heading: ['Outfit', 'sans-serif'],
+                        sans: ["Plus Jakarta Sans", "sans-serif"],
+                        heading: ["Outfit", "sans-serif"],
+                        mono: ["Fira Code", "monospace"]
                     }
                 }
             }
         }
     </script>
-    
     <style>
-        /* Custom scroll margin for floating navbar links offset */
-        section {
-            scroll-margin-top: 100px;
+        section { scroll-margin-top: 100px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.3); border-radius: 999px; }
+        .dark ::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.22); }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(14,165,233,0.6); }
+        :root {
+            --grid-color: rgba(15,23,42,0.05);
+            --blob1: rgba(6,182,212,0.22);
+            --blob2: rgba(168,85,247,0.18);
+            --blob3: rgba(16,185,129,0.13);
         }
-        
-        /* Hide scrollbars for absolute visual clean look */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .dark {
+            --grid-color: rgba(255,255,255,0.018);
+            --blob1: rgba(6,182,212,0.08);
+            --blob2: rgba(168,85,247,0.08);
+            --blob3: rgba(16,185,129,0.05);
         }
-        ::-webkit-scrollbar-track {
-            background: rgba(15, 23, 42, 0.05);
+        @keyframes blob-float { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(45px,-70px) scale(1.12)} 66%{transform:translate(-35px,35px) scale(0.92)} }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+        @keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+        @keyframes pulse-glow { 0%,100%{opacity:.4;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
+        @keyframes dash { to{stroke-dashoffset:-40} }
+        @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
+        @keyframes gradient-shift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+        @keyframes ring-cw { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        @keyframes ring-ccw { from{transform:rotate(360deg)} to{transform:rotate(0deg)} }
+        .blob-1{animation:blob-float 14s ease-in-out infinite}
+        .blob-2{animation:blob-float 18s ease-in-out infinite 3s}
+        .blob-3{animation:blob-float 12s ease-in-out infinite 6s}
+        .typing-cursor::after{content:"|";animation:blink .9s step-end infinite;color:#0ea5e9;font-weight:300}
+        .flow-line{stroke-dasharray:8,4;animation:dash 1.5s linear infinite}
+        .glass{background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border:1px solid rgba(15,23,42,.09);transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .dark .glass{background:rgba(8,13,28,.55);border:1px solid rgba(255,255,255,.07)}
+        .glass-nav{background:rgba(255,255,255,.82);backdrop-filter:blur(24px) saturate(200%);-webkit-backdrop-filter:blur(24px) saturate(200%);border:1px solid rgba(15,23,42,.1);box-shadow:0 4px 24px -4px rgba(0,0,0,.04)}
+        .dark .glass-nav{background:rgba(4,6,16,.78);border:1px solid rgba(255,255,255,.06);box-shadow:0 4px 24px -4px rgba(0,0,0,.5)}
+        .card-hover{transition:all .4s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-6px) scale(1.005);box-shadow:0 28px 50px -15px rgba(14,165,233,.15);border-color:rgba(14,165,233,.35)!important}
+        .dark .card-hover:hover{box-shadow:0 28px 50px -15px rgba(14,165,233,.25)}
+        .glow-text{text-shadow:0 0 40px rgba(14,165,233,.2)}
+        .dark .glow-text{text-shadow:0 0 50px rgba(14,165,233,.4)}
+        .gradient-text-animate{background:linear-gradient(135deg,#0ea5e9,#a855f7,#10b981,#0ea5e9);background-size:300% 300%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradient-shift 6s ease infinite}
+        .nav-link{position:relative}
+        .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0%;height:2px;background:linear-gradient(90deg,#0ea5e9,#a855f7);border-radius:999px;transition:width .3s ease}
+        .nav-link:hover::after,.nav-link.active::after{width:100%}
+        .nav-link.active{color:#0ea5e9!important}
+        .skill-pill{transition:all .2s ease;cursor:default}
+        .skill-pill:hover{transform:translateY(-2px) scale(1.06)}
+        .avatar-ring-outer{animation:ring-cw 14s linear infinite}
+        .avatar-ring-inner{animation:ring-ccw 9s linear infinite}
+        .float-badge-1{animation:float 6s ease-in-out infinite}
+        .float-badge-2{animation:float2 7s ease-in-out infinite 2s}
+        .available-dot{width:8px;height:8px;background:#10b981;border-radius:50%;display:inline-block;animation:pulse-glow 2s ease-in-out infinite}
+        .section-label{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+        .btn-primary{background:linear-gradient(135deg,#0ea5e9,#38bdf8);box-shadow:0 8px 24px -6px rgba(14,165,233,.45);transition:all .3s ease}
+        .btn-primary:hover{background:linear-gradient(135deg,#0284c7,#0ea5e9);box-shadow:0 12px 32px -6px rgba(14,165,233,.6);transform:translateY(-2px) scale(1.02)}
+        .btn-primary:active{transform:scale(.98)}
+        .project-icon-wrap{transition:all .3s ease}
+        .project-card:hover .project-icon-wrap{transform:scale(1.12)}
+        .timeline-line{position:relative}
+        .timeline-line::before{content:'';position:absolute;left:-1px;top:0;height:100%;width:2px;background:linear-gradient(180deg,#0ea5e9 0%,#a855f7 50%,#10b981 100%);opacity:.6}
+        .grid-pattern{background-image:linear-gradient(var(--grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--grid-color) 1px,transparent 1px);background-size:24px 24px}
+        .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .footer-grad{background:linear-gradient(135deg,rgba(14,165,233,.05),rgba(168,85,247,.05),rgba(16,185,129,.03))}
+        .dark .footer-grad{background:linear-gradient(135deg,rgba(14,165,233,.04),rgba(168,85,247,.04))}
+        .experience-stat-card {
+            background-color: rgba(241, 245, 249, 0.95) !important;
+            border: 1px solid rgba(226, 232, 240, 0.8) !important;
         }
-        .dark ::-webkit-scrollbar-track {
-            background: rgba(15, 23, 42, 0.5);
+        .dark .experience-stat-card {
+            background-color: rgba(15, 23, 42, 0.75) !important;
+            border: 1px solid rgba(51, 65, 85, 0.6) !important;
         }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(59, 130, 246, 0.5);
-            border-radius: 9999px;
+        .bot-profile-btn {
+            background-color: rgba(248, 250, 252, 0.5) !important;
+            border: 1px solid rgba(226, 232, 240, 0.6) !important;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(59, 130, 246, 0.8);
+        .bot-profile-btn:hover {
+            background-color: rgba(241, 245, 249, 0.8) !important;
         }
-
-        /* Glassmorphism custom classes */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+        .dark .bot-profile-btn {
+            background-color: rgba(15, 23, 42, 0.5) !important;
+            border: 1px solid rgba(51, 65, 85, 0.4) !important;
         }
-        
-        .dark .glass-panel {
-            background: rgba(15, 23, 42, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .dark .bot-profile-btn:hover {
+            background-color: rgba(30, 41, 59, 0.7) !important;
+            border-color: rgba(14, 165, 233, 0.3) !important;
         }
-
-        .glass-navbar {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .bot-profile-btn-active {
+            border-color: rgba(14, 165, 233, 0.4) !important;
+            background-color: rgba(14, 165, 233, 0.05) !important;
         }
-        
-        .dark .glass-navbar {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Typing cursor blink animation */
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 0.8s infinite;
-            color: #3b82f6;
-        }
-        
-        /* Slow float animation for background shapes */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-20px) scale(1.05); }
-        }
-        .animate-float {
-            animation: float 8s ease-in-out infinite;
+        .dark .bot-profile-btn-active {
+            background-color: rgba(14, 165, 233, 0.12) !important;
+            border-color: rgba(14, 165, 233, 0.5) !important;
         }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 transition-colors duration-500 overflow-x-hidden min-h-screen">
+<body class="bg-slate-50 dark:bg-darkBg text-slate-600 dark:text-slate-300 transition-colors duration-500 overflow-x-hidden min-h-screen font-sans selection:bg-sky-200 dark:selection:bg-brandBlue/30 selection:text-slate-900 dark:selection:text-white">
 
-    <!-- FLOATING CANVAS GRADIENT BACKGROUND -->
-    <div class="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
-        <!-- Blue blob -->
-        <div class="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-blue-400/20 dark:bg-blue-600/10 blur-[100px] animate-float"></div>
-        <!-- Purple blob -->
-        <div class="absolute top-1/3 -right-40 w-[600px] h-[600px] rounded-full bg-purple-400/20 dark:bg-purple-600/10 blur-[120px] animate-float" style="animation-delay: 2s;"></div>
-        <!-- Greenish blob -->
-        <div class="absolute -bottom-40 left-1/4 w-[500px] h-[500px] rounded-full bg-emerald-300/15 dark:bg-emerald-600/5 blur-[100px] animate-float" style="animation-delay: 4s;"></div>
+<!-- ANIMATED BACKGROUND BLOBS -->
+<div class="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
+    <div class="blob-1 absolute -top-48 -left-48 w-[700px] h-[700px] rounded-full blur-[140px]" style="background:var(--blob1)"></div>
+    <div class="blob-2 absolute top-1/2 -right-48 w-[800px] h-[800px] rounded-full blur-[160px]" style="background:var(--blob2)"></div>
+    <div class="blob-3 absolute -bottom-48 left-1/3 w-[650px] h-[650px] rounded-full blur-[130px]" style="background:var(--blob3)"></div>
+    <div class="grid-pattern absolute inset-0 opacity-70 dark:opacity-100"></div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10">
+
+<!-- NAVBAR -->
+<header class="sticky top-4 z-50 mb-16">
+    <nav class="glass-nav rounded-2xl px-5 py-3.5 flex items-center justify-between">
+        <a href="#home" class="font-heading font-black text-xl tracking-tight">
+            <span class="bg-gradient-to-r from-brandBlue via-sky-400 to-brandViolet bg-clip-text text-transparent">SREERAG</span><span class="text-slate-300 dark:text-slate-600">.dev</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="#home" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue transition-colors">Home</a>
+            <a href="#console" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue transition-colors">Bot Console</a>
+            <a href="#architecture" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue transition-colors">Architecture</a>
+            <a href="#experience" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue transition-colors">Experience</a>
+            <a href="#projects" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue transition-colors">Projects</a>
+            <a href="#skills" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue transition-colors">Skills</a>
+            <a href="#contact" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue transition-colors">Contact</a>
+        </div>
+        <div class="flex items-center space-x-3">
+            <a href="assets/resume/Sreerag_EG_resume_rpa_updated.pdf" download class="hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-brandBlue/10 text-brandBlue border border-brandBlue/20 hover:bg-brandBlue hover:text-white transition-all">
+                <i class="fas fa-download text-[10px]"></i> Resume
+            </a>
+            <button id="theme-toggle" class="glass w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brandBlue hover:scale-105 active:scale-95 transition-all" aria-label="Toggle theme">
+                <i id="theme-toggle-icon" class="fas fa-moon text-base"></i>
+            </button>
+            <button id="mobile-menu-toggle" class="md:hidden glass w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brandBlue active:scale-95 transition-all" aria-label="Open menu">
+                <i class="fas fa-bars text-base"></i>
+            </button>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden mt-2 glass-nav rounded-2xl overflow-hidden">
+        <div class="px-5 py-4 flex flex-col gap-1">
+            <a href="#home" class="mobile-nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue py-2.5 px-3 rounded-xl hover:bg-brandBlue/5 transition-all">Home</a>
+            <a href="#console" class="mobile-nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue py-2.5 px-3 rounded-xl hover:bg-brandBlue/5 transition-all">Bot Console</a>
+            <a href="#architecture" class="mobile-nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue py-2.5 px-3 rounded-xl hover:bg-brandBlue/5 transition-all">Architecture</a>
+            <a href="#experience" class="mobile-nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue py-2.5 px-3 rounded-xl hover:bg-brandBlue/5 transition-all">Experience</a>
+            <a href="#projects" class="mobile-nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue py-2.5 px-3 rounded-xl hover:bg-brandBlue/5 transition-all">Projects</a>
+            <a href="#skills" class="mobile-nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue py-2.5 px-3 rounded-xl hover:bg-brandBlue/5 transition-all">Skills</a>
+            <a href="#contact" class="mobile-nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brandBlue py-2.5 px-3 rounded-xl hover:bg-brandBlue/5 transition-all">Contact</a>
+        </div>
     </div>
+</header>
 
-    <!-- MAIN WRAPPER CONTAINER -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<main class="space-y-28 pb-24">
 
-        <!-- HEADER / STICKY FLOATING NAVBAR -->
-        <header class="sticky top-4 z-50 mb-12">
-            <nav class="glass-navbar rounded-2xl shadow-lg transition-all duration-300 px-6 py-4 flex items-center justify-between">
-                <!-- LOGO -->
-                <div class="flex items-center">
-                    <a href="#home" class="font-heading font-extrabold text-2xl tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
-                        Sreerag<span class="text-blue-600 dark:text-blue-400">.EG</span>
-                    </a>
+<!-- ================================================================ -->
+<!-- HERO                                                              -->
+<!-- ================================================================ -->
+<section id="home" class="min-h-[85vh] flex flex-col justify-center py-8">
+    <div class="glass card-hover rounded-3xl p-8 md:p-14 shadow-2xl border-slate-200/60 dark:border-slate-700/40 relative overflow-hidden">
+        <div class="absolute -right-24 -top-24 w-96 h-96 bg-brandBlue/6 dark:bg-brandBlue/10 rounded-full blur-[90px] pointer-events-none"></div>
+        <div class="absolute -left-24 -bottom-24 w-96 h-96 bg-brandViolet/6 dark:bg-brandViolet/10 rounded-full blur-[90px] pointer-events-none"></div>
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brandBlue/30 to-transparent"></div>
+        <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-14 relative z-10">
+            <!-- Bio -->
+            <div class="flex-1 space-y-7 text-center lg:text-left">
+                <div class="flex justify-center lg:justify-start">
+                    <span class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
+                        <span class="available-dot"></span> Open to Automation Architect Roles
+                    </span>
                 </div>
-
-                <!-- DESKTOP NAV ITEMS -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="#home" class="nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
-                    <a href="#about" class="nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
-                    <a href="#experience" class="nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</a>
-                    <a href="#projects" class="nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
-                    <a href="#skills" class="nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
-                    <a href="#education" class="nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Education</a>
-                    <a href="#contact" class="nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+                <h1 class="font-heading font-black text-5xl sm:text-6xl lg:text-7xl text-slate-900 dark:text-white leading-[1.05] glow-text">
+                    Engineering<br>
+                    <span class="gradient-text-animate">Bot Orchestration</span><br>
+                    <span class="text-slate-600 dark:text-slate-300">at Scale.</span>
+                </h1>
+                <h2 class="font-heading text-xl sm:text-2xl font-semibold text-slate-500 dark:text-slate-400">
+                    I architect <span id="typing-text" class="typing-cursor text-brandBlue font-bold"></span>
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    RPA &amp; Automation Engineer with production-grade experience building <strong class="text-slate-800 dark:text-slate-200 font-semibold">HIPAA-compliant</strong> bot systems for US Healthcare RCM &mdash; specialized in <strong class="text-slate-800 dark:text-slate-200 font-semibold">FastAPI</strong>, <strong class="text-slate-800 dark:text-slate-200 font-semibold">AWS ECS/SQS</strong>, and <strong class="text-slate-800 dark:text-slate-200 font-semibold">Playwright</strong>.
+                </p>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
+                    <a href="#contact" class="btn-primary px-7 py-3.5 rounded-xl text-white font-bold text-sm"><i class="fas fa-paper-plane mr-2"></i>Get In Touch</a>
+                    <a href="assets/resume/Sreerag_EG_resume_rpa_updated.pdf" download class="px-7 py-3.5 rounded-xl glass border-slate-200 dark:border-slate-700/60 font-bold text-sm text-slate-700 dark:text-slate-200 hover:bg-brandBlue/5 hover:border-brandBlue/30 hover:scale-[1.02] active:scale-95 transition-all"><i class="fas fa-download mr-2"></i>Download Resume</a>
                 </div>
-
-                <!-- RIGHT NAV ACTIONS: MANUAL THEME SWITCHER & MOBILE HAMBURGER -->
-                <div class="flex items-center space-x-4">
-                    <!-- THEME TOGGLE BUTTON -->
-                    <button id="theme-toggle" class="glass-panel p-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 hover:scale-105 transition-all shadow-sm" aria-label="Toggle theme">
-                        <i id="theme-toggle-icon" class="fas fa-moon text-lg"></i>
-                    </button>
-                    
-                    <!-- MOBILE HAMBURGER BUTTON -->
-                    <button id="mobile-menu-toggle" class="md:hidden glass-panel p-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:text-blue-500 hover:scale-105 transition-all shadow-sm" aria-label="Open navigation menu">
-                        <i class="fas fa-bars text-lg"></i>
-                    </button>
-                </div>
-            </nav>
-
-            <!-- MOBILE NAV MENU DROPDOWN PANEL -->
-            <div id="mobile-menu" class="hidden md:hidden mt-2 glass-navbar rounded-2xl shadow-xl transition-all duration-300 overflow-hidden">
-                <div class="px-6 py-4 flex flex-col space-y-4">
-                    <a href="#home" class="mobile-nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 border-b border-slate-100 dark:border-slate-800">Home</a>
-                    <a href="#about" class="mobile-nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 border-b border-slate-100 dark:border-slate-800">About</a>
-                    <a href="#experience" class="mobile-nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 border-b border-slate-100 dark:border-slate-800">Experience</a>
-                    <a href="#projects" class="mobile-nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 border-b border-slate-100 dark:border-slate-800">Projects</a>
-                    <a href="#skills" class="mobile-nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 border-b border-slate-100 dark:border-slate-800">Skills</a>
-                    <a href="#education" class="mobile-nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 border-b border-slate-100 dark:border-slate-800">Education</a>
-                    <a href="#contact" class="mobile-nav-link font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">Contact</a>
+                <div class="flex items-center justify-center lg:justify-start gap-3 pt-2">
+                    <a href="mailto:sreerageg@gmail.com" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-brandBlue hover:scale-110 active:scale-95 transition-all" aria-label="Email"><i class="fas fa-envelope text-base"></i></a>
+                    <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#0077B5] hover:scale-110 active:scale-95 transition-all" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-base"></i></a>
+                    <a href="https://github.com/sreerageg" target="_blank" rel="noopener" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 hover:scale-110 active:scale-95 transition-all" aria-label="GitHub"><i class="fab fa-github text-base"></i></a>
+                    <a href="tel:+919567870963" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-brandGreen hover:scale-110 active:scale-95 transition-all" aria-label="Phone"><i class="fas fa-phone text-base"></i></a>
                 </div>
             </div>
-        </header>
-
-        <!-- MAIN CONTENT -->
-        <main class="space-y-24 pb-20">
-
-            <!-- 1. HERO SECTION -->
-            <section id="home" class="min-h-[75vh] flex flex-col justify-center items-center py-8">
-                <div class="glass-panel w-full rounded-3xl p-8 md:p-14 shadow-2xl flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-                    
-                    <!-- HERO LEFT TEXT CONTENT -->
-                    <div class="flex-1 space-y-6 text-center lg:text-left">
-                        <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800/40">
-                            <span class="w-2 h-2 rounded-full bg-blue-500 animate-ping"></span> Available for Opportunities
-                        </span>
-                        
-                        <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white leading-tight">
-                            Hi, I'm <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400 block sm:inline">Sreerag E G</span>
-                        </h1>
-                        
-                        <!-- PROGRAMMATIC TYPING CAPTION -->
-                        <h2 class="font-heading text-xl sm:text-2xl lg:text-3xl font-bold text-slate-700 dark:text-slate-300">
-                            <span id="typing-text" class="typing-cursor"></span>
-                        </h2>
-                        
-                        <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                            Performance-driven SDET and Automation Architect with a "Developer-First" approach to quality. Expert in engineering distributed automation platforms using Python, FastAPI, and AWS to solve complex workflows in the US Healthcare Insurance domain.
-                        </p>
-                        
-                        <!-- CALL-TO-ACTIONS -->
-                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-                            <a href="#contact" class="px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium hover:scale-105 shadow-md shadow-blue-500/10 hover:shadow-lg hover:shadow-blue-500/20 active:scale-95 transition-all">
-                                <i class="fas fa-paper-plane mr-2"></i> Get In Touch
-                            </a>
-                            <a href="assets/resume/Sreerag_EG_Resume_2026.pdf" download class="px-8 py-3.5 rounded-xl bg-white/20 dark:bg-slate-800/50 hover:bg-white/30 dark:hover:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 font-medium hover:scale-105 active:scale-95 transition-all text-slate-800 dark:text-white">
-                                <i class="fas fa-download mr-2"></i> Download Resume
-                            </a>
-                        </div>
-                        
-                        <!-- SOCIAL ICONS -->
-                        <div class="flex items-center justify-center lg:justify-start space-x-4 pt-4">
-                            <a href="mailto:sreerageg@gmail.com" class="glass-panel w-12 h-12 flex items-center justify-center rounded-xl text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 hover:scale-110 active:scale-95 transition-all shadow-sm" aria-label="Email Address">
-                                <i class="fas fa-envelope text-lg"></i>
-                            </a>
-                            <a href="tel:+919567870963" class="glass-panel w-12 h-12 flex items-center justify-center rounded-xl text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 hover:scale-110 active:scale-95 transition-all shadow-sm" aria-label="Phone Number">
-                                <i class="fas fa-phone text-lg"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener" class="glass-panel w-12 h-12 flex items-center justify-center rounded-xl text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 hover:scale-110 active:scale-95 transition-all shadow-sm" aria-label="LinkedIn Profile">
-                                <i class="fab fa-linkedin-in text-lg"></i>
-                            </a>
-                            <a href="https://github.com/sreerageg" target="_blank" rel="noopener" class="glass-panel w-12 h-12 flex items-center justify-center rounded-xl text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 hover:scale-110 active:scale-95 transition-all shadow-sm" aria-label="GitHub Profile">
-                                <i class="fab fa-github text-lg"></i>
-                            </a>
-                        </div>
+            <!-- Profile Card -->
+            <div class="flex-shrink-0 relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center">
+                <div class="avatar-ring-outer absolute inset-0 rounded-full border-2 border-dashed border-brandBlue/25 dark:border-brandBlue/20"></div>
+                <div class="avatar-ring-inner absolute inset-5 rounded-full border-2 border-dotted border-brandViolet/20 dark:border-brandViolet/15"></div>
+                <div class="absolute inset-8 rounded-full bg-gradient-to-tr from-brandBlue/15 to-brandViolet/15 dark:from-brandBlue/25 dark:to-brandViolet/25 blur-xl"></div>
+                <div class="glass relative z-10 w-56 h-56 sm:w-60 sm:h-60 rounded-[36px] flex flex-col justify-center items-center border-slate-200/80 dark:border-slate-700/60 bg-white/90 dark:bg-slate-950/80 shadow-2xl p-4 gap-2">
+                    <div class="w-20 h-20 rounded-full border-4 border-white dark:border-slate-800 shadow-xl overflow-hidden ring-2 ring-brandBlue/30">
+                        <img src="assets/img/myphoto.jpg" alt="Sreerag E G" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=sreerag&backgroundColor=0ea5e9'">
                     </div>
-
-                    <!-- HERO RIGHT AVATAR WRAPPER -->
-                    <div class="w-64 h-64 sm:w-80 sm:h-80 relative flex items-center justify-center">
-                        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 animate-pulse blur-md opacity-30"></div>
-                        <div class="glass-panel p-4 rounded-[40px] shadow-2xl relative z-10 w-full h-full flex flex-col justify-center items-center overflow-hidden">
-                            <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-white/20 overflow-hidden shadow-inner flex items-center justify-center bg-slate-200 dark:bg-slate-800">
-                                <img src="assets/img/myphoto.jpg" alt="Sreerag E G Portrait" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=sreerag'">
-                            </div>
-                            <h3 class="font-heading font-extrabold text-xl mt-4 text-slate-900 dark:text-white text-center">Sreerag E G</h3>
-                            <p class="text-xs text-blue-500 font-semibold uppercase tracking-wider mt-1 text-center">Thrissur, Kerala, India</p>
-                        </div>
+                    <h3 class="font-heading font-black text-lg text-slate-900 dark:text-white mt-1">Sreerag E G</h3>
+                    <p class="text-[11px] font-extrabold uppercase tracking-widest text-brandBlue">RPA / Python Architect</p>
+                    <div class="flex items-center gap-3 mt-2 pt-3 border-t border-slate-200 dark:border-slate-800/80 w-full justify-center">
+                        <div class="text-center"><span class="block text-base font-black text-slate-900 dark:text-white">130+</span><span class="text-[9px] text-slate-400 uppercase font-bold">Bots</span></div>
+                        <div class="w-px h-7 bg-slate-200 dark:bg-slate-800/50"></div>
+                        <div class="text-center"><span class="block text-base font-black text-brandBlue">40+</span><span class="text-[9px] text-slate-400 uppercase font-bold">Portals</span></div>
+                        <div class="w-px h-7 bg-slate-200 dark:bg-slate-800/50"></div>
+                        <div class="text-center"><span class="block text-base font-black text-brandViolet">2yr</span><span class="text-[9px] text-slate-400 uppercase font-bold">Exp</span></div>
                     </div>
                 </div>
-            </section>
-
-            <!-- 2. ABOUT ME SECTION -->
-            <section id="about" class="space-y-8">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white">About Me</h2>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base">Professional summary & key competencies</p>
-                    <div class="w-16 h-1 bg-blue-500 mx-auto rounded-full mt-2"></div>
+                <div class="float-badge-1 absolute -bottom-2 -left-6 glass px-3 py-2 rounded-xl border-slate-200 dark:border-slate-700/60 bg-white/90 dark:bg-slate-900/90 shadow-lg flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-brandBlue/10 text-brandBlue text-[11px] flex items-center justify-center"><i class="fas fa-robot"></i></span>
+                    <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">80+ hrs/mo saved</span>
                 </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- SUMMARY glass card -->
-                    <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl lg:col-span-2 space-y-6">
-                        <h3 class="font-heading font-extrabold text-2xl text-slate-900 dark:text-white">Professional Summary</h3>
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Performance-driven SDET and Automation Architect with a "Developer-First" approach to quality. Expert in engineering distributed automation platforms using Python, FastAPI, and AWS (ECS/SQS) to solve complex workflows in the US Healthcare Insurance domain.
-                        </p>
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Specialized in building scalable, HIPAA-compliant frameworks that move beyond simple scripting into full-scale infrastructure orchestration. Strong experience in Python, SQL, JavaScript, Java, Playwright, Selenium, FastAPI, and Django.
-                        </p>
-                        <!-- Statistics layout -->
-                        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-200/50 dark:border-slate-800/50 text-center">
-                            <div>
-                                <div class="font-heading font-extrabold text-2xl sm:text-3xl text-blue-600 dark:text-blue-400">2+</div>
-                                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Years Experience</div>
-                            </div>
-                            <div>
-                                <div class="font-heading font-extrabold text-2xl sm:text-3xl text-purple-600 dark:text-purple-400">15+</div>
-                                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Completed Projects</div>
-                            </div>
-                            <div>
-                                <div class="font-heading font-extrabold text-2xl sm:text-3xl text-emerald-500">100%</div>
-                                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Commitment</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- EXPERTISE focus list -->
-                    <div class="space-y-6">
-                        <!-- Card 1 -->
-                        <div class="glass-panel rounded-2xl p-6 shadow-xl flex items-start space-x-4">
-                            <div class="p-3 bg-blue-100 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 rounded-xl">
-                                <i class="fas fa-robot text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Core Automation</h4>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Playwright, Selenium, Web Scraping, PDF Data Extraction</p>
-                            </div>
-                        </div>
-                        <!-- Card 2 -->
-                        <div class="glass-panel rounded-2xl p-6 shadow-xl flex items-start space-x-4">
-                            <div class="p-3 bg-purple-100 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 rounded-xl">
-                                <i class="fas fa-server text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Orchestration & Backend</h4>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">FastAPI, Django, REST APIs, Asynchronous processing</p>
-                            </div>
-                        </div>
-                        <!-- Card 3 -->
-                        <div class="glass-panel rounded-2xl p-6 shadow-xl flex items-start space-x-4">
-                            <div class="p-3 bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-xl">
-                                <i class="fas fa-cloud text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Infrastructure & Domain</h4>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">AWS ECS/SQS, HIPAA Compliance, Claims Processing</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="float-badge-2 absolute -top-2 -right-6 glass px-3 py-2 rounded-xl border-slate-200 dark:border-slate-700/60 bg-white/90 dark:bg-slate-900/90 shadow-lg flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[11px] flex items-center justify-center"><i class="fas fa-shield-alt"></i></span>
+                    <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">HIPAA Compliant</span>
                 </div>
-            </section>
-
-            <!-- 3. WORK EXPERIENCE SECTION -->
-            <section id="experience" class="space-y-8">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white">Professional Experience</h2>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base">Timeline of my developer & architect career</p>
-                    <div class="w-16 h-1 bg-blue-500 mx-auto rounded-full mt-2"></div>
-                </div>
-
-                <!-- Timeline wrapper -->
-                <div class="relative border-l-2 border-blue-500/30 dark:border-blue-500/20 ml-4 md:ml-8 space-y-8 py-2">
-                    
-                    <!-- Item 1: Kalki Safalya -->
-                    <div class="relative pl-8 md:pl-12">
-                        <!-- Dot -->
-                        <div class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-blue-500 border-4 border-slate-50 dark:border-slate-950 shadow-md"></div>
-                        
-                        <!-- Panel -->
-                        <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl space-y-4 hover:scale-[1.01] transition-transform duration-300">
-                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200/50 dark:border-slate-800/50 pb-4">
-                                <div>
-                                    <h3 class="font-heading font-extrabold text-xl md:text-2xl text-slate-900 dark:text-white">Software Developer (SDET / Automation Architect)</h3>
-                                    <h4 class="text-blue-500 font-semibold text-sm mt-0.5">Kalki Safalya Consulting Services LLP</h4>
-                                </div>
-                                <span class="px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800/40 w-fit">
-                                    May 2025 – Present
-                                </span>
-                            </div>
-                            
-                            <ul class="space-y-3 text-slate-600 dark:text-slate-400 list-none pl-0">
-                                <li class="flex items-start">
-                                    <i class="fas fa-chevron-right text-xs text-blue-500 mt-1.5 mr-3 flex-shrink-0"></i>
-                                    <span><strong>Architected a Distributed Automation Gateway:</strong> Developed a high-performance orchestration layer using FastAPI to dynamically route automation tasks based on incoming JSON payloads.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-chevron-right text-xs text-blue-500 mt-1.5 mr-3 flex-shrink-0"></i>
-                                    <span><strong>Scalable Infrastructure Deployment:</strong> Deployed a containerized worker pool on AWS ECS, utilizing AWS SQS as a message broker to handle asynchronous claim submissions at scale.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-chevron-right text-xs text-blue-500 mt-1.5 mr-3 flex-shrink-0"></i>
-                                    <span><strong>Performance Engineering:</strong> Designed a multi-portal automation platform that increased insurance claim submission speed by 40% while maintaining production-grade reliability.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-chevron-right text-xs text-blue-500 mt-1.5 mr-3 flex-shrink-0"></i>
-                                    <span><strong>Reliability & Compliance:</strong> Implemented automated error classification, screenshot evidence capture for audits, and sensitive data masking to maintain strict HIPAA compliance.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-chevron-right text-xs text-blue-500 mt-1.5 mr-3 flex-shrink-0"></i>
-                                    <span><strong>Internal Tooling:</strong> Built claims tracking systems using Pandas and integrated browser automations with Rails backends via message queues.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Item 2: Aspire Systems -->
-                    <div class="relative pl-8 md:pl-12">
-                        <!-- Dot -->
-                        <div class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-purple-500 border-4 border-slate-50 dark:border-slate-950 shadow-md"></div>
-                        
-                        <!-- Panel -->
-                        <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl space-y-4 hover:scale-[1.01] transition-transform duration-300">
-                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200/50 dark:border-slate-800/50 pb-4">
-                                <div>
-                                    <h3 class="font-heading font-extrabold text-xl md:text-2xl text-slate-900 dark:text-white">Full Stack Developer (Intern)</h3>
-                                    <h4 class="text-purple-500 font-semibold text-sm mt-0.5">Aspire Systems</h4>
-                                </div>
-                                <span class="px-4 py-1.5 rounded-full text-xs font-semibold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800/40 w-fit">
-                                    Nov 2024 – May 2025
-                                </span>
-                            </div>
-                            
-                            <ul class="space-y-3 text-slate-600 dark:text-slate-400 list-none pl-0">
-                                <li class="flex items-start">
-                                    <i class="fas fa-chevron-right text-xs text-purple-500 mt-1.5 mr-3 flex-shrink-0"></i>
-                                    <span><strong>API Engineering:</strong> Developed and optimized REST APIs using Django Rest Framework (DRF) and MySQL, ensuring seamless data flow for enterprise applications.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-chevron-right text-xs text-purple-500 mt-1.5 mr-3 flex-shrink-0"></i>
-                                    <span><strong>Quality Assurance:</strong> Led automated API documentation using Swagger and participated in Agile sprints, focusing on code reviews and modular system design.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-chevron-right text-xs text-purple-500 mt-1.5 mr-3 flex-shrink-0"></i>
-                                    <span><strong>Auth Systems:</strong> Implemented secure authentication flows, including Google OAuth and CRUD operations for internal portals.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Item 3: Freelance -->
-                    <div class="relative pl-8 md:pl-12">
-                        <!-- Dot -->
-                        <div class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-emerald-500 border-4 border-slate-50 dark:border-slate-950 shadow-md"></div>
-                        
-                        <!-- Panel -->
-                        <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl space-y-4 hover:scale-[1.01] transition-transform duration-300">
-                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200/50 dark:border-slate-800/50 pb-4">
-                                <div>
-                                    <h3 class="font-heading font-extrabold text-xl md:text-2xl text-slate-900 dark:text-white">Freelance Python Developer (Automation)</h3>
-                                    <h4 class="text-emerald-500 font-semibold text-sm mt-0.5">Independent Contractor</h4>
-                                </div>
-                                <span class="px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40 w-fit">
-                                    May 2024 – Nov 2024
-                                </span>
-                            </div>
-                            
-                            <ul class="space-y-3 text-slate-600 dark:text-slate-400 list-none pl-0">
-                                <li class="flex items-start">
-                                    <i class="fas fa-chevron-right text-xs text-emerald-500 mt-1.5 mr-3 flex-shrink-0"></i>
-                                    <span><strong>Legacy Transformation:</strong> Converted one-off Selenium scripts into maintainable, framework-compliant code for insurance web applications.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-chevron-right text-xs text-emerald-500 mt-1.5 mr-3 flex-shrink-0"></i>
-                                    <span><strong>Third-Party Integration:</strong> Integrated external APIs to optimize backend performance and automation reliability.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 4. KEY PROJECTS SECTION -->
-            <section id="projects" class="space-y-8">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white">Featured Projects</h2>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base">Demonstrating automation and architect capabilities</p>
-                    <div class="w-16 h-1 bg-blue-500 mx-auto rounded-full mt-2"></div>
-                </div>
-
-                <!-- Projects grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
-                    <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl flex flex-col justify-between hover:scale-105 hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300">
-                        <div class="space-y-4">
-                            <div class="w-12 h-12 flex items-center justify-center rounded-2xl bg-blue-100 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 shadow-inner">
-                                <i class="fas fa-file-medical text-lg"></i>
-                            </div>
-                            <h3 class="font-heading font-extrabold text-xl text-slate-900 dark:text-white">Insurance Claim Web Automation</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Automated US insurance form submissions featuring CAPTCHA challenges handling, robust logging pipelines, and reusable object-oriented base classes for highly scalable portal interaction.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
-                            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Python</span>
-                            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Selenium</span>
-                            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Web Scraping</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl flex flex-col justify-between hover:scale-105 hover:border-purple-500/30 dark:hover:border-purple-400/30 transition-all duration-300">
-                        <div class="space-y-4">
-                            <div class="w-12 h-12 flex items-center justify-center rounded-2xl bg-purple-100 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 shadow-inner">
-                                <i class="fas fa-eye text-lg"></i>
-                            </div>
-                            <h3 class="font-heading font-extrabold text-xl text-slate-900 dark:text-white">AI-Powered Image Recognition</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Developed an intelligent image classification and analysis system with 95% accuracy in object detection using deep learning architectures and processing techniques.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
-                            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">TensorFlow</span>
-                            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">OpenCV</span>
-                            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Machine Learning</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl flex flex-col justify-between hover:scale-105 hover:border-emerald-500/30 dark:hover:border-emerald-400/30 transition-all duration-300">
-                        <div class="space-y-4">
-                            <div class="w-12 h-12 flex items-center justify-center rounded-2xl bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 shadow-inner">
-                                <i class="fas fa-universal-access text-lg"></i>
-                            </div>
-                            <h3 class="font-heading font-extrabold text-xl text-slate-900 dark:text-white">AVI (App for Visually Impaired)</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Android-based accessibility application incorporating a Python server backend, real-time object detection models, and instant text-to-speech feedback translation capabilities.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
-                            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Python</span>
-                            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Android</span>
-                            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Object Detection</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 5. TECHNICAL SKILLS SECTION -->
-            <section id="skills" class="space-y-8">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white">Technical Skills</h2>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base">Categorized breakdown of technical stack & proficiency</p>
-                    <div class="w-16 h-1 bg-blue-500 mx-auto rounded-full mt-2"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Column 1: Core Technologies (Languages, Backend) -->
-                    <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
-                        <h3 class="font-heading font-extrabold text-xl text-slate-900 dark:text-white flex items-center gap-2">
-                            <i class="fas fa-code text-blue-500"></i> Languages & Backend Orchestration
-                        </h3>
-                        <div class="space-y-4">
-                            <!-- skill 1 -->
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm font-semibold">
-                                    <span>Python (Advanced OOP & design patterns)</span>
-                                    <span>95%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <!-- skill 2 -->
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm font-semibold">
-                                    <span>FastAPI & Django/DRF</span>
-                                    <span>93%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="width: 93%"></div>
-                                </div>
-                            </div>
-                            <!-- skill 3 -->
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm font-semibold">
-                                    <span>SQL (MySQL & PostgreSQL)</span>
-                                    <span>88%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="width: 88%"></div>
-                                </div>
-                            </div>
-                            <!-- skill 4 -->
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm font-semibold">
-                                    <span>JavaScript</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <!-- skill 5 -->
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm font-semibold">
-                                    <span>Java</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="width: 80%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Column 2: Automation, Cloud and DevOps -->
-                    <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
-                        <h3 class="font-heading font-extrabold text-xl text-slate-900 dark:text-white flex items-center gap-2">
-                            <i class="fas fa-robot text-purple-500"></i> Automation & Cloud Infrastructure
-                        </h3>
-                        <div class="space-y-4">
-                            <!-- skill 1 -->
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm font-semibold">
-                                    <span>Playwright & Selenium (Automation)</span>
-                                    <span>94%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full" style="width: 94%"></div>
-                                </div>
-                            </div>
-                            <!-- skill 2 -->
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm font-semibold">
-                                    <span>AWS (ECS, SQS, EC2, Lambda, S3)</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <!-- skill 3 -->
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm font-semibold">
-                                    <span>DevOps (Docker, Git, CI/CD)</span>
-                                    <span>88%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full" style="width: 88%"></div>
-                                </div>
-                            </div>
-                            <!-- skill 4 -->
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm font-semibold">
-                                    <span>Framework Design (POM, Self-Healing)</span>
-                                    <span>92%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full" style="width: 92%"></div>
-                                </div>
-                            </div>
-                            <!-- skill 5 -->
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm font-semibold">
-                                    <span>Domain (US Healthcare, HIPAA, EOB)</span>
-                                    <span>95%</span>
-                                </div>
-                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Grid of individual tools -->
-                <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl">
-                    <h3 class="font-heading font-extrabold text-lg mb-6 text-center text-slate-800 dark:text-slate-200 uppercase tracking-wider">Technologies & Frameworks</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
-                        <div class="p-4 rounded-2xl bg-white/30 dark:bg-slate-800/40 border border-white/10 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform duration-300">
-                            <i class="fab fa-python text-2xl text-blue-500"></i>
-                            <span class="text-xs font-semibold">FastAPI</span>
-                        </div>
-                        <div class="p-4 rounded-2xl bg-white/30 dark:bg-slate-800/40 border border-white/10 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform duration-300">
-                            <i class="fab fa-python text-2xl text-blue-500"></i>
-                            <span class="text-xs font-semibold">Django</span>
-                        </div>
-                        <div class="p-4 rounded-2xl bg-white/30 dark:bg-slate-800/40 border border-white/10 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform duration-300">
-                            <i class="fas fa-terminal text-2xl text-purple-500"></i>
-                            <span class="text-xs font-semibold">Playwright</span>
-                        </div>
-                        <div class="p-4 rounded-2xl bg-white/30 dark:bg-slate-800/40 border border-white/10 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform duration-300">
-                            <i class="fas fa-robot text-2xl text-purple-500"></i>
-                            <span class="text-xs font-semibold">Selenium</span>
-                        </div>
-                        <div class="p-4 rounded-2xl bg-white/30 dark:bg-slate-800/40 border border-white/10 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform duration-300">
-                            <i class="fab fa-aws text-2xl text-yellow-500"></i>
-                            <span class="text-xs font-semibold">AWS ECS/SQS</span>
-                        </div>
-                        <div class="p-4 rounded-2xl bg-white/30 dark:bg-slate-800/40 border border-white/10 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform duration-300">
-                            <i class="fab fa-docker text-2xl text-blue-400"></i>
-                            <span class="text-xs font-semibold">Docker</span>
-                        </div>
-                        <div class="p-4 rounded-2xl bg-white/30 dark:bg-slate-800/40 border border-white/10 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform duration-300">
-                            <i class="fas fa-database text-2xl text-indigo-500"></i>
-                            <span class="text-xs font-semibold">MySQL</span>
-                        </div>
-                        <div class="p-4 rounded-2xl bg-white/30 dark:bg-slate-800/40 border border-white/10 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform duration-300">
-                            <i class="fab fa-git-alt text-2xl text-orange-500"></i>
-                            <span class="text-xs font-semibold">Git</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 6. EDUCATION & CERTIFICATIONS SECTION -->
-            <section id="education" class="space-y-8">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white">Education & Certifications</h2>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base">Academic credentials & verified certifications</p>
-                    <div class="w-16 h-1 bg-blue-500 mx-auto rounded-full mt-2"></div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Academic Education (Col span 2) -->
-                    <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl lg:col-span-2 space-y-6">
-                        <h3 class="font-heading font-extrabold text-xl text-slate-900 dark:text-white flex items-center gap-2">
-                            <i class="fas fa-graduation-cap text-blue-500"></i> Academic Degrees
-                        </h3>
-                        <div class="p-6 rounded-2xl bg-white/20 dark:bg-slate-800/30 border border-white/10 space-y-4">
-                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/50 dark:border-slate-800/50 pb-4">
-                                <div>
-                                    <h4 class="font-heading font-extrabold text-lg text-slate-900 dark:text-white">B.Tech in Computer Science and Engineering</h4>
-                                    <h5 class="text-blue-500 font-semibold text-sm">Christ College of Engineering</h5>
-                                </div>
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800/40 w-fit">
-                                    2019 - 2023
-                                </span>
-                            </div>
-                            <div class="space-y-2">
-                                <div class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
-                                    <i class="fas fa-star text-yellow-500"></i>
-                                    <span><strong>CGPA:</strong> 7.85 / 10</span>
-                                </div>
-                                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                    Specialized in software engineering principles, algorithms, data structures, and automation frameworks. Conducted hands-on assignments for backend logic processing, web scraping, and containerized networks.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Certifications list -->
-                    <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
-                        <h3 class="font-heading font-extrabold text-xl text-slate-900 dark:text-white flex items-center gap-2">
-                            <i class="fas fa-certificate text-purple-500"></i> Certifications
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start space-x-3 p-3 rounded-xl hover:bg-white/20 dark:hover:bg-slate-800/30 transition-all">
-                                <div class="p-2.5 bg-blue-100 dark:bg-blue-950/40 text-blue-500 rounded-lg">
-                                    <i class="fas fa-database text-sm"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-bold text-slate-900 dark:text-white leading-tight">Data Engineering with PySpark</h4>
-                                    <p class="text-xs text-slate-400">Self-paced Learning</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start space-x-3 p-3 rounded-xl hover:bg-white/20 dark:hover:bg-slate-800/30 transition-all">
-                                <div class="p-2.5 bg-blue-100 dark:bg-blue-950/40 text-blue-500 rounded-lg">
-                                    <i class="fab fa-python text-sm"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-bold text-slate-900 dark:text-white leading-tight">IBM Python for Data Science</h4>
-                                    <p class="text-xs text-slate-400">IBM Certified</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start space-x-3 p-3 rounded-xl hover:bg-white/20 dark:hover:bg-slate-800/30 transition-all">
-                                <div class="p-2.5 bg-blue-100 dark:bg-blue-950/40 text-blue-500 rounded-lg">
-                                    <i class="fas fa-brain text-sm"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-bold text-slate-900 dark:text-white leading-tight">AI For Everyone</h4>
-                                    <p class="text-xs text-slate-400">Andrew Ng (Coursera)</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start space-x-3 p-3 rounded-xl hover:bg-white/20 dark:hover:bg-slate-800/30 transition-all">
-                                <div class="p-2.5 bg-blue-100 dark:bg-blue-950/40 text-blue-500 rounded-lg">
-                                    <i class="fas fa-code text-sm"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-bold text-slate-900 dark:text-white leading-tight">Django for Web Development</h4>
-                                    <p class="text-xs text-slate-400">Udemy</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 7. CONTACT SECTION -->
-            <section id="contact" class="space-y-8">
-                <div class="text-center max-w-2xl mx-auto space-y-2">
-                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white">Get In Touch</h2>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base">Let's connect to discuss automation & code architecture</p>
-                    <div class="w-16 h-1 bg-blue-500 mx-auto rounded-full mt-2"></div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
-                    <!-- Left: Contact Details (Col span 2) -->
-                    <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl lg:col-span-2 space-y-6">
-                        <h3 class="font-heading font-extrabold text-xl text-slate-900 dark:text-white">Contact Information</h3>
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
-                            I am open to architecting distributed automation systems, SDET projects, and backend workflows. Reach out to coordinate.
-                        </p>
-                        
-                        <div class="space-y-4">
-                            <!-- Email -->
-                            <div class="flex items-center space-x-4">
-                                <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Email</h4>
-                                    <a href="mailto:sreerageg@gmail.com" class="text-sm font-semibold hover:text-blue-500 transition-colors">sreerageg@gmail.com</a>
-                                </div>
-                            </div>
-                            <!-- Phone -->
-                            <div class="flex items-center space-x-4">
-                                <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Phone</h4>
-                                    <a href="tel:+919567870963" class="text-sm font-semibold hover:text-blue-500 transition-colors">+91 95678 70963</a>
-                                </div>
-                            </div>
-                            <!-- Location -->
-                            <div class="flex items-center space-x-4">
-                                <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Location</h4>
-                                    <p class="text-sm font-semibold">Thrissur, Kerala, India</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Mini map container / decorative outline -->
-                        <div class="h-32 rounded-2xl bg-white/20 dark:bg-slate-800/30 border border-white/10 flex items-center justify-center overflow-hidden relative shadow-inner">
-                            <div class="absolute inset-0 bg-blue-500/5 dark:bg-blue-500/10"></div>
-                            <span class="text-xs text-blue-500 font-bold uppercase tracking-widest z-10"><i class="fas fa-globe-asia mr-2 text-sm"></i> Thrissur, Kerala</span>
-                        </div>
-                    </div>
-
-                    <!-- Right: Contact Form (Col span 3) -->
-                    <div class="glass-panel rounded-3xl p-6 md:p-8 shadow-xl lg:col-span-3">
-                        <form id="contact-form" class="space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="space-y-1">
-                                    <label for="name" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Name</label>
-                                    <input type="text" id="name" name="name" required class="w-full px-4 py-2.5 rounded-xl bg-white/30 dark:bg-slate-800/30 border border-slate-200/50 dark:border-slate-700/50 focus:outline-none focus:border-blue-500 text-sm font-medium transition-colors">
-                                </div>
-                                <div class="space-y-1">
-                                    <label for="email" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Email</label>
-                                    <input type="email" id="email" name="email" required class="w-full px-4 py-2.5 rounded-xl bg-white/30 dark:bg-slate-800/30 border border-slate-200/50 dark:border-slate-700/50 focus:outline-none focus:border-blue-500 text-sm font-medium transition-colors">
-                                </div>
-                            </div>
-                            
-                            <div class="space-y-1">
-                                <label for="subject" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Subject</label>
-                                <input type="text" id="subject" name="subject" required class="w-full px-4 py-2.5 rounded-xl bg-white/30 dark:bg-slate-800/30 border border-slate-200/50 dark:border-slate-700/50 focus:outline-none focus:border-blue-500 text-sm font-medium transition-colors">
-                            </div>
-                            
-                            <div class="space-y-1">
-                                <label for="message" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Message</label>
-                                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2.5 rounded-xl bg-white/30 dark:bg-slate-800/30 border border-slate-200/50 dark:border-slate-700/50 focus:outline-none focus:border-blue-500 text-sm font-medium transition-colors resize-none"></textarea>
-                            </div>
-                            
-                            <button type="submit" id="submit-btn" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold hover:scale-[1.02] shadow-md shadow-blue-500/10 hover:shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- FOOTER -->
-        <footer class="mt-20 border-t border-slate-200/40 dark:border-slate-800/40 pt-8 pb-12 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-slate-500 dark:text-slate-400">
-            <p>&copy; 2026 Sreerag E G. All rights reserved.</p>
-            <p class="flex items-center justify-center gap-1">
-                Built with <i class="fas fa-heart text-red-500"></i> using Tailwind CSS Glassmorphism
-            </p>
-        </footer>
+            </div>
+        </div>
     </div>
 
-    <!-- MAIN CORE PROGRAMMATIC LOGIC -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // ===== 1. LIGHT / DARK / SYSTEM MODE THEMING ENGINE =====
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeToggleIcon = document.getElementById('theme-toggle-icon');
-            const htmlTag = document.documentElement;
+    <!-- STATS STRIP -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
+        <div class="glass reveal rounded-2xl p-5 text-center border-slate-200/60 dark:border-slate-800/90" style="transition-delay:.05s">
+            <div class="text-3xl font-black font-heading bg-gradient-to-br from-brandBlue to-sky-400 bg-clip-text text-transparent">130+</div>
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-1">Production Bots</div>
+        </div>
+        <div class="glass reveal rounded-2xl p-5 text-center border-slate-200/60 dark:border-slate-800/90" style="transition-delay:.15s">
+            <div class="text-3xl font-black font-heading bg-gradient-to-br from-brandViolet to-fuchsia-400 bg-clip-text text-transparent">40+</div>
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-1">Portals Integrated</div>
+        </div>
+        <div class="glass reveal rounded-2xl p-5 text-center border-slate-200/60 dark:border-slate-800/90" style="transition-delay:.25s">
+            <div class="text-3xl font-black font-heading bg-gradient-to-br from-brandGreen to-emerald-400 bg-clip-text text-transparent">80hr</div>
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-1">Saved Monthly</div>
+        </div>
+        <div class="glass reveal rounded-2xl p-5 text-center border-slate-200/60 dark:border-slate-800/90" style="transition-delay:.35s">
+            <div class="text-3xl font-black font-heading bg-gradient-to-br from-brandAmber to-orange-400 bg-clip-text text-transparent">40%</div>
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-1">Throughput Gain</div>
+        </div>
+    </div>
+</section>
 
-            // Apply selected theme
-            function applyTheme(theme) {
-                if (theme === 'dark') {
-                    htmlTag.classList.add('dark');
-                    themeToggleIcon.className = 'fas fa-sun text-lg text-yellow-400';
-                } else {
-                    htmlTag.classList.remove('dark');
-                    themeToggleIcon.className = 'fas fa-moon text-lg text-slate-700';
-                }
-            }
+<!-- ================================================================ -->
+<!-- BOT SIMULATOR CONSOLE                                            -->
+<!-- ================================================================ -->
+<section id="console" class="space-y-10 reveal">
+    <div class="text-center space-y-3">
+        <span class="section-label bg-brandBlue/10 text-brandBlue border border-brandBlue/20"><i class="fas fa-terminal text-[10px]"></i> Interactive Live Demo</span>
+        <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">RPA Bot <span class="bg-gradient-to-r from-brandBlue to-brandViolet bg-clip-text text-transparent">Simulator Console</span></h2>
+        <p class="text-slate-500 dark:text-slate-400 text-base max-w-xl mx-auto">Witness real-time simulated logs of production-grade process automations in action.</p>
+    </div>
+    <div class="glass rounded-3xl p-6 md:p-8 shadow-2xl border-slate-200/60 dark:border-slate-700/40 flex flex-col lg:flex-row gap-8">
+        <!-- Bot Selector -->
+        <div class="w-full lg:w-[38%] flex flex-col gap-5">
+            <div>
+                <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2 mb-1"><i class="fas fa-sliders-h text-brandBlue text-sm"></i> Select Automation Profile</h3>
+                <p class="text-xs text-slate-400">Choose a configuration to simulate live execution logs.</p>
+            </div>
+            <div class="space-y-3 flex-1">
+                <button id="btn-bot-claim" onclick="selectBotProfile('claim')" class="bot-btn bot-active bot-profile-btn-active w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-start gap-3 group relative overflow-hidden">
+                    <div class="bot-indicator absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-brandBlue"></div>
+                    <div class="p-2.5 rounded-xl bg-brandBlue/10 text-brandBlue flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fas fa-file-invoice-dollar text-sm"></i></div>
+                    <div class="min-w-0">
+                        <span class="block text-[10px] font-bold text-slate-400 font-mono">claim_submitter.py</span>
+                        <span class="block text-sm font-bold text-slate-900 dark:text-white mt-0.5">Commercial Portal Claim Submit</span>
+                        <span class="block text-[11px] text-slate-400 mt-0.5">AWS ECS / SQS / Playwright</span>
+                    </div>
+                </button>
+                <button id="btn-bot-eob" onclick="selectBotProfile('eob')" class="bot-btn bot-profile-btn w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-start gap-3 group relative overflow-hidden">
+                    <div class="bot-indicator absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-transparent"></div>
+                    <div class="p-2.5 rounded-xl bg-slate-200/50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fas fa-file-medical-alt text-sm"></i></div>
+                    <div class="min-w-0">
+                        <span class="block text-[10px] font-bold text-slate-400 font-mono">eob_data_extractor.py</span>
+                        <span class="block text-sm font-bold text-slate-800 dark:text-white mt-0.5">EOB Data Extraction Pipeline</span>
+                        <span class="block text-[11px] text-slate-400 mt-0.5">Structured JSON schema extraction</span>
+                    </div>
+                </button>
+                <button id="btn-bot-heal" onclick="selectBotProfile('heal')" class="bot-btn bot-profile-btn w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-start gap-3 group relative overflow-hidden">
+                    <div class="bot-indicator absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-transparent"></div>
+                    <div class="p-2.5 rounded-xl bg-slate-200/50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fas fa-heartbeat text-sm"></i></div>
+                    <div class="min-w-0">
+                        <span class="block text-[10px] font-bold text-slate-400 font-mono">self_healing_agent.py</span>
+                        <span class="block text-sm font-bold text-slate-800 dark:text-white mt-0.5">Self-Healing Claim Retrieval</span>
+                        <span class="block text-[11px] text-slate-400 mt-0.5">POM selector auto-recovery bot</span>
+                    </div>
+                </button>
+            </div>
+            <button id="run-bot-btn" onclick="triggerBotExecution()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold flex items-center justify-center gap-3 text-sm">
+                <i class="fas fa-play" id="btn-icon-run"></i><span id="btn-text-run">Execute Bot Script</span>
+            </button>
+        </div>
+        <!-- Terminal -->
+        <div class="flex-1 flex flex-col rounded-2xl border border-slate-200 dark:border-slate-700/40 bg-slate-50 dark:bg-[#080d1c] overflow-hidden shadow-xl">
+            <div class="bg-slate-100 dark:bg-[#0d1424] px-4 py-3 flex items-center justify-between border-b border-slate-200 dark:border-slate-800/80 select-none">
+                <div class="flex items-center gap-2">
+                    <div class="flex gap-1.5"><span class="w-3 h-3 rounded-full bg-red-400"></span><span class="w-3 h-3 rounded-full bg-yellow-400"></span><span class="w-3 h-3 rounded-full bg-green-400"></span></div>
+                    <span class="ml-2 font-mono text-xs text-slate-500 dark:text-slate-400 font-medium" id="terminal-title">sreerag@orchestrator:~/bots/claim_submitter.py</span>
+                </div>
+                <div class="flex items-center gap-2 font-mono text-xs">
+                    <span class="flex items-center gap-1.5 text-slate-400"><i class="fas fa-circle text-[7px] text-brandGreen" id="terminal-status-dot"></i><span id="terminal-status-text" class="text-slate-500 dark:text-slate-400">READY</span></span>
+                    <span class="text-slate-300 dark:text-slate-600">v2.1</span>
+                </div>
+            </div>
+            <div id="terminal-console" class="h-80 overflow-y-auto p-5 font-mono text-xs leading-loose space-y-1.5 text-slate-700 dark:text-slate-300">
+                <div class="text-slate-400 dark:text-slate-600">Welcome to Sreerag's RPA Orchestrator CLI.</div>
+                <div class="text-slate-400 dark:text-slate-600">Initializing gateway secure tunnels... done.</div>
+                <div class="text-sky-600 dark:text-sky-400 font-semibold">Terminal connected. Choose a profile and click "Execute Bot Script".</div>
+            </div>
+            <div class="bg-slate-100 dark:bg-[#0d1424] border-t border-slate-200 dark:border-slate-800/80 p-4 flex items-center justify-between gap-4 text-xs">
+                <div class="flex items-center gap-2 flex-1">
+                    <span class="font-bold text-slate-400 font-mono text-[10px]">PROGRESS</span>
+                    <div class="flex-1 h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><div id="bot-progress-bar" class="h-full bg-gradient-to-r from-brandBlue via-sky-400 to-brandViolet w-0 transition-all duration-300 rounded-full"></div></div>
+                    <span class="font-bold text-slate-500 font-mono w-9 text-right" id="bot-progress-pct">0%</span>
+                </div>
+                <div class="flex gap-2 shrink-0">
+                    <span class="px-2 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-[9px] font-bold border border-emerald-200 dark:border-emerald-700/30">HIPAA</span>
+                    <span class="px-2 py-1 rounded-lg bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-400 text-[9px] font-bold border border-sky-200 dark:border-sky-700/30">SSL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-            // Sync with browser system preferences
-            function detectSystemTheme() {
-                const systemIsDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                return systemIsDark ? 'dark' : 'light';
-            }
+<!-- ================================================================ -->
+<!-- AWS ARCHITECTURE MAP                                             -->
+<!-- ================================================================ -->
+<section id="architecture" class="space-y-10 reveal">
+    <div class="text-center space-y-3">
+        <span class="section-label bg-brandViolet/10 text-brandViolet border border-brandViolet/20"><i class="fas fa-sitemap text-[10px]"></i> Infrastructure Design</span>
+        <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Distributed Bot <span class="bg-gradient-to-r from-brandViolet to-fuchsia-400 bg-clip-text text-transparent">Orchestration System</span></h2>
+        <p class="text-slate-500 dark:text-slate-400 text-base max-w-xl mx-auto">Click any component to explore how claims and scrapers are dispatched at scale.</p>
+    </div>
+    <div class="glass rounded-3xl p-6 md:p-8 shadow-2xl border-slate-200/60 dark:border-slate-700/40 space-y-6">
+        <div class="w-full overflow-x-auto py-4">
+            <div class="min-w-[800px] max-w-[1000px] mx-auto">
+                <svg viewBox="0 0 1000 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+                    <defs>
+                        <pattern id="svgGrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="var(--grid-color)" stroke-width="1"/></pattern>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#a855f7"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#10b981"/></linearGradient>
+                    </defs>
+                    <rect width="1000" height="300" fill="url(#svgGrid)" rx="16"/>
+                    <path d="M 165 150 H 290" class="stroke-slate-200 dark:stroke-slate-800" stroke-width="2"/>
+                    <path d="M 410 150 H 510" class="stroke-slate-200 dark:stroke-slate-800" stroke-width="2"/>
+                    <path d="M 630 150 H 730" class="stroke-slate-200 dark:stroke-slate-800" stroke-width="2"/>
+                    <path d="M 850 150 H 915" class="stroke-slate-200 dark:stroke-slate-800" stroke-width="2"/>
+                    <path d="M 165 150 H 290" class="flow-line" stroke="url(#grad1)" stroke-width="2"/>
+                    <path d="M 410 150 H 510" class="flow-line" stroke="#0ea5e9" stroke-width="2"/>
+                    <path d="M 630 150 H 730" class="flow-line" stroke="url(#grad2)" stroke-width="2"/>
+                    <path d="M 850 150 H 915" class="flow-line" stroke="#10b981" stroke-width="2"/>
+                    <g class="cursor-pointer" onclick="setActiveArchNode(1)" id="arch-node-1">
+                        <rect x="25" y="100" width="140" height="100" rx="14" class="fill-fuchsia-50 dark:fill-fuchsia-900/20 stroke-fuchsia-400 dark:stroke-purple-500 transition-all duration-300" stroke-width="1.5"/>
+                        <circle cx="95" cy="138" r="20" class="fill-fuchsia-100 dark:fill-fuchsia-900/40"/>
+                        <text x="95" y="144" class="fill-fuchsia-600 dark:fill-fuchsia-400 font-mono font-black" font-size="16" text-anchor="middle">{}</text>
+                        <text x="95" y="176" class="fill-slate-700 dark:fill-slate-200 font-bold" font-size="11" text-anchor="middle">JSON Claims</text>
+                        <text x="95" y="190" class="fill-slate-500 dark:fill-slate-400" font-size="10" text-anchor="middle">Payload</text>
+                    </g>
+                    <g class="cursor-pointer" onclick="setActiveArchNode(2)" id="arch-node-2">
+                        <rect x="290" y="100" width="120" height="100" rx="14" class="fill-sky-50 dark:fill-sky-900/20 stroke-sky-400 dark:stroke-brandBlue transition-all duration-300" stroke-width="1.5"/>
+                        <circle cx="350" cy="138" r="20" class="fill-sky-100 dark:fill-sky-900/40"/>
+                        <text x="350" y="133" class="fill-sky-600 dark:fill-sky-400 font-bold" font-size="10" text-anchor="middle">Fast</text>
+                        <text x="350" y="146" class="fill-sky-600 dark:fill-sky-400 font-bold" font-size="10" text-anchor="middle">API</text>
+                        <text x="350" y="176" class="fill-slate-700 dark:fill-slate-200 font-bold" font-size="11" text-anchor="middle">FastAPI</text>
+                        <text x="350" y="190" class="fill-slate-500 dark:fill-slate-400" font-size="10" text-anchor="middle">Orchestrator</text>
+                    </g>
+                    <g class="cursor-pointer" onclick="setActiveArchNode(3)" id="arch-node-3">
+                        <rect x="510" y="100" width="120" height="100" rx="14" class="fill-sky-50 dark:fill-sky-900/20 stroke-sky-400 dark:stroke-brandBlue transition-all duration-300" stroke-width="1.5"/>
+                        <circle cx="570" cy="138" r="20" class="fill-sky-100 dark:fill-sky-900/40"/>
+                        <circle cx="558" cy="138" r="4" class="fill-sky-600 dark:fill-sky-400"/><circle cx="570" cy="138" r="4" class="fill-sky-600 dark:fill-sky-400"/><circle cx="582" cy="138" r="4" class="fill-sky-600 dark:fill-sky-400"/>
+                        <text x="570" y="176" class="fill-slate-700 dark:fill-slate-200 font-bold" font-size="11" text-anchor="middle">AWS SQS</text>
+                        <text x="570" y="190" class="fill-slate-500 dark:fill-slate-400" font-size="10" text-anchor="middle">Queue Broker</text>
+                    </g>
+                    <g class="cursor-pointer" onclick="setActiveArchNode(4)" id="arch-node-4">
+                        <rect x="730" y="100" width="120" height="100" rx="14" class="fill-emerald-50 dark:fill-emerald-900/20 stroke-emerald-400 dark:stroke-brandGreen transition-all duration-300" stroke-width="1.5"/>
+                        <circle cx="790" cy="138" r="20" class="fill-emerald-100 dark:fill-emerald-900/40"/>
+                        <path d="M782 130 L790 135 L798 130 L790 125 Z" fill="none" class="stroke-emerald-600 dark:stroke-emerald-400" stroke-width="1.8"/>
+                        <path d="M782 139 L790 144 L798 139" fill="none" class="stroke-emerald-600 dark:stroke-emerald-400" stroke-width="1.8"/>
+                        <path d="M782 145 L790 150 L798 145" fill="none" class="stroke-emerald-600 dark:stroke-emerald-400" stroke-width="1.8"/>
+                        <text x="790" y="176" class="fill-slate-700 dark:fill-slate-200 font-bold" font-size="11" text-anchor="middle">AWS ECS</text>
+                        <text x="790" y="190" class="fill-slate-500 dark:fill-slate-400" font-size="10" text-anchor="middle">Worker Pools</text>
+                    </g>
+                    <g class="cursor-pointer" onclick="setActiveArchNode(5)" id="arch-node-5">
+                        <rect x="915" y="100" width="65" height="100" rx="14" class="fill-slate-100 dark:fill-slate-800/50 stroke-slate-300 dark:stroke-slate-600 transition-all duration-300" stroke-width="1.5"/>
+                        <circle cx="947" cy="138" r="20" class="fill-slate-200 dark:fill-slate-700/60"/>
+                        <circle cx="947" cy="138" r="9" fill="none" class="stroke-slate-600 dark:stroke-slate-300" stroke-width="1.5"/>
+                        <path d="M938 138 H956" class="stroke-slate-600 dark:stroke-slate-300" stroke-width="1.5"/>
+                        <path d="M947 129 V147" class="stroke-slate-600 dark:stroke-slate-300" stroke-width="1.5"/>
+                        <text x="947" y="176" class="fill-slate-700 dark:fill-slate-200 font-bold" font-size="11" text-anchor="middle">Portals</text>
+                        <text x="947" y="190" class="fill-slate-500 dark:fill-slate-400" font-size="10" text-anchor="middle">Insurance</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="glass rounded-2xl p-5 border-slate-200/60 dark:border-slate-800/80 bg-slate-50/60 dark:bg-slate-900/40">
+            <div class="flex items-center gap-3 mb-3">
+                <span class="text-[10px] font-black text-brandViolet uppercase font-mono tracking-widest" id="arch-detail-step">STAGE 1 OF 5</span>
+                <div class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                <h3 class="font-heading font-bold text-base text-slate-900 dark:text-white" id="arch-detail-title">JSON Claims Payload Ingestion</h3>
+            </div>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed" id="arch-detail-body">Structured data schemas are generated dynamically by customer ERPs or database triggers, representing claim, patient details, and billing documents. Payload structures are validated by JSON schema validations at ingestion.</p>
+        </div>
+    </div>
+</section>
 
-            // Initialize theme check
-            const cachedTheme = localStorage.getItem('theme');
-            if (cachedTheme) {
-                applyTheme(cachedTheme);
-            } else {
-                applyTheme(detectSystemTheme());
-            }
+<!-- ================================================================ -->
+<!-- EXPERIENCE TIMELINE                                              -->
+<!-- ================================================================ -->
+<section id="experience" class="space-y-10">
+    <div class="text-center space-y-3 reveal">
+        <span class="section-label bg-brandBlue/10 text-brandBlue border border-brandBlue/20"><i class="fas fa-briefcase text-[10px]"></i> Career History</span>
+        <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Professional <span class="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">Experience</span></h2>
+        <p class="text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">Building high-reliability automation systems across enterprise teams.</p>
+    </div>
+    <div class="timeline-line ml-4 md:ml-14 space-y-10 py-2">
+        <!-- Kalki Safalya -->
+        <div class="relative pl-8 md:pl-14 reveal">
+            <div class="absolute -left-[11px] top-3 w-5 h-5 rounded-full bg-gradient-to-br from-brandBlue to-sky-400 border-4 border-slate-50 dark:border-darkBg shadow-lg shadow-brandBlue/30"></div>
+            <div class="glass card-hover rounded-3xl p-6 md:p-8 shadow-xl border-slate-200/60 dark:border-slate-700/40">
+                <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5">
+                    <div>
+                        <h3 class="font-heading font-black text-xl md:text-2xl text-slate-900 dark:text-white">Automation Engineer <span class="text-slate-400 dark:text-slate-500 font-normal">(RPA / Python)</span></h3>
+                        <div class="flex items-center gap-2 mt-1"><div class="w-1.5 h-1.5 rounded-full bg-brandBlue"></div><h4 class="text-brandBlue font-bold text-sm">Kalki Safalya Consulting Services LLP</h4></div>
+                    </div>
+                    <span class="px-4 py-2 rounded-xl text-xs font-bold bg-brandBlue/10 text-brandBlue border border-brandBlue/20 shrink-0 w-fit">May 2025 &ndash; Present</span>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                    <div class="text-center p-3 rounded-2xl experience-stat-card"><div class="text-xl font-black text-slate-900 dark:text-white">130+</div><div class="text-[9px] text-slate-400 dark:text-slate-400 uppercase font-bold mt-0.5">Bots Deployed</div></div>
+                    <div class="text-center p-3 rounded-2xl experience-stat-card"><div class="text-xl font-black text-brandBlue">40%</div><div class="text-[9px] text-slate-400 dark:text-slate-400 uppercase font-bold mt-0.5">Throughput &uarr;</div></div>
+                    <div class="text-center p-3 rounded-2xl experience-stat-card"><div class="text-xl font-black text-slate-900 dark:text-white">30%</div><div class="text-[9px] text-slate-400 dark:text-slate-400 uppercase font-bold mt-0.5">Maintenance &darr;</div></div>
+                    <div class="text-center p-3 rounded-2xl experience-stat-card"><div class="text-xl font-black text-brandGreen">80hr+</div><div class="text-[9px] text-slate-400 dark:text-slate-400 uppercase font-bold mt-0.5">Saved/Month</div></div>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandBlue text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Bot Orchestration Gateway:</strong> Architected a high-performance FastAPI gateway layer routing 100+ daily jobs dynamically based on incoming JSON payloads.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandBlue text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Containerized Worker Pools:</strong> Orchestrated containers on AWS ECS communicating via AWS SQS to run 500+ asynchronous portal transactions weekly.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandBlue text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">HIPAA Compliance:</strong> Implemented data masking, encryption, and secure screenshot evidence captures for HIPAA auditing.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandBlue text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Self-Healing Selectors:</strong> Engineered POM-based selector recovery logic decreasing maintenance overhead by 30%.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandBlue text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Billing Analytics:</strong> Built Pandas pipelines cutting billing system mismatches by 25%.</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Aspire Systems -->
+        <div class="relative pl-8 md:pl-14 reveal">
+            <div class="absolute -left-[11px] top-3 w-5 h-5 rounded-full bg-gradient-to-br from-brandViolet to-fuchsia-400 border-4 border-slate-50 dark:border-darkBg shadow-lg shadow-brandViolet/30"></div>
+            <div class="glass card-hover rounded-3xl p-6 md:p-8 shadow-xl border-slate-200/60 dark:border-slate-700/40">
+                <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5">
+                    <div>
+                        <h3 class="font-heading font-black text-xl md:text-2xl text-slate-900 dark:text-white">Full Stack Developer <span class="text-slate-400 dark:text-slate-500 font-normal">(Intern)</span></h3>
+                        <div class="flex items-center gap-2 mt-1"><div class="w-1.5 h-1.5 rounded-full bg-brandViolet"></div><h4 class="text-brandViolet font-bold text-sm">Aspire Systems</h4></div>
+                    </div>
+                    <span class="px-4 py-2 rounded-xl text-xs font-bold bg-brandViolet/10 text-brandViolet border border-brandViolet/20 shrink-0 w-fit">Nov 2024 &ndash; May 2025</span>
+                </div>
+                <div class="grid grid-cols-3 gap-3 mb-6">
+                    <div class="text-center p-3 rounded-2xl experience-stat-card"><div class="text-xl font-black text-slate-900 dark:text-white">12+</div><div class="text-[9px] text-slate-400 dark:text-slate-400 uppercase font-bold mt-0.5">REST APIs</div></div>
+                    <div class="text-center p-3 rounded-2xl experience-stat-card"><div class="text-xl font-black text-brandViolet">20%</div><div class="text-[9px] text-slate-400 dark:text-slate-400 uppercase font-bold mt-0.5">Query Gain</div></div>
+                    <div class="text-center p-3 rounded-2xl experience-stat-card"><div class="text-xl font-black text-slate-900 dark:text-white">200+</div><div class="text-[9px] text-slate-400 dark:text-slate-400 uppercase font-bold mt-0.5">Users</div></div>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandViolet text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">API Engineering:</strong> Developed REST endpoints using Django Rest Framework and MySQL, optimizing response latency by 20%.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandViolet text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Auth Infrastructure:</strong> Configured secure OAuth 2.0 (Google OAuth) onboarding 200+ internal users.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandViolet text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Team Integration:</strong> Implemented interactive Swagger schemas and reviewed 15+ pull requests.</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Freelance -->
+        <div class="relative pl-8 md:pl-14 reveal">
+            <div class="absolute -left-[11px] top-3 w-5 h-5 rounded-full bg-gradient-to-br from-brandGreen to-emerald-400 border-4 border-slate-50 dark:border-darkBg shadow-lg shadow-brandGreen/30"></div>
+            <div class="glass card-hover rounded-3xl p-6 md:p-8 shadow-xl border-slate-200/60 dark:border-slate-700/40">
+                <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5">
+                    <div>
+                        <h3 class="font-heading font-black text-xl md:text-2xl text-slate-900 dark:text-white">Freelance RPA / Python Developer</h3>
+                        <div class="flex items-center gap-2 mt-1"><div class="w-1.5 h-1.5 rounded-full bg-brandGreen"></div><h4 class="text-brandGreen font-bold text-sm">Self-Employed</h4></div>
+                    </div>
+                    <span class="px-4 py-2 rounded-xl text-xs font-bold bg-brandGreen/10 text-brandGreen border border-brandGreen/20 shrink-0 w-fit">May 2024 &ndash; Nov 2024</span>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandGreen text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Legacy Bot Migration:</strong> Re-architected 30+ brittle Selenium scripts into POM-based frameworks, cutting failure rates by 50%.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandGreen text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">REST API Integrations:</strong> Connected verification APIs to automation workflows, boosting processing efficiency by 15%.</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
-            // Handle manual toggle trigger click
-            themeToggle.addEventListener('click', () => {
-                const currentlyDark = htmlTag.classList.contains('dark');
-                const nextTheme = currentlyDark ? 'light' : 'dark';
-                
-                applyTheme(nextTheme);
-                localStorage.setItem('theme', nextTheme);
-            });
+<!-- ================================================================ -->
+<!-- PROJECTS                                                         -->
+<!-- ================================================================ -->
+<section id="projects" class="space-y-10 reveal">
+    <div class="text-center space-y-3">
+        <span class="section-label bg-brandGreen/10 text-brandGreen border border-brandGreen/20"><i class="fas fa-code-branch text-[10px]"></i> Selected Works</span>
+        <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Featured <span class="bg-gradient-to-r from-brandGreen to-brandBlue bg-clip-text text-transparent">Projects</span></h2>
+        <p class="text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">Demonstrating automation engineering and robust backend architecture.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="project-card glass card-hover rounded-3xl p-7 flex flex-col border-slate-200/60 dark:border-slate-700/40 group">
+            <div class="flex items-start justify-between mb-4">
+                <div class="project-icon-wrap p-3 rounded-2xl bg-brandBlue/10 text-brandBlue group-hover:bg-brandBlue group-hover:text-white transition-all duration-300"><i class="fas fa-database text-xl"></i></div>
+                <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-brandBlue/10 text-brandBlue border border-brandBlue/20">Production</span>
+            </div>
+            <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white group-hover:text-brandBlue transition-colors mb-3">Structured Claim-Data Extraction Pipeline</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed flex-1">Built schema-driven JSON extraction bots across 11+ claim-payment-fetch and 7+ claim-retrieval portal integrations, replacing brittle OCR processing entirely with HTML-table pagination scraping.</p>
+            <div class="mt-5 pt-4 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between">
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800/30">Python</span>
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800/30">FastAPI</span>
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800/30">Playwright</span>
+                </div>
+                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandBlue hover:text-sky-500 transition-colors">Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+            </div>
+        </div>
+        <div class="project-card glass card-hover rounded-3xl p-7 flex flex-col border-slate-200/60 dark:border-slate-700/40 group">
+            <div class="flex items-start justify-between mb-4">
+                <div class="project-icon-wrap p-3 rounded-2xl bg-brandViolet/10 text-brandViolet group-hover:bg-brandViolet group-hover:text-white transition-all duration-300"><i class="fas fa-project-diagram text-xl"></i></div>
+                <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-brandViolet/10 text-brandViolet border border-brandViolet/20">Scalable</span>
+            </div>
+            <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white group-hover:text-brandViolet transition-colors mb-3">Multi-Portal RPA Bot Orchestrator Gateway</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed flex-1">Engineered a scalable payload-driven routing gateway using AWS ECS worker containers and SQS messaging broker, dynamically scheduling and routing hundreds of concurrent automated actions.</p>
+            <div class="mt-5 pt-4 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between">
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800/30">FastAPI</span>
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800/30">AWS SQS</span>
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800/30">ECS</span>
+                </div>
+                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandViolet hover:text-fuchsia-400 transition-colors">Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+            </div>
+        </div>
+        <div class="project-card glass card-hover rounded-3xl p-7 flex flex-col border-slate-200/60 dark:border-slate-700/40 group">
+            <div class="flex items-start justify-between mb-4">
+                <div class="project-icon-wrap p-3 rounded-2xl bg-brandGreen/10 text-brandGreen group-hover:bg-brandGreen group-hover:text-white transition-all duration-300"><i class="fas fa-wrench text-xl"></i></div>
+                <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-brandGreen/10 text-brandGreen border border-brandGreen/20">Migration</span>
+            </div>
+            <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white group-hover:text-brandGreen transition-colors mb-3">Legacy Page Object Model (POM) Migration</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed flex-1">Redesigned 30+ legacy scripts into a modular, object-oriented framework. Automated error classification detects web structure alterations and self-heals selector references, saving hours of debug time.</p>
+            <div class="mt-5 pt-4 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between">
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30">Python</span>
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30">Selenium</span>
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30">POM Design</span>
+                </div>
+                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandGreen hover:text-emerald-400 transition-colors">Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+            </div>
+        </div>
+        <div class="project-card glass card-hover rounded-3xl p-7 flex flex-col border-slate-200/60 dark:border-slate-700/40 group">
+            <div class="flex items-start justify-between mb-4">
+                <div class="project-icon-wrap p-3 rounded-2xl bg-brandAmber/10 text-brandAmber group-hover:bg-brandAmber group-hover:text-white transition-all duration-300"><i class="fas fa-eye text-xl"></i></div>
+                <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-brandAmber/10 text-brandAmber border border-brandAmber/20">Accessibility</span>
+            </div>
+            <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white group-hover:text-brandAmber transition-colors mb-3">AVI &ndash; App for Visually Impaired</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed flex-1">Developed an Android accessibility solution with a custom Python server backend. Leveraged object detection networks and text-to-speech translators to support blind users in navigating environments.</p>
+            <div class="mt-5 pt-4 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between">
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800/30">Android</span>
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800/30">Python</span>
+                    <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800/30">CV</span>
+                </div>
+                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandAmber hover:text-orange-400 transition-colors">Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
 
-            // Listen to browser OS changes dynamically
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-                if (!localStorage.getItem('theme')) {
-                    applyTheme(e.matches ? 'dark' : 'light');
-                }
-            });
+<!-- ================================================================ -->
+<!-- SKILLS                                                           -->
+<!-- ================================================================ -->
+<section id="skills" class="space-y-10 reveal">
+    <div class="text-center space-y-3">
+        <span class="section-label bg-brandViolet/10 text-brandViolet border border-brandViolet/20"><i class="fas fa-layer-group text-[10px]"></i> Technical Stack</span>
+        <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Core <span class="bg-gradient-to-r from-brandViolet to-brandBlue bg-clip-text text-transparent">Competencies</span></h2>
+        <p class="text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">Languages, automation frameworks, cloud infrastructure, and domain expertise.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass card-hover rounded-3xl p-6 border-slate-200/60 dark:border-slate-700/40 space-y-5 group">
+            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-2xl bg-brandBlue/10 text-brandBlue flex items-center justify-center group-hover:bg-brandBlue group-hover:text-white transition-all duration-300"><i class="fas fa-robot"></i></div><h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">RPA &amp; Automation</h3></div>
+            <div class="flex flex-wrap gap-2">
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/30">Playwright</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/30">Selenium</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/30">Web Scraping</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/30">POM Framework</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/30">Self-Healing Selectors</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/30">Data Normalization</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/30">CAPTCHA Bypass</span>
+            </div>
+        </div>
+        <div class="glass card-hover rounded-3xl p-6 border-slate-200/60 dark:border-slate-700/40 space-y-5 group">
+            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-2xl bg-brandViolet/10 text-brandViolet flex items-center justify-center group-hover:bg-brandViolet group-hover:text-white transition-all duration-300"><i class="fas fa-server"></i></div><h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Backend &amp; API</h3></div>
+            <div class="flex flex-wrap gap-2">
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/30">FastAPI</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/30">Django</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/30">Django REST Framework</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/30">Celery</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/30">REST API Design</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/30">OAuth 2.0</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/30">Swagger Docs</span>
+            </div>
+        </div>
+        <div class="glass card-hover rounded-3xl p-6 border-slate-200/60 dark:border-slate-700/40 space-y-5 group">
+            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-2xl bg-brandGreen/10 text-brandGreen flex items-center justify-center group-hover:bg-brandGreen group-hover:text-white transition-all duration-300"><i class="fas fa-cloud"></i></div><h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Cloud &amp; Infra</h3></div>
+            <div class="flex flex-wrap gap-2">
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/30">AWS ECS</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/30">AWS SQS</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/30">Docker</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/30">Git &amp; CI/CD</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/30">HIPAA Compliance</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/30">US Healthcare RCM</span>
+                <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/30">MySQL / PostgreSQL</span>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- ================================================================ -->
+<!-- EDUCATION & CERTS                                                -->
+<!-- ================================================================ -->
+<section id="education" class="space-y-10 reveal">
+    <div class="text-center space-y-3">
+        <span class="section-label bg-brandBlue/10 text-brandBlue border border-brandBlue/20"><i class="fas fa-graduation-cap text-[10px]"></i> Academics</span>
+        <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Education &amp; <span class="bg-gradient-to-r from-brandBlue to-brandViolet bg-clip-text text-transparent">Certifications</span></h2>
+        <p class="text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">Engineering credentials and ongoing technical advancements.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="glass card-hover rounded-3xl p-7 border-slate-200/60 dark:border-slate-700/40 flex items-start gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-brandBlue/10 text-brandBlue flex items-center justify-center text-xl shrink-0"><i class="fas fa-graduation-cap"></i></div>
+            <div class="space-y-2">
+                <div class="text-xs font-extrabold text-brandBlue font-mono uppercase tracking-widest">2020 &ndash; 2024</div>
+                <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white">B.Tech in Computer Science &amp; Engineering</h3>
+                <p class="text-sm font-semibold text-slate-600 dark:text-slate-300">Christ College of Engineering</p>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandBlue/10 border border-brandBlue/20">
+                    <i class="fas fa-star text-brandAmber text-[10px]"></i>
+                    <span class="text-xs font-bold text-brandBlue">7.85 CGPA</span>
+                </div>
+            </div>
+        </div>
+        <div class="glass card-hover rounded-3xl p-7 border-slate-200/60 dark:border-slate-700/40 flex items-start gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-brandViolet/10 text-brandViolet flex items-center justify-center text-xl shrink-0"><i class="fas fa-certificate"></i></div>
+            <div class="space-y-3 w-full">
+                <div class="text-xs font-extrabold text-brandViolet font-mono uppercase tracking-widest">Verified Credentials</div>
+                <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white">Technical Accreditations</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-[9px]"></i></div>Django Web Development</div>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-[9px]"></i></div>Data Engineering with PySpark</div>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-[9px]"></i></div>IBM Python for Data Science</div>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-[9px]"></i></div>AI For Everyone (Andrew Ng)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-            // ===== 2. RESPONSIVE MOBILE NAV DRAWER TOGGLE =====
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuLinks = document.querySelectorAll('.mobile-nav-link');
+<!-- ================================================================ -->
+<!-- CONTACT                                                          -->
+<!-- ================================================================ -->
+<section id="contact" class="space-y-10 reveal">
+    <div class="text-center space-y-3">
+        <span class="section-label bg-brandGreen/10 text-brandGreen border border-brandGreen/20"><i class="fas fa-paper-plane text-[10px]"></i> Get In Touch</span>
+        <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Let's <span class="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">Connect</span></h2>
+        <p class="text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">Open to RPA solutions, SDET architectures, and Python development opportunities.</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <div class="glass rounded-3xl p-7 shadow-xl border-slate-200/60 dark:border-slate-700/40 lg:col-span-2 space-y-6">
+            <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white">Contact Details</h3>
+            <div class="space-y-2">
+                <a href="mailto:sreerageg@gmail.com" class="flex items-center gap-4 p-3 rounded-2xl hover:bg-brandBlue/5 group transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-brandBlue/10 text-brandBlue flex items-center justify-center group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 shrink-0"><i class="fas fa-envelope text-sm"></i></div>
+                    <div><div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Email</div><div class="text-sm font-semibold text-slate-800 dark:text-slate-200">sreerageg@gmail.com</div></div>
+                </a>
+                <a href="tel:+919567870963" class="flex items-center gap-4 p-3 rounded-2xl hover:bg-brandViolet/5 group transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-brandViolet/10 text-brandViolet flex items-center justify-center group-hover:bg-brandViolet group-hover:text-white transition-all duration-300 shrink-0"><i class="fas fa-phone text-sm"></i></div>
+                    <div><div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Phone</div><div class="text-sm font-semibold text-slate-800 dark:text-slate-200">+91 9567870963</div></div>
+                </a>
+                <div class="flex items-center gap-4 p-3 rounded-2xl">
+                    <div class="w-10 h-10 rounded-xl bg-brandGreen/10 text-brandGreen flex items-center justify-center shrink-0"><i class="fas fa-map-marker-alt text-sm"></i></div>
+                    <div><div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Location</div><div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Thrissur, Kerala, India</div></div>
+                </div>
+            </div>
+            <div class="flex gap-3 pt-1">
+                <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener" class="flex-1 py-2.5 rounded-xl bg-[#0077B5]/10 text-[#0077B5] border border-[#0077B5]/20 hover:bg-[#0077B5] hover:text-white hover:scale-[1.02] transition-all text-xs font-bold flex items-center justify-center gap-2"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="https://github.com/sreerageg" target="_blank" rel="noopener" class="flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60 hover:bg-slate-700 hover:text-white hover:scale-[1.02] transition-all text-xs font-bold flex items-center justify-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+        <div class="glass rounded-3xl p-7 shadow-xl border-slate-200/60 dark:border-slate-700/40 lg:col-span-3">
+            <form id="contact-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-1.5"><label for="name" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Name</label><input type="text" id="name" name="name" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/10 focus:outline-none text-sm font-semibold text-slate-800 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all"></div>
+                    <div class="space-y-1.5"><label for="email" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Email</label><input type="email" id="email" name="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/10 focus:outline-none text-sm font-semibold text-slate-800 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all"></div>
+                </div>
+                <div class="space-y-1.5"><label for="subject" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Subject</label><input type="text" id="subject" name="subject" required placeholder="What's this about?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/10 focus:outline-none text-sm font-semibold text-slate-800 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all"></div>
+                <div class="space-y-1.5"><label for="message" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Message</label><textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/10 focus:outline-none text-sm font-semibold text-slate-800 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all resize-none"></textarea></div>
+                <button type="submit" id="submit-btn" class="btn-primary w-full py-4 rounded-2xl text-white font-bold flex items-center justify-center gap-2 text-sm"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
 
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+</main>
 
-            // Close mobile drawer when link click triggers scroll transition
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
+<!-- FOOTER -->
+<footer class="mt-16 footer-grad rounded-3xl border border-slate-200/60 dark:border-slate-800/80 p-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-center md:text-left">
+            <div class="font-heading font-black text-xl bg-gradient-to-r from-brandBlue to-brandViolet bg-clip-text text-transparent mb-1">SREERAG E G</div>
+            <p class="text-xs text-slate-400 dark:text-slate-500">RPA &amp; Automation Architect &middot; Python &middot; AWS</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-5 text-xs font-semibold text-slate-400 dark:text-slate-500">
+            <a href="#home" class="hover:text-brandBlue transition-colors">Home</a>
+            <a href="#experience" class="hover:text-brandBlue transition-colors">Experience</a>
+            <a href="#projects" class="hover:text-brandBlue transition-colors">Projects</a>
+            <a href="#skills" class="hover:text-brandBlue transition-colors">Skills</a>
+            <a href="#contact" class="hover:text-brandBlue transition-colors">Contact</a>
+            <a href="assets/resume/Sreerag_EG_resume_rpa_updated.pdf" download class="hover:text-brandBlue transition-colors">Resume &darr;</a>
+        </div>
+        <div class="flex flex-col items-center md:items-end gap-3">
+            <div class="flex gap-2">
+                <a href="mailto:sreerageg@gmail.com" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/sreerageg" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="text-[10px] text-slate-400 dark:text-slate-600">&copy; 2026 Sreerag E G &middot; Built with <i class="fas fa-heart text-brandViolet text-[9px]"></i> &amp; precision</p>
+        </div>
+    </div>
+</footer>
 
-            // Close mobile menu if clicked outside
-            document.addEventListener('click', (e) => {
-                if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
+</div>
 
+<script>
+const BOT_LOGS={claim:[{text:"Initializing claim submission run...",type:"info",speed:200},{text:"Connecting to AWS SQS Claim queue client...",type:"info",speed:300},{text:"Successfully polled message ID: sqs-claim-482a9b",type:"system",speed:400},{text:"Received claim data payload validation checklist...",type:"system",speed:200},{text:"Patient Name: [MASKED] (HIPAA Secure)",type:"secure",speed:300},{text:"Portal login triggered: UnitedHealthcare Commercial",type:"info",speed:500},{text:"Filling input elements dynamically...",type:"info",speed:400},{text:"Checking form CAPTCHA presence...",type:"system",speed:300},{text:"CAPTCHA element detected. Launching solver fallback...",type:"recover",speed:600},{text:"CAPTCHA solved successfully in 1.4s.",type:"recover",speed:300},{text:"Verifying form data fields before submission...",type:"info",speed:400},{text:"Submitting CMS-1500 layout form data...",type:"info",speed:700},{text:"SUCCESS: Claim submitted. Transaction ID: TX-84729104",type:"success",speed:500},{text:"Extracting submit proof PDF confirmation...",type:"system",speed:400},{text:"Uploading receipt to AWS S3: claims-receipts-2026/...",type:"system",speed:300},{text:"Sending callback status to webhooks...",type:"info",speed:400},{text:"Execution finished. Worker thread released.",type:"success",speed:300}],eob:[{text:"Starting structured EOB data extraction job...",type:"info",speed:200},{text:"Downloading raw PDF content from portal folder...",type:"info",speed:500},{text:"Parsing binary PDF streams directly (replacing OCR)...",type:"system",speed:400},{text:"Reading tabular payment items on Page 1...",type:"system",speed:300},{text:"Detected 4 claim lines. Normalizing coordinates...",type:"info",speed:250},{text:"Extracting: Charged, Allowed, Paid, Copay, Coinsurance",type:"system",speed:450},{text:"Standardizing to canonical ClaimRecord envelope...",type:"info",speed:300},{text:"JSON Payload schema validation...",type:"info",speed:200},{text:"SUCCESS: Payload conforms to HIPAA claim schemas.",type:"secure",speed:300},{text:"Reconciliation Check: Sum matched EOB totals ($450.00).",type:"success",speed:400},{text:"Updating claims repository databases...",type:"info",speed:500},{text:"Job completed. ClaimRecord envelope outputted.",type:"success",speed:300}],heal:[{text:"Starting self-healing retrieval process...",type:"info",speed:200},{text:"Accessing target BlueCross BlueShield claim portal...",type:"info",speed:400},{text:"Exception: selector not found: '#claims-grid-tbody'",type:"error",speed:500},{text:"Triggering error classification and recovery logic...",type:"recover",speed:400},{text:"Analyzing DOM tree structure layout shifts...",type:"recover",speed:500},{text:"Fuzzy match found: 'table.data-grid-claims tbody'",type:"recover",speed:600},{text:"Self-healing selector updated. Retrying fetch...",type:"recover",speed:300},{text:"Successfully navigated pagination index link.",type:"system",speed:400},{text:"Retrieved 15 claim statuses successfully.",type:"success",speed:300},{text:"Logging diagnostic coordinates for POM update...",type:"system",speed:350},{text:"Job finished safely without manual overhead.",type:"success",speed:200}]};
+const ARCH_NODES={1:{step:"STAGE 1 OF 5",title:"JSON Claims Payload Ingestion",body:"Structured data schemas are generated dynamically by customer ERPs or database triggers, representing claim, patient details, and billing documents. Payload structures are validated by JSON schema validations at ingestion."},2:{step:"STAGE 2 OF 5",title:"FastAPI Bot Orchestration Gateway",body:"A high-performance FastAPI routing service receives the JSON payloads, parses the profile parameters, and automatically forwards execution actions to target message queues."},3:{step:"STAGE 3 OF 5",title:"AWS SQS Asynchronous Message Broker",body:"AWS SQS queues message requests safely, decoupling API endpoints from selenium/playwright workers. This ensures traffic spikes are flattened and no bot runs are dropped due to concurrent execution limits."},4:{step:"STAGE 4 OF 5",title:"AWS ECS Containerized Worker Pool",body:"Docker-packaged worker containers run inside AWS ECS. They autonomously pull task messages from the SQS queue, executing browser automation tasks asynchronously at enterprise scale."},5:{step:"STAGE 5 OF 5",title:"Target Commercial Insurance Portals",body:"The bots automate standard browsers to upload claims, extract EOB details, or verify enrollment statuses, uploading audit proof PDFs to AWS S3 and sending API status callbacks."}};
+let selectedBot="claim",botRunning=false;
+function selectBotProfile(p){if(botRunning)return;selectedBot=p;document.querySelectorAll(".bot-btn").forEach(b=>{b.className="bot-btn bot-profile-btn w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-start gap-3 group relative overflow-hidden";const i=b.querySelector(".bot-indicator");if(i)i.className="bot-indicator absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-transparent";});const ab=document.getElementById("btn-bot-"+p);ab.className="bot-btn bot-active bot-profile-btn-active w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-start gap-3 group relative overflow-hidden";const ai=ab.querySelector(".bot-indicator");if(ai)ai.className="bot-indicator absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-brandBlue";const fm={claim:"claim_submitter.py",eob:"eob_data_extractor.py",heal:"self_healing_agent.py"};document.getElementById("terminal-title").textContent="sreerag@orchestrator:~/bots/"+fm[p];const con=document.getElementById("terminal-console");con.innerHTML='<div class="text-slate-400 dark:text-slate-600">Selected: bots/'+fm[p]+'</div><div class="text-sky-600 dark:text-sky-400 font-semibold">Profile loaded. Click "Execute Bot Script" to trigger workflow.</div>';document.getElementById("bot-progress-bar").style.width="0%";document.getElementById("bot-progress-pct").textContent="0%";document.getElementById("terminal-status-dot").className="fas fa-circle text-[7px] text-brandGreen";document.getElementById("terminal-status-text").textContent="READY";}
+function triggerBotExecution(){if(botRunning)return;botRunning=true;const rb=document.getElementById("run-bot-btn");document.getElementById("btn-icon-run").className="fas fa-spinner fa-spin";document.getElementById("btn-text-run").textContent="Worker running...";rb.disabled=true;rb.style.opacity="0.7";rb.style.cursor="not-allowed";document.getElementById("terminal-status-dot").className="fas fa-circle text-[7px] text-yellow-400";document.getElementById("terminal-status-text").textContent="RUNNING";const con=document.getElementById("terminal-console");con.innerHTML='<div class="text-slate-400 dark:text-slate-600">[SYSTEM] Worker thread allocated. Connecting...</div>';const logs=BOT_LOGS[selectedBot];let cl=0;function nextLine(){if(cl<logs.length){const log=logs[cl],div=document.createElement("div");const cm={info:"text-slate-500 dark:text-slate-400",system:"text-sky-600 dark:text-sky-400",secure:"text-fuchsia-600 dark:text-fuchsia-400",recover:"text-amber-600 dark:text-amber-400",success:"text-emerald-600 dark:text-emerald-400 font-bold",error:"text-red-600 dark:text-red-400 font-bold"};const pm={info:"[INFO]",system:"[SYSTEM]",secure:"[SECURE]",recover:"[RECOVER]",success:"[SUCCESS]",error:"[ERROR]"};const ts=new Date().toISOString().substring(11,19);div.innerHTML='<span class="text-slate-300 dark:text-slate-600">'+ts+'</span> <span class="'+(cm[log.type]||"")+'">'+pm[log.type]+" "+log.text+"</span>";con.appendChild(div);con.scrollTop=con.scrollHeight;const pct=Math.round(((cl+1)/logs.length)*100);document.getElementById("bot-progress-bar").style.width=pct+"%";document.getElementById("bot-progress-pct").textContent=pct+"%";cl++;setTimeout(nextLine,log.speed);}else{botRunning=false;rb.disabled=false;rb.style.opacity="1";rb.style.cursor="pointer";document.getElementById("btn-icon-run").className="fas fa-play";document.getElementById("btn-text-run").textContent="Execute Bot Script";document.getElementById("terminal-status-dot").className="fas fa-circle text-[7px] text-brandBlue";document.getElementById("terminal-status-text").textContent="COMPLETED";const fd=document.createElement("div");fd.className="mt-3 p-3 bg-slate-100 dark:bg-slate-900/80 rounded-xl border border-slate-200 dark:border-slate-800/80 text-[10px] font-mono whitespace-pre text-emerald-600 dark:text-emerald-400";const jo={claim:'{\n  "claim_id": "CLM-2026-94812",\n  "status": "SUBMITTED",\n  "portal": "UHC_COMMERCIAL",\n  "hipaa_validation": "PASSED",\n  "solver_logs": { "captcha_required": true, "duration_ms": 1400 },\n  "evidence_receipt_s3": "s3://receipts/TX-84729104.pdf"\n}',eob:'{\n  "extraction_job_id": "EOB-84712",\n  "status": "SUCCESS",\n  "normalized_envelope": {\n    "claim_reference": "REF-BCBS-38291",\n    "payment_reconciliation": {\n      "total_charged": 600.00,\n      "total_allowed": 450.00,\n      "total_paid": 450.00,\n      "patient_copay": 0.00\n    }\n  }\n}',heal:'{\n  "job_id": "RECOVER-847",\n  "status": "HEALED_SUCCESS",\n  "exception_logged": "SelectorNotFound: #claims-grid-tbody",\n  "fuzzy_match": {\n    "original": "#claims-grid-tbody",\n    "healed": "table.data-grid-claims tbody"\n  }\n}'};fd.textContent="Output JSON ClaimRecord:\n"+jo[selectedBot];con.appendChild(fd);con.scrollTop=con.scrollHeight;}}nextLine();}
+function setActiveArchNode(n){document.querySelectorAll("svg g[id^='arch-node-'] rect").forEach(r=>r.setAttribute("stroke-width","1.5"));const a=document.getElementById("arch-node-"+n);if(a)a.querySelector("rect").setAttribute("stroke-width","3");const d=ARCH_NODES[n];document.getElementById("arch-detail-step").textContent=d.step;document.getElementById("arch-detail-title").textContent=d.title;document.getElementById("arch-detail-body").textContent=d.body;}
+</script>
 
-            // ===== 3. PROGRAMMATIC TYPEWRITER EFFECT =====
-            const typingText = document.getElementById('typing-text');
-            const roles = [
-                'SDET & Automation Architect',
-                'Automation Architect',
-                'Full-Stack Python Developer'
-            ];
-            let roleIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            let typingSpeed = 100;
-
-            function typeEffect() {
-                const currentRole = roles[roleIndex];
-                
-                if (isDeleting) {
-                    typingText.textContent = currentRole.substring(0, charIndex - 1);
-                    charIndex--;
-                    typingSpeed = 50; // faster deletion
-                } else {
-                    typingText.textContent = currentRole.substring(0, charIndex + 1);
-                    charIndex++;
-                    typingSpeed = 100; // standard writing speed
-                }
-
-                // If word is fully typed
-                if (!isDeleting && charIndex === currentRole.length) {
-                    isDeleting = true;
-                    typingSpeed = 2000; // wait 2s before starting deletion
-                } 
-                // If word is fully deleted
-                else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    roleIndex = (roleIndex + 1) % roles.length;
-                    typingSpeed = 500; // wait 0.5s before writing next word
-                }
-
-                setTimeout(typeEffect, typingSpeed);
-            }
-
-            // Start typing loop
-            typeEffect();
-
-
-            // ===== 4. CONTACT FORM ACTION HANDLING =====
-            const contactForm = document.getElementById('contact-form');
-            const submitBtn = document.getElementById('submit-btn');
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const subject = document.getElementById('subject').value;
-                    const message = document.getElementById('message').value;
-
-                    // Disable submit button & show loading indicator
-                    submitBtn.disabled = true;
-                    const originalHTML = submitBtn.innerHTML;
-                    submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> Sending...`;
-
-                    setTimeout(() => {
-                        // Open mailto link
-                        const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-                        window.location.href = `mailto:sreerageg@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-                        // Reset form
-                        contactForm.reset();
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalHTML;
-                    }, 1000);
-                });
-            }
-
-            // ===== 5. ACTIVE MENU LINK HIGHLIGHT ON SCROLL =====
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    // Account for floating navbar offset top
-                    if (pageYOffset >= (sectionTop - 150)) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('text-blue-600', 'dark:text-blue-400', 'border-b-2', 'border-blue-500');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('text-blue-600', 'dark:text-blue-400', 'border-b-2', 'border-blue-500');
-                    }
-                });
-            });
-
-        });
-    </script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+    const tt=document.getElementById("theme-toggle"),ti=document.getElementById("theme-toggle-icon"),html=document.documentElement;
+    function applyTheme(t){if(t==="dark"){html.classList.add("dark");ti.className="fas fa-sun text-base text-yellow-400";}else{html.classList.remove("dark");ti.className="fas fa-moon text-base text-slate-500";}}
+    applyTheme(localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+    tt.addEventListener("click",()=>{const n=html.classList.contains("dark")?"light":"dark";applyTheme(n);localStorage.setItem("theme",n);});
+    const mmb=document.getElementById("mobile-menu-toggle"),mm=document.getElementById("mobile-menu");
+    mmb.addEventListener("click",()=>mm.classList.toggle("hidden"));
+    document.querySelectorAll(".mobile-nav-link").forEach(l=>l.addEventListener("click",()=>mm.classList.add("hidden")));
+    document.addEventListener("click",e=>{if(!mmb.contains(e.target)&&!mm.contains(e.target))mm.classList.add("hidden");});
+    const el=document.getElementById("typing-text");
+    const roles=["RPA Process Automations","FastAPI Orchestration Layers","AWS Serverless Worker Pools","Self-Healing Scraper Engines"];
+    let ri=0,ci=0,del=false,sp=100;
+    function tw(){const cur=roles[ri];el.textContent=del?cur.substring(0,ci-1):cur.substring(0,ci+1);if(del){ci--;sp=40;}else{ci++;sp=90;}if(!del&&ci===cur.length){del=true;sp=2200;}else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;sp=500;}setTimeout(tw,sp);}
+    tw();
+    const form=document.getElementById("contact-form"),sb=document.getElementById("submit-btn");
+    if(form){form.addEventListener("submit",e=>{e.preventDefault();const n=document.getElementById("name").value,em=document.getElementById("email").value,s=document.getElementById("subject").value,m=document.getElementById("message").value;sb.disabled=true;const orig=sb.innerHTML;sb.innerHTML='<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';setTimeout(()=>{window.location.href="mailto:sreerageg@gmail.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+em+"\n\nMessage:\n"+m);form.reset();sb.disabled=false;sb.innerHTML=orig;},1000);});}
+    const secs=document.querySelectorAll("section[id]"),nls=document.querySelectorAll(".nav-link");
+    function updateNav(){let cur="";secs.forEach(s=>{if(window.scrollY>=s.offsetTop-180)cur=s.id;});nls.forEach(l=>{l.classList.remove("active");if(l.getAttribute("href")==="#"+cur)l.classList.add("active");});}
+    window.addEventListener("scroll",updateNav,{passive:true});updateNav();
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:"0px 0px -60px 0px"});
+    document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+});
+</script>
 </body>
 </html>

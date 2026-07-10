@@ -1,42 +1,44 @@
-# Sreerag E G - SDET & Automation Architect Portfolio
+# Sreerag E G - RPA & Automation Engineer Portfolio
 
-A modern, responsive portfolio website showcasing the professional background and expertise of Sreerag E G, a performance-driven SDET and Automation Architect specializing in engineering distributed automation platforms using Python, FastAPI, and AWS.
+A modern, highly-interactive responsive portfolio website showcasing the professional background and expertise of Sreerag E G, an RPA & Automation Engineer specializing in designing distributed, HIPAA-compliant process-automation infrastructure using Python, FastAPI, and AWS.
+
+---
 
 ## 🌟 Features
 
 ### Modern Design
-- **Premium Glassmorphism Theme**: Frosted glass panels using backdrop-blur utility classes, border opacity, and card layouts.
-- **Dynamic Theme Engine**: Auto-adapts to browser/OS light/dark preferences and supports manual toggle overrides.
-- **Interactive Visuals**: Programmatic typing loop, floating background gradient shapes, and interactive scale effects.
-- **Single-Page Layout**: Seamless vertical scrolling navigation with an active section-highlighting floating header.
+- **Futuristic Glassmorphic Aesthetic**: Frosted glass panels styled with customized Tailwind CSS backdrops, thin translucent borders, and glowing interactive hover states.
+- **Dynamic Theme Engine**: Auto-adapts to browser/OS light/dark preferences and supports manual toggling between dark-cosmic and light-frosted modes.
+- **Micro-Animations & Visuals**: Floating animated gradient blobs in the background, layout-reactive scaling, and fluid text transitions.
+- **Single-Page Flow**: Interactive vertical scrolling offset navigation with active-link highlights.
 
-### Technical Features
-- **Zero Build Setup**: Clean, single-file HTML5 codebase that runs instantly without npm, Node.js, or compilation pipelines.
-- **Performance Optimized**: Low footprint without heavy libraries or frameworks.
-- **SEO & Access Ready**: Structured metadata tags, custom keyword setup, and responsive design systems.
+### Technical & Interactive Features
+- **Interactive RPA Bot Simulator Console**: A live terminal mockup where visitors select configurations (e.g. `claim_submitter.py`, `eob_data_extractor.py`, `self_healing_agent.py`) and "execute" the scripts to stream color-coded, realistic runtime logs, progress bars, self-healing occurrences, and HIPAA-secure final JSON payload envelopes.
+- **AWS Pipelines Visualizer**: An interactive SVG-based systems architecture diagram displaying the orchestration workflow (`JSON Payload` ➔ `FastAPI Router` ➔ `AWS SQS Broker` ➔ `AWS ECS Container Workers` ➔ `Commercial Portals`). Hovering on diagram nodes displays descriptive details about each stage dynamically.
+- **No Compilation Build Setup**: Built directly on single-file HTML5, Tailwind Play CDN configuration, and Vanilla Javascript. Performs instantly on mobile and desktop without packaging systems.
 
 ### Portfolio Sections
-1. **Hero Section**: Introduces Sreerag with typewriter logic, CV download triggers, and social touchpoints.
-2. **About**: Professional summary card, statistical achievements, and core expertise callouts.
-3. **Experience**: Visual timeline mapping software engineering and automation roles.
-4. **Projects**: Detailed glass grid highlighting claims automations, computer vision, and accessibility systems.
-5. **Skills**: Skill range progress indicators and quick-view tech stacks.
-6. **Education**: Degree details and professional certification panels.
-7. **Contact**: Location coordinates, direct links, and a validated contact form.
+1. **Hero**: Visual introduction, dynamic typewriter roles loop, resume download trigger, and social shortcuts.
+2. **Bot Console**: Interactive demonstrations of running live bot scripts.
+3. **AWS Orchestration**: Interactive SVG system graph of asynchronous worker infrastructure.
+4. **Experience**: Structured timeline representing professional milestones, featuring key achievements and throughput metrics.
+5. **Projects**: Showcase cards with layout hover effects mapping Claim Extraction, API Gateways, POM Overhauls, and Accessibility apps.
+6. **Skills**: Divided categories tracking RPA, Backend, Cloud, Languages, and US Healthcare Insurance domain specializations.
+7. **Education**: B.Tech degree parameters and professional verification paths.
+8. **Contact**: Dedicated layout detailing touchpoints and validation triggers.
+
+---
 
 ## 🚀 Technologies Used
 
 ### Frontend Stack
-- **HTML5**: Semantic document structure.
-- **Tailwind CSS Play CDN**: Real-time styling engine utilizing custom config integrations.
-- **Vanilla JavaScript**: Coded inline to manage theme changes, mobile menu toggle transitions, typing configurations, and contact form handling.
-- **Font Awesome Icons**: Clean vector iconography.
-- **Google Fonts**: Outfit (headings) and Plus Jakarta Sans (body).
+- **HTML5**: Semantic layout.
+- **Tailwind CSS Play CDN**: Tailwind configurations and utility frameworks.
+- **Vanilla JavaScript**: Programmatic engines managing typing effects, bot simulation logs, interactive SVGs, contact validation, and dark/light modes.
+- **Font Awesome Icons**: Translucent icons.
+- **Google Fonts**: `Outfit` (headings), `Plus Jakarta Sans` (body text), and `Fira Code` (monospace code/terminal block).
 
-### Advanced Features
-- Tailwind classes for glassmorphic elements (`backdrop-blur-md`, `bg-opacity`, `border-opacity`).
-- Browser state persistence via HTML5 `localStorage`.
-- Media Query listener (`prefers-color-scheme`) for live system theme updates.
+---
 
 ## 📁 Project Structure
 
@@ -48,165 +50,83 @@ portfolio/
 │   ├── img/
 │   │   └── myphoto.jpg       # Developer profile portrait
 │   └── resume/
-│       └── Sreerag_EG_Resume_2026.pdf # Latest PDF resume
+│       └── Sreerag_EG_resume_rpa_updated.pdf # Latest PDF resume
 └── README.md                 # Project documentation
 ```
+
+---
 
 ## 🎨 Design System
 
 ### Color Palette
-- **Primary**: Light glass panel overlay (`bg-white/45` with border-white/20)
-- **Dark Mode**: Dark glass panel overlay (`bg-slate-900/45` with border-white/5)
-- **Brand Colors**: Blue (`#3b82f6`) and Purple accent (`#8b5cf6`)
-- **Fluid Gradients**: Multi-colored animated blur blobs floating behind the main layout.
+- **Deep Space Theme (Dark)**: Cosmic dark background (`#05070f`), card slots (`rgba(10, 15, 30, 0.45)`), neon borders, and glowing highlights (Sky Blue `#0ea5e9`, Neon Violet `#d946ef`, Emerald Green `#10b981`).
+- **Frosted Light Theme (Light)**: Clean background (`#f8fafc`), panels (`rgba(255, 255, 255, 0.65)`), soft drop shadows, and sky accents.
+- **Monospace Elements**: Deep slate backing (`#02040a`) with terminal text classes.
 
-### Typography Scale
+### Typography
 - **Headings**: Outfit (sans-serif)
 - **Body Text**: Plus Jakarta Sans (sans-serif)
-- **Responsive**: Fluid typography that scales across mobile, tablet, and desktop viewports.
+- **Code & Terminals**: Fira Code (monospaced)
 
-### Animation System
-- Continuous typewriter text looping.
-- Pulse and floating keyframe animation for background blobs.
-- Smooth card hover scaling and transition highlights.
-
-## 📱 Responsive Design
-
-### Breakpoint System
-- **Small Mobile**: 320px - 480px
-- **Mobile**: 481px - 768px
-- **Tablet**: 769px - 1024px
-- **Desktop**: 1025px - 1200px
-- **Large Desktop**: 1201px and above
-
-### Mobile Enhancements
-- Touch-optimized navigation menu
-- Swipe-friendly interactions
-- Optimized font sizes and spacing
-- Mobile-specific animations
-- Performance optimizations for mobile devices
-
-## ⚡ Performance Features
-
-- **Instant Client Render**: Zero framework virtual-DOM overhead or heavy bundling requirements.
-- **On-Demand Styles**: Fast page delivery via optimized CDN caching of the Tailwind styling library.
-- **Lazy Visual Rendering**: Floating background elements rendered with CSS opacity variables.
-
-### User Experience
-- Sub-second loading times.
-- Fluid transitions and scale effects.
-- Clean color palette that adapts to local light or dark themes.
+---
 
 ## 🔧 Customization Guide
 
-### Theme Customization
-To update theme colors, open [index.html](file:///c:/Users/sreer/Documents/GitHub/portfolio/index.html) and locate the `<script>` containing `tailwind.config`. You can easily adjust the brand and violetaccent hex colors:
+### Configs Customization
+To adjust the theme color extensions or fonts, edit the Tailwind settings in [index.html](file:///c:/Users/sreer/Documents/GitHub/portfolio/index.html):
 ```javascript
 tailwind.config = {
     theme: {
         extend: {
             colors: {
-                brand: {
-                    50: '#f0f9ff',
-                    100: '#e0f2fe',
-                    500: '#3b82f6', // primary blue
-                    // ...
-                }
+                darkBg: '#05070f',
+                brandBlue: '#0ea5e9',
+                // Adjust colors here
             }
         }
     }
 }
 ```
 
-### Content Updates
-All content lies within the single [index.html](file:///c:/Users/sreer/Documents/GitHub/portfolio/index.html) file:
-- **Bio & Tagline**: Locate and edit the text inside `<section id="home">`.
-- **Work Timeline**: Locate the list elements inside `<section id="experience">` to update roles and bullet points.
-- **Technical Skills**: Update the tailwind width classes (e.g. `style="width: 95%"`) inside `<section id="skills">` to dynamically adjust the glass progress bars.
-- **Contact Channels**: Edit the `mailto:` links and anchors inside `<section id="contact">`.
-
-## 📧 Contact Integration
-The portfolio includes multiple contact methods:
-- **Email**: Programmatic validation and mailto links.
-- **Phone**: Click-to-call anchor tags.
-- **Social**: Fast target-blank redirects for LinkedIn and GitHub.
-
-## 🌐 Browser Compatibility
-- **Chrome**: ✅ Version 90+
-- **Firefox**: ✅ Version 88+
-- **Safari**: ✅ Version 14+
-- **Edge**: ✅ Version 90+
-- **Mobile Browsers**: ✅ iOS Safari, Chrome Mobile, Samsung Internet.
-
-## 🚀 Deployment Options
-### Static Hosting
-- **GitHub Pages**: Drag-and-drop/git-push folder deployment (No compilation triggers needed).
-- **Vercel / Netlify**: Connect repository for automated deployments.
+### Bot Simulation Customization
+To add, modify, or delete logging logs inside the interactive terminal, edit the `BOT_LOGS` object located inside the `<script>` tag of `index.html`.
 
 ---
 
 ## 👨‍💻 About Sreerag E G
 
-**SDET & Automation Architect**
+**RPA / Automation Engineer**
 
 ### Contact Information
 - 📧 Email: sreerageg@gmail.com
 - 📱 Phone: +91 95678 70963
 - 🔗 LinkedIn: [linkedin.com/in/sreerag-e-g](https://linkedin.com/in/sreerag-e-g)
 - 🐙 GitHub: [github.com/sreerageg](https://github.com/sreerageg)
-- 📍 Location: Thrissur, India
+- 📍 Location: Thrissur, Kerala, India
 
 ### Professional Experience
-- **Software Developer (SDET / Automation Architect)** at Kalki Safalya Consulting Services LLP (May 2025 - Present)
-  - **Architected a Distributed Automation Gateway:** Developed a high-performance orchestration layer using FastAPI to dynamically route automation tasks based on incoming JSON payloads.
-  - **Scalable Infrastructure Deployment:** Deployed a containerized worker pool on AWS ECS, utilizing AWS SQS as a message broker to handle asynchronous claim submissions at scale.
-  - **Performance Engineering:** Designed a multi-portal automation platform that increased insurance claim submission speed by 40% while maintaining production-grade reliability.
-  - **Reliability & Compliance:** Implemented automated error classification, screenshot evidence capture for audits, and sensitive data masking to maintain strict HIPAA compliance.
-  - **Internal Tooling:** Built claims tracking systems using Pandas and integrated browser automations with enterprise Rails backends via message queues.
+
+- **Automation Engineer (RPA / Python)** at Kalki Safalya Consulting Services LLP (May 2025 - Present)
+  - **Bot Orchestration Gateway:** Developed a high-performance FastAPI orchestration layer that dynamically routes 100+ daily bot executions based on JSON payloads.
+  - **Scalable Bot Infrastructure:** Deployed a containerized worker pool on AWS ECS, using AWS SQS as a message broker to process 500+ claim-submission bot runs asynchronously per week.
+  - **Process Automation at Scale:** Built and shipped 130+ production bots across 40+ commercial portals, increasing throughput by 40% and saving 80+ hours of manual entry monthly.
+  - **Self-Healing & Compliance:** Engineered automated error classification and self-healing POM bot logic to cut maintenance overhead by 30%, with sensitive-data masking for HIPAA compliance.
 
 - **Full Stack Developer (Intern)** at Aspire Systems (Nov 2024 - May 2025)
-  - **API Engineering:** Developed and optimized REST APIs using Django Rest Framework (DRF) and MySQL, ensuring seamless data flow for enterprise applications.
-  - **Quality Assurance:** Led automated API documentation using Swagger and participated in Agile sprints, focusing on code reviews and modular system design.
-  - **Auth Systems:** Implemented secure authentication flows, including Google OAuth and CRUD operations for internal portals.
+  - **API Engineering:** Developed and optimized 12+ REST API endpoints using Django Rest Framework (DRF) and MySQL, improving query response times by 20%.
+  - **Auth Systems:** Implemented secure OAuth 2.0 authentication flows (including Google OAuth), onboarding 200+ internal users.
 
-- **Freelance Python Developer (Automation)** (May 2024 - Nov 2024)
-  - **Legacy Transformation:** Converted one-off Selenium scripts into maintainable, framework-compliant code for insurance web applications.
-  - **Third-Party Integration:** Integrated external APIs to optimize backend performance and automation reliability.
-
-### Education & Certifications
-- **B.Tech Computer Science & Engineering** - Christ College of Engineering (2019-2023) - CGPA: 7.85/10
-- **Data Engineering with PySpark** - Self-paced Learning
-- **IBM Python for Data Science** - IBM Certified
-- **AI For Everyone** - Andrew Ng (Coursera)
-- **Django for Web Development** - Udemy
-
-### Technical Skills
-- **Languages**: Python (Advanced OOP & Framework Design), SQL, JavaScript, Java
-- **Automation**: Playwright, Selenium, Web Scraping, PDF Data Extraction
-- **Backend & Orchestration**: FastAPI, Django, REST API Design, Async Processing
-- **Cloud & DevOps**: AWS (ECS, SQS, EC2, S3, Lambda), Docker, Git, CI/CD Pipelines
-- **Frameworks**: Page Object Model (POM), Error Classification & Self-Healing Logic, Retry Mechanisms
-- **Domain Specialization**: US Healthcare Insurance, Claims Processing, HIPAA Compliance, EOB/CMS-1500
+- **Freelance RPA / Python Developer** (Self-Employed) (May 2024 - Nov 2024)
+  - **Legacy Bot Migration:** Restructured and converted 30+ legacy Selenium bots into a modular Page Object Model (POM) framework, reducing bot failure rates by 50%.
+  - **Third-Party Integration:** Integrated external REST APIs into bot workflows for automated verification, accelerating form-processing by 15%.
 
 ### Featured Projects
-1. **Insurance Claim Web Automation** - Python, Selenium, Web Scraping, CAPTCHA handling, robust logging, POM
-2. **AI-Powered Image Recognition** - TensorFlow, OpenCV (95% accuracy)
-3. **AVI (App for Visually Impaired)** - Python backend, Android, Object Detection, audio feedback
-
-### Languages
-- **English**: Professional proficiency
-- **Malayalam**: Native speaker
-- **Hindi**: Professional working proficiency
-- **Sanskrit**: Full proficiency
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+1. **Structured Claim-Data Extraction Pipeline (CPF & Claim Retrieval)**: Built schema-driven JSON extraction bots across 11+ claim-payment-fetch and 7+ retrieval portals using canonical ClaimRecord, table pagination, and normalization.
+2. **Multi-Portal RPA Bot Orchestrator Gateway**: Implemented payload-driven scheduling and routing using FastAPI, AWS ECS docker container workers, and SQS messaging queues.
+3. **Legacy POM Migration & Self-Healing Framework**: Converted Selenium web scrapers into object-oriented modules with auto-classification elements for layout shift detection.
+4. **AVI (App for Visually Impaired)**: Accessibility Android application backed by a Python server backend, deep learning object detection, and instant text-to-speech audio feedback.
 
 ---
 
-**Built with ❤️ using modern web technologies for optimal performance and user experience**
+**Built with ❤️ for optimal performance and user experience**
 
-*Portfolio designed to showcase full-stack development expertise and passion for clean, maintainable code*
-
-*Last updated: June 2026*
