@@ -750,7 +750,7 @@
                 <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/sreerageg" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><i class="fab fa-github"></i></a>
             </div>
-            <p class="text-[10px] text-slate-400 dark:text-slate-600">&copy; 2026 Sreerag E G &middot; Built with <i class="fas fa-heart text-brandViolet text-[9px]"></i> &amp; precision <span id="visitor-count-badge" class="hidden">&middot; <i class="fas fa-eye text-[9px] text-brandBlue"></i> <span id="visitor-count-val">0</span> views</span></p>
+            <p class="text-[10px] text-slate-400 dark:text-slate-600">&copy; 2026 Sreerag E G &middot; Built with <i class="fas fa-heart text-brandViolet text-[9px]"></i> &amp; precision <span id="visitor-count-badge" class="hidden">&middot; <i class="fas fa-eye text-[9px] text-brandBlue"></i> <span id="visitor-count-val">0 views (0 unique)</span></span></p>
         </div>
     </div>
 </footer>
@@ -837,6 +837,38 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     // Handle anonymous page logging & total counter
     if (hasSupabase) {
+        const fetchCounts = () => {
+            const fetchUnique = fetch(`${SUPABASE_URL}/rest/v1/visitors?is_unique_visit=eq.true&select=id`, {
+                method: "GET",
+                headers: {
+                    "apikey": SUPABASE_ANON_KEY,
+                    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+                    "Prefer": "count=exact"
+                }
+            });
+            const fetchTotal = fetch(`${SUPABASE_URL}/rest/v1/visitors?message=is.null&select=id`, {
+                method: "GET",
+                headers: {
+                    "apikey": SUPABASE_ANON_KEY,
+                    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+                    "Prefer": "count=exact"
+                }
+            });
+            Promise.all([fetchUnique, fetchTotal])
+                .then(responses => Promise.all(responses.map(r => r.headers.get("content-range"))))
+                .then(ranges => {
+                    const uniqueCount = ranges[0] ? ranges[0].split("/")[1] : "0";
+                    const totalCount = ranges[1] ? ranges[1].split("/")[1] : "0";
+                    const badge = document.getElementById("visitor-count-badge");
+                    const val = document.getElementById("visitor-count-val");
+                    if (badge && val) {
+                        val.innerHTML = `${totalCount} views (<span class="text-brandBlue font-semibold">${uniqueCount} unique</span>)`;
+                        badge.classList.remove("hidden");
+                    }
+                })
+                .catch(err => console.error("Database count query failed:", err));
+        };
+
         const hasVisited = localStorage.getItem("has_visited_portfolio");
         if (!hasVisited) {
             fetch(`${SUPABASE_URL}/rest/v1/visitors`, {
@@ -850,29 +882,21 @@ document.addEventListener("DOMContentLoaded",()=>{
                 body: JSON.stringify({ is_unique_visit: true })
             }).then(res => {
                 if (res.ok) localStorage.setItem("has_visited_portfolio", "true");
-            }).catch(err => console.error("Database unique logging failed:", err));
+            }).catch(err => console.error("Database unique logging failed:", err))
+            .finally(() => fetchCounts());
+        } else {
+            fetch(`${SUPABASE_URL}/rest/v1/visitors`, {
+                method: "POST",
+                headers: {
+                    "apikey": SUPABASE_ANON_KEY,
+                    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+                    "Content-Type": "application/json",
+                    "Prefer": "return=minimal"
+                },
+                body: JSON.stringify({ is_unique_visit: false })
+            }).catch(err => console.error("Database repeat logging failed:", err))
+            .finally(() => fetchCounts());
         }
-
-        // Fetch exact total count
-        fetch(`${SUPABASE_URL}/rest/v1/visitors?is_unique_visit=eq.true&select=id`, {
-            method: "GET",
-            headers: {
-                "apikey": SUPABASE_ANON_KEY,
-                "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-                "Prefer": "count=exact"
-            }
-        }).then(res => {
-            const countHeader = res.headers.get("content-range");
-            if (countHeader) {
-                const count = countHeader.split("/")[1];
-                const badge = document.getElementById("visitor-count-badge");
-                const val = document.getElementById("visitor-count-val");
-                if (badge && val) {
-                    val.textContent = count;
-                    badge.classList.remove("hidden");
-                }
-            }
-        }).catch(err => console.error("Database count query failed:", err));
     }
 });
 </script>
