@@ -782,8 +782,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     function tw(){const cur=roles[ri];el.textContent=del?cur.substring(0,ci-1):cur.substring(0,ci+1);if(del){ci--;sp=40;}else{ci++;sp=90;}if(!del&&ci===cur.length){del=true;sp=2200;}else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;sp=500;}setTimeout(tw,sp);}
     tw();
     // Supabase serverless logging configuration
-    const SUPABASE_URL = "YOUR_SUPABASE_URL";
-    const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+    const SUPABASE_URL = "https://jdgitfslhkllqznwycrg.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_O2fCotryD1GtN7Vvr49ZgA_PhgiGygX";
     const hasSupabase = SUPABASE_URL && SUPABASE_URL !== "YOUR_SUPABASE_URL" && SUPABASE_ANON_KEY && SUPABASE_ANON_KEY !== "YOUR_SUPABASE_ANON_KEY";
 
     const form=document.getElementById("contact-form"),sb=document.getElementById("submit-btn");
