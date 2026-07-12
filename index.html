@@ -100,6 +100,49 @@
         .reveal.visible{opacity:1;transform:translateY(0)}
         .footer-grad{background:linear-gradient(135deg,rgba(14,165,233,.05),rgba(168,85,247,.05),rgba(16,185,129,.03))}
         .dark .footer-grad{background:linear-gradient(135deg,rgba(14,165,233,.04),rgba(168,85,247,.04))}
+        .ai-prefill-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 9px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            border: 1px solid rgba(14,165,233,0.25);
+            background: rgba(14,165,233,0.08);
+            color: #0ea5e9;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            z-index: 10;
+            backdrop-filter: blur(6px);
+        }
+        .ai-prefill-btn:hover {
+            background: rgba(14,165,233,0.18);
+            border-color: rgba(14,165,233,0.5);
+            box-shadow: 0 0 12px rgba(14,165,233,0.2);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .ai-prefill-btn.typing {
+            background: rgba(168,85,247,0.12);
+            border-color: rgba(168,85,247,0.4);
+            color: #a855f7;
+            pointer-events: none;
+        }
+        .ai-prefill-btn-msg {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            transform: none;
+        }
+        .ai-prefill-btn-msg:hover {
+            transform: scale(1.05);
+        }
         .experience-stat-card {
             background-color: rgba(241, 245, 249, 0.95) !important;
             border: 1px solid rgba(226, 232, 240, 0.8) !important;
@@ -719,8 +762,24 @@
                     <div class="space-y-1.5"><label for="name" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Name</label><input type="text" id="name" name="name" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/10 focus:outline-none text-sm font-semibold text-slate-800 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all"></div>
                     <div class="space-y-1.5"><label for="email" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Email</label><input type="email" id="email" name="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/10 focus:outline-none text-sm font-semibold text-slate-800 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all"></div>
                 </div>
-                <div class="space-y-1.5"><label for="subject" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Subject</label><input type="text" id="subject" name="subject" required placeholder="What's this about?" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/10 focus:outline-none text-sm font-semibold text-slate-800 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all"></div>
-                <div class="space-y-1.5"><label for="message" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Message</label><textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/10 focus:outline-none text-sm font-semibold text-slate-800 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all resize-none"></textarea></div>
+                <div class="space-y-1.5 relative">
+                    <label for="subject" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Subject</label>
+                    <div class="relative">
+                        <input type="text" id="subject" name="subject" required placeholder="What's this about?" class="w-full px-4 py-3 pr-24 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/10 focus:outline-none text-sm font-semibold text-slate-800 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all">
+                        <button type="button" id="ai-fill-subject" class="ai-prefill-btn" onclick="aiTypewriter('subject', this)">
+                            <span style="font-size:11px">✦</span> AI Fill
+                        </button>
+                    </div>
+                </div>
+                <div class="space-y-1.5 relative">
+                    <label for="message" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Message</label>
+                    <div class="relative">
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/10 focus:outline-none text-sm font-semibold text-slate-800 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all resize-none"></textarea>
+                        <button type="button" id="ai-fill-message" class="ai-prefill-btn ai-prefill-btn-msg" onclick="aiTypewriter('message', this)">
+                            <span style="font-size:11px">✦</span> AI Fill
+                        </button>
+                    </div>
+                </div>
                 <button type="submit" id="submit-btn" class="btn-primary w-full py-4 rounded-2xl text-white font-bold flex items-center justify-center gap-2 text-sm"><i class="fas fa-paper-plane"></i> Send Message</button>
             </form>
         </div>
@@ -757,6 +816,95 @@
 </footer>
 
 </div>
+
+<script>
+const AI_SUGGESTIONS = {
+    subject: [
+        "Exploring RPA Automation Opportunities",
+        "Healthcare RCM Automation Inquiry",
+        "Hiring — RPA & Python Automation Engineer",
+        "Bot Orchestration Architecture Consultation",
+        "HIPAA-Compliant Automation Solutions Needed",
+        "FastAPI + AWS Workflow Collaboration",
+        "Self-Healing Bot Framework Discussion",
+        "US Healthcare Portal Automation Project",
+        "Python SDET Architecture Partnership",
+        "Let\u2019s Connect \u2014 Automation Engineering"
+    ],
+    message: [
+        `Hi Sreerag,\n\nI came across your portfolio and was really impressed by your work in RPA automation and bot orchestration at scale.\n\nI\u2019d love to explore potential collaboration or opportunities. Looking forward to connecting!`,
+        `Hi Sreerag,\n\nWe\u2019re building HIPAA-compliant bots for our US healthcare RCM workflows and your background looks like a perfect fit.\n\nWould love to schedule a quick call to discuss the opportunity!`,
+        `Hello Sreerag,\n\nI found your portfolio through LinkedIn and was blown away by your FastAPI bot orchestration architecture. We have a similar challenge at our company and would love your input.\n\nLooking forward to your response!`,
+        `Hi Sreerag,\n\nYour experience with self-healing automation bots and AWS ECS/SQS is exactly what our team needs. We\u2019re building a large-scale process automation pipeline and want to bring you on board.\n\nCan we connect this week?`,
+        `Hello Sreerag,\n\nI\u2019m reaching out regarding a Python automation architect opportunity. Your hands-on experience with Playwright, Selenium, and FastAPI is highly relevant to what we\u2019re building.\n\nPlease let me know if you\u2019re open to a conversation!`,
+        `Hi Sreerag,\n\nWe\u2019re a healthcare technology startup working on automating insurance verification and prior authorization workflows. Your expertise in US healthcare portal automation is exactly what we need.\n\nWould you be interested in learning more?`,
+        `Hello Sreerag,\n\nI saw your RPA bot simulator demo and was genuinely impressed by your automation architecture knowledge. I\u2019d love to collaborate on a similar project for our organization.\n\nLet\u2019s connect!`,
+        `Hi Sreerag,\n\nWe\u2019re looking to scale our bot infrastructure using AWS ECS and SQS \u2014 something you\u2019ve clearly mastered. I\u2019d love to get your advice and potentially bring you in as a consultant.\n\nHope to hear from you soon!`,
+        `Hello Sreerag,\n\nYour work on HIPAA-compliant claim submission bots is remarkable. We\u2019re a US-based RCM company looking to modernize our automation stack and your profile stood out.\n\nWould love to discuss a full-time or contract engagement.`,
+        `Hi Sreerag,\n\nI\u2019m a fellow automation engineer and stumbled upon your portfolio. Your approach to self-healing selectors and distributed bot execution is genuinely inspiring.\n\nWould love to exchange ideas and possibly collaborate on open-source tooling!`
+    ]
+};
+// Keep tracks of random queues
+let shuffledSuggestions = { subject: [], message: [] };
+let currentAIIndex = { subject: 0, message: 0 };
+
+// Shuffle array helper
+function shuffleArray(arr) {
+    const newArr = [...arr];
+    for (let i = newArr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+    }
+    return newArr;
+}
+
+// Initialize randomized lists
+try {
+    shuffledSuggestions.subject = shuffleArray(AI_SUGGESTIONS.subject);
+    shuffledSuggestions.message = shuffleArray(AI_SUGGESTIONS.message);
+} catch (e) {
+    console.error("Failed to initialize suggestions:", e);
+}
+
+function aiTypewriter(fieldId, btn) {
+    const field = document.getElementById(fieldId);
+    if (!field || btn.classList.contains('typing')) return;
+    
+    // Fallback if shuffle failed or arrays are empty
+    if (!shuffledSuggestions[fieldId] || shuffledSuggestions[fieldId].length === 0) {
+        shuffledSuggestions[fieldId] = shuffleArray(AI_SUGGESTIONS[fieldId]);
+    }
+    
+    const suggestions = shuffledSuggestions[fieldId];
+    const text = suggestions[currentAIIndex[fieldId] % suggestions.length];
+    currentAIIndex[fieldId]++;
+    
+    field.value = '';
+    if (field.tagName === 'TEXTAREA') { field.style.height = 'auto'; }
+    field.focus();
+    
+    btn.classList.add('typing');
+    btn.innerHTML = `<span style="font-size:11px">&#10022;</span> Typing...`;
+    
+    let i = 0;
+    const speed = fieldId === 'subject' ? 36 : 16;
+    function typeChar() {
+        if (i < text.length) {
+            field.value += text[i];
+            if (field.tagName === 'TEXTAREA') {
+                field.style.height = 'auto';
+                field.style.height = field.scrollHeight + 'px';
+            }
+            i++;
+            setTimeout(typeChar, speed + Math.random() * 22);
+        } else {
+            btn.classList.remove('typing');
+            btn.innerHTML = `<span style="font-size:11px">&#10022;</span> Suggest Another`;
+        }
+    }
+    typeChar();
+}
+</script>
 
 <script>
 const BOT_LOGS={claim:[{text:"Initializing claim submission run...",type:"info",speed:200},{text:"Connecting to AWS SQS Claim queue client...",type:"info",speed:300},{text:"Successfully polled message ID: sqs-claim-482a9b",type:"system",speed:400},{text:"Received claim data payload validation checklist...",type:"system",speed:200},{text:"Patient Name: [MASKED] (HIPAA Secure)",type:"secure",speed:300},{text:"Portal login triggered: UnitedHealthcare Commercial",type:"info",speed:500},{text:"Filling input elements dynamically...",type:"info",speed:400},{text:"Checking form CAPTCHA presence...",type:"system",speed:300},{text:"CAPTCHA element detected. Launching solver fallback...",type:"recover",speed:600},{text:"CAPTCHA solved successfully in 1.4s.",type:"recover",speed:300},{text:"Verifying form data fields before submission...",type:"info",speed:400},{text:"Submitting CMS-1500 layout form data...",type:"info",speed:700},{text:"SUCCESS: Claim submitted. Transaction ID: TX-84729104",type:"success",speed:500},{text:"Extracting submit proof PDF confirmation...",type:"system",speed:400},{text:"Uploading receipt to AWS S3: claims-receipts-2026/...",type:"system",speed:300},{text:"Sending callback status to webhooks...",type:"info",speed:400},{text:"Execution finished. Worker thread released.",type:"success",speed:300}],eob:[{text:"Starting structured EOB data extraction job...",type:"info",speed:200},{text:"Downloading raw PDF content from portal folder...",type:"info",speed:500},{text:"Parsing binary PDF streams directly (replacing OCR)...",type:"system",speed:400},{text:"Reading tabular payment items on Page 1...",type:"system",speed:300},{text:"Detected 4 claim lines. Normalizing coordinates...",type:"info",speed:250},{text:"Extracting: Charged, Allowed, Paid, Copay, Coinsurance",type:"system",speed:450},{text:"Standardizing to canonical ClaimRecord envelope...",type:"info",speed:300},{text:"JSON Payload schema validation...",type:"info",speed:200},{text:"SUCCESS: Payload conforms to HIPAA claim schemas.",type:"secure",speed:300},{text:"Reconciliation Check: Sum matched EOB totals ($450.00).",type:"success",speed:400},{text:"Updating claims repository databases...",type:"info",speed:500},{text:"Job completed. ClaimRecord envelope outputted.",type:"success",speed:300}],heal:[{text:"Starting self-healing retrieval process...",type:"info",speed:200},{text:"Accessing target BlueCross BlueShield claim portal...",type:"info",speed:400},{text:"Exception: selector not found: '#claims-grid-tbody'",type:"error",speed:500},{text:"Triggering error classification and recovery logic...",type:"recover",speed:400},{text:"Analyzing DOM tree structure layout shifts...",type:"recover",speed:500},{text:"Fuzzy match found: 'table.data-grid-claims tbody'",type:"recover",speed:600},{text:"Self-healing selector updated. Retrying fetch...",type:"recover",speed:300},{text:"Successfully navigated pagination index link.",type:"system",speed:400},{text:"Retrieved 15 claim statuses successfully.",type:"success",speed:300},{text:"Logging diagnostic coordinates for POM update...",type:"system",speed:350},{text:"Job finished safely without manual overhead.",type:"success",speed:200}]};
