@@ -6,182 +6,27 @@
     <title>Sreerag E G | RPA &amp; Automation Architect</title>
     <meta name="description" content="Portfolio of Sreerag E G - RPA &amp; Automation Engineer specializing in Python, FastAPI, Playwright, Selenium, AWS ECS/SQS, and HIPAA-compliant US Healthcare automation.">
     <meta name="keywords" content="RPA, Automation Engineer, Python, Playwright, Selenium, FastAPI, Django, AWS, ECS, SQS, HIPAA, US Healthcare">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://jdgitfslhkllqznwycrg.supabase.co https://formspree.io; img-src 'self' data: https://api.dicebear.com;">
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sreerag E G | RPA &amp; Automation Architect">
+    <meta property="og:description" content="Portfolio of Sreerag E G — RPA &amp; Automation Engineer specializing in Python, FastAPI, Playwright, AWS ECS/SQS, and HIPAA-compliant US Healthcare automation.">
+    <meta property="og:image" content="https://sreerageg.github.io/portfolio/assets/img/myphoto.jpg">
+    <meta property="og:url" content="https://sreerageg.github.io/portfolio/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sreerag E G | RPA &amp; Automation Architect">
+    <meta name="twitter:description" content="RPA &amp; Automation Engineer | Python · FastAPI · Playwright · AWS ECS/SQS · HIPAA Healthcare">
+    <meta name="twitter:image" content="https://sreerageg.github.io/portfolio/assets/img/myphoto.jpg">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: "#040610",
-                        brandBlue: "#0ea5e9",
-                        brandViolet: "#a855f7",
-                        brandGreen: "#10b981",
-                        brandAmber: "#f59e0b",
-                    },
-                    fontFamily: {
-                        sans: ["Plus Jakarta Sans", "sans-serif"],
-                        heading: ["Outfit", "sans-serif"],
-                        mono: ["Fira Code", "monospace"]
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        section { scroll-margin-top: 100px; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.3); border-radius: 999px; }
-        .dark ::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.22); }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(14,165,233,0.6); }
-        :root {
-            --grid-color: rgba(15,23,42,0.05);
-            --blob1: rgba(6,182,212,0.22);
-            --blob2: rgba(168,85,247,0.18);
-            --blob3: rgba(16,185,129,0.13);
-        }
-        .dark {
-            --grid-color: rgba(255,255,255,0.018);
-            --blob1: rgba(6,182,212,0.08);
-            --blob2: rgba(168,85,247,0.08);
-            --blob3: rgba(16,185,129,0.05);
-        }
-        @keyframes blob-float { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(45px,-70px) scale(1.12)} 66%{transform:translate(-35px,35px) scale(0.92)} }
-        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-        @keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
-        @keyframes pulse-glow { 0%,100%{opacity:.4;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
-        @keyframes dash { to{stroke-dashoffset:-40} }
-        @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
-        @keyframes gradient-shift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-        @keyframes ring-cw { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-        @keyframes ring-ccw { from{transform:rotate(360deg)} to{transform:rotate(0deg)} }
-        .blob-1{animation:blob-float 14s ease-in-out infinite}
-        .blob-2{animation:blob-float 18s ease-in-out infinite 3s}
-        .blob-3{animation:blob-float 12s ease-in-out infinite 6s}
-        .typing-cursor::after{content:"|";animation:blink .9s step-end infinite;color:#0ea5e9;font-weight:300}
-        .flow-line{stroke-dasharray:8,4;animation:dash 1.5s linear infinite}
-        .glass{background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border:1px solid rgba(15,23,42,.09);transition:all .35s cubic-bezier(.4,0,.2,1)}
-        .dark .glass{background:rgba(8,13,28,.55);border:1px solid rgba(255,255,255,.07)}
-        .glass-nav{background:rgba(255,255,255,.82);backdrop-filter:blur(24px) saturate(200%);-webkit-backdrop-filter:blur(24px) saturate(200%);border:1px solid rgba(15,23,42,.1);box-shadow:0 4px 24px -4px rgba(0,0,0,.04)}
-        .dark .glass-nav{background:rgba(4,6,16,.78);border:1px solid rgba(255,255,255,.06);box-shadow:0 4px 24px -4px rgba(0,0,0,.5)}
-        .card-hover{transition:all .4s cubic-bezier(.4,0,.2,1)}
-        .card-hover:hover{transform:translateY(-6px) scale(1.005);box-shadow:0 28px 50px -15px rgba(14,165,233,.15);border-color:rgba(14,165,233,.35)!important}
-        .dark .card-hover:hover{box-shadow:0 28px 50px -15px rgba(14,165,233,.25)}
-        .glow-text{text-shadow:0 0 40px rgba(14,165,233,.2)}
-        .dark .glow-text{text-shadow:0 0 50px rgba(14,165,233,.4)}
-        .gradient-text-animate{background:linear-gradient(135deg,#0ea5e9,#a855f7,#10b981,#0ea5e9);background-size:300% 300%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradient-shift 6s ease infinite}
-        .nav-link{position:relative}
-        .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0%;height:2px;background:linear-gradient(90deg,#0ea5e9,#a855f7);border-radius:999px;transition:width .3s ease}
-        .nav-link:hover::after,.nav-link.active::after{width:100%}
-        .nav-link.active{color:#0ea5e9!important}
-        .skill-pill{transition:all .2s ease;cursor:default}
-        .skill-pill:hover{transform:translateY(-2px) scale(1.06)}
-        .avatar-ring-outer{animation:ring-cw 14s linear infinite}
-        .avatar-ring-inner{animation:ring-ccw 9s linear infinite}
-        .float-badge-1{animation:float 6s ease-in-out infinite}
-        .float-badge-2{animation:float2 7s ease-in-out infinite 2s}
-        .available-dot{width:8px;height:8px;background:#10b981;border-radius:50%;display:inline-block;animation:pulse-glow 2s ease-in-out infinite}
-        .section-label{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-        .btn-primary{background:linear-gradient(135deg,#0ea5e9,#38bdf8);box-shadow:0 8px 24px -6px rgba(14,165,233,.45);transition:all .3s ease}
-        .btn-primary:hover{background:linear-gradient(135deg,#0284c7,#0ea5e9);box-shadow:0 12px 32px -6px rgba(14,165,233,.6);transform:translateY(-2px) scale(1.02)}
-        .btn-primary:active{transform:scale(.98)}
-        .project-icon-wrap{transition:all .3s ease}
-        .project-card:hover .project-icon-wrap{transform:scale(1.12)}
-        .timeline-line{position:relative}
-        .timeline-line::before{content:'';position:absolute;left:-1px;top:0;height:100%;width:2px;background:linear-gradient(180deg,#0ea5e9 0%,#a855f7 50%,#10b981 100%);opacity:.6}
-        .grid-pattern{background-image:linear-gradient(var(--grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--grid-color) 1px,transparent 1px);background-size:24px 24px}
-        .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
-        .reveal.visible{opacity:1;transform:translateY(0)}
-        .footer-grad{background:linear-gradient(135deg,rgba(14,165,233,.05),rgba(168,85,247,.05),rgba(16,185,129,.03))}
-        .dark .footer-grad{background:linear-gradient(135deg,rgba(14,165,233,.04),rgba(168,85,247,.04))}
-        .ai-prefill-btn {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 9px;
-            border-radius: 8px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            border: 1px solid rgba(14,165,233,0.25);
-            background: rgba(14,165,233,0.08);
-            color: #0ea5e9;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-            z-index: 10;
-            backdrop-filter: blur(6px);
-        }
-        .ai-prefill-btn:hover {
-            background: rgba(14,165,233,0.18);
-            border-color: rgba(14,165,233,0.5);
-            box-shadow: 0 0 12px rgba(14,165,233,0.2);
-            transform: translateY(-50%) scale(1.05);
-        }
-        .ai-prefill-btn.typing {
-            background: rgba(168,85,247,0.12);
-            border-color: rgba(168,85,247,0.4);
-            color: #a855f7;
-            pointer-events: none;
-        }
-        .ai-prefill-btn-msg {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            transform: none;
-        }
-        .ai-prefill-btn-msg:hover {
-            transform: scale(1.05);
-        }
-        .experience-stat-card {
-            background-color: rgba(241, 245, 249, 0.95) !important;
-            border: 1px solid rgba(226, 232, 240, 0.8) !important;
-        }
-        .dark .experience-stat-card {
-            background-color: rgba(15, 23, 42, 0.75) !important;
-            border: 1px solid rgba(51, 65, 85, 0.6) !important;
-        }
-        .bot-profile-btn {
-            background-color: rgba(248, 250, 252, 0.5) !important;
-            border: 1px solid rgba(226, 232, 240, 0.6) !important;
-        }
-        .bot-profile-btn:hover {
-            background-color: rgba(241, 245, 249, 0.8) !important;
-        }
-        .dark .bot-profile-btn {
-            background-color: rgba(15, 23, 42, 0.5) !important;
-            border: 1px solid rgba(51, 65, 85, 0.4) !important;
-        }
-        .dark .bot-profile-btn:hover {
-            background-color: rgba(30, 41, 59, 0.7) !important;
-            border-color: rgba(14, 165, 233, 0.3) !important;
-        }
-        .bot-profile-btn-active {
-            border-color: rgba(14, 165, 233, 0.4) !important;
-            background-color: rgba(14, 165, 233, 0.05) !important;
-        }
-        .dark .bot-profile-btn-active {
-            background-color: rgba(14, 165, 233, 0.12) !important;
-            border-color: rgba(14, 165, 233, 0.5) !important;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.96); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-    </style>
+    
+    
+    
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="bg-slate-50 dark:bg-darkBg text-slate-600 dark:text-slate-300 transition-colors duration-500 overflow-x-hidden min-h-screen font-sans selection:bg-sky-200 dark:selection:bg-brandBlue/30 selection:text-slate-900 dark:selection:text-white">
 
@@ -212,13 +57,20 @@
         </div>
         <div class="flex items-center space-x-3">
             <a href="assets/resume/Sreerag_EG_resume_rpa_updated.pdf" download class="hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-brandBlue/10 text-brandBlue border border-brandBlue/20 hover:bg-brandBlue hover:text-white transition-all">
-                <i class="fas fa-download text-[10px]"></i> Resume
+                <svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> Resume
             </a>
             <button id="theme-toggle" class="glass w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brandBlue hover:scale-105 active:scale-95 transition-all" aria-label="Toggle theme">
-                <i id="theme-toggle-icon" class="fas fa-moon text-base"></i>
+                <!-- Sun SVG (visible in dark mode) -->
+                <svg id="theme-toggle-sun" class="w-5 h-5 text-yellow-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+                </svg>
+                <!-- Moon SVG (visible in light mode) -->
+                <svg id="theme-toggle-moon" class="w-5 h-5 text-slate-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
             </button>
-            <button id="mobile-menu-toggle" class="md:hidden glass w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brandBlue active:scale-95 transition-all" aria-label="Open menu">
-                <i class="fas fa-bars text-base"></i>
+            <button id="mobile-menu-toggle" class="md:hidden glass w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brandBlue active:scale-95 transition-all" aria-label="Open menu" aria-expanded="false">
+                <svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
     </nav>
@@ -265,14 +117,14 @@
                     RPA &amp; Automation Engineer with production-grade experience building <strong class="text-slate-800 dark:text-slate-200 font-semibold">HIPAA-compliant</strong> bot systems for US Healthcare RCM &mdash; specialized in <strong class="text-slate-800 dark:text-slate-200 font-semibold">FastAPI</strong>, <strong class="text-slate-800 dark:text-slate-200 font-semibold">AWS ECS/SQS</strong>, and <strong class="text-slate-800 dark:text-slate-200 font-semibold">Playwright</strong>.
                 </p>
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
-                    <a href="#contact" class="btn-primary px-7 py-3.5 rounded-xl text-white font-bold text-sm"><i class="fas fa-paper-plane mr-2"></i>Get In Touch</a>
-                    <a href="assets/resume/Sreerag_EG_resume_rpa_updated.pdf" download class="px-7 py-3.5 rounded-xl glass border-slate-200 dark:border-slate-700/60 font-bold text-sm text-slate-700 dark:text-slate-200 hover:bg-brandBlue/5 hover:border-brandBlue/30 hover:scale-[1.02] active:scale-95 transition-all"><i class="fas fa-download mr-2"></i>Download Resume</a>
+                    <a href="#contact" class="btn-primary px-7 py-3.5 rounded-xl text-white font-bold text-sm"><svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>Get In Touch</a>
+                    <a href="assets/resume/Sreerag_EG_resume_rpa_updated.pdf" download class="px-7 py-3.5 rounded-xl glass border-slate-200 dark:border-slate-700/60 font-bold text-sm text-slate-700 dark:text-slate-200 hover:bg-brandBlue/5 hover:border-brandBlue/30 hover:scale-[1.02] active:scale-95 transition-all"><svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>Download Resume</a>
                 </div>
                 <div class="flex items-center justify-center lg:justify-start gap-3 pt-2">
-                    <a href="mailto:sreerageg@gmail.com" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-brandBlue hover:scale-110 active:scale-95 transition-all" aria-label="Email"><i class="fas fa-envelope text-base"></i></a>
-                    <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#0077B5] hover:scale-110 active:scale-95 transition-all" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-base"></i></a>
-                    <a href="https://github.com/sreerageg" target="_blank" rel="noopener" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 hover:scale-110 active:scale-95 transition-all" aria-label="GitHub"><i class="fab fa-github text-base"></i></a>
-                    <a href="tel:+919567870963" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-brandGreen hover:scale-110 active:scale-95 transition-all" aria-label="Phone"><i class="fas fa-phone text-base"></i></a>
+                    <a href="mailto:sreerageg@gmail.com" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-brandBlue hover:scale-110 active:scale-95 transition-all" aria-label="Email"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></a>
+                    <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener noreferrer" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#0077B5] hover:scale-110 active:scale-95 transition-all" aria-label="LinkedIn"><svg class="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="https://github.com/sreerageg" target="_blank" rel="noopener noreferrer" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 hover:scale-110 active:scale-95 transition-all" aria-label="GitHub"><svg class="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                    <a href="tel:+919567870963" class="glass w-11 h-11 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-brandGreen hover:scale-110 active:scale-95 transition-all" aria-label="Phone"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></a>
                 </div>
             </div>
             <!-- Profile Card -->
@@ -282,7 +134,7 @@
                 <div class="absolute inset-8 rounded-full bg-gradient-to-tr from-brandBlue/15 to-brandViolet/15 dark:from-brandBlue/25 dark:to-brandViolet/25 blur-xl"></div>
                 <div class="glass relative z-10 w-56 h-56 sm:w-60 sm:h-60 rounded-[36px] flex flex-col justify-center items-center border-slate-200/80 dark:border-slate-700/60 bg-white/90 dark:bg-slate-950/80 shadow-2xl p-4 gap-2">
                     <div class="w-20 h-20 rounded-full border-4 border-white dark:border-slate-800 shadow-xl overflow-hidden ring-2 ring-brandBlue/30">
-                        <img src="assets/img/myphoto.jpg" alt="Sreerag E G" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=sreerag&backgroundColor=0ea5e9'">
+                        <img src="assets/img/myphoto.jpg" alt="Sreerag E G" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=sreerag&backgroundColor=0ea5e9'">
                     </div>
                     <h3 class="font-heading font-black text-lg text-slate-900 dark:text-white mt-1">Sreerag E G</h3>
                     <p class="text-[11px] font-extrabold uppercase tracking-widest text-brandBlue">RPA / Python Architect</p>
@@ -295,7 +147,7 @@
                     </div>
                 </div>
                 <div class="float-badge-1 absolute -bottom-2 -left-6 glass px-3 py-2 rounded-xl border-slate-200 dark:border-slate-700/60 bg-white/90 dark:bg-slate-900/90 shadow-lg flex items-center gap-2">
-                    <span class="w-6 h-6 rounded-lg bg-brandBlue/10 text-brandBlue text-[11px] flex items-center justify-center"><i class="fas fa-robot"></i></span>
+                    <span class="w-6 h-6 rounded-lg bg-brandBlue/10 text-brandBlue text-[11px] flex items-center justify-center"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V9a2 2 0 00-2-2H7a2 2 0 00-2 2v8a2 2 0 002 2zM9 9h.01M15 9h.01M8 13h8"></path></svg></span>
                     <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">80+ hrs/mo saved</span>
                 </div>
                 <div class="float-badge-2 absolute -top-2 -right-6 glass px-3 py-2 rounded-xl border-slate-200 dark:border-slate-700/60 bg-white/90 dark:bg-slate-900/90 shadow-lg flex items-center gap-2">
@@ -332,7 +184,7 @@
 <!-- ================================================================ -->
 <section id="console" class="space-y-10 reveal">
     <div class="text-center space-y-3">
-        <span class="section-label bg-brandBlue/10 text-brandBlue border border-brandBlue/20"><i class="fas fa-terminal text-[10px]"></i> Interactive Live Demo</span>
+        <span class="section-label bg-brandBlue/10 text-brandBlue border border-brandBlue/20"><svg class="w-3 h-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> Interactive Live Demo</span>
         <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">RPA Bot <span class="bg-gradient-to-r from-brandBlue to-brandViolet bg-clip-text text-transparent">Simulator Console</span></h2>
         <p class="text-slate-500 dark:text-slate-400 text-base max-w-xl mx-auto">Witness real-time simulated logs of production-grade process automations in action.</p>
     </div>
@@ -340,13 +192,13 @@
         <!-- Bot Selector -->
         <div class="w-full lg:w-[38%] flex flex-col gap-5">
             <div>
-                <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2 mb-1"><i class="fas fa-sliders-h text-brandBlue text-sm"></i> Select Automation Profile</h3>
+                <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2 mb-1"><svg class="w-4 h-4 inline-block text-brandBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg> Select Automation Profile</h3>
                 <p class="text-xs text-slate-400">Choose a configuration to simulate live execution logs.</p>
             </div>
             <div class="space-y-3 flex-1">
                 <button id="btn-bot-claim" onclick="selectBotProfile('claim')" class="bot-btn bot-active bot-profile-btn-active w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-start gap-3 group relative overflow-hidden">
                     <div class="bot-indicator absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-brandBlue"></div>
-                    <div class="p-2.5 rounded-xl bg-brandBlue/10 text-brandBlue flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fas fa-file-invoice-dollar text-sm"></i></div>
+                    <div class="p-2.5 rounded-xl bg-brandBlue/10 text-brandBlue flex-shrink-0 group-hover:scale-110 transition-transform"><svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2zM12 7v6m0 0v1.5a1.5 1.5 0 01-3 0V11a1.5 1.5 0 013 0z"></path></svg></div>
                     <div class="min-w-0">
                         <span class="block text-[10px] font-bold text-slate-400 font-mono">claim_submitter.py</span>
                         <span class="block text-sm font-bold text-slate-900 dark:text-white mt-0.5">Commercial Portal Claim Submit</span>
@@ -355,7 +207,7 @@
                 </button>
                 <button id="btn-bot-eob" onclick="selectBotProfile('eob')" class="bot-btn bot-profile-btn w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-start gap-3 group relative overflow-hidden">
                     <div class="bot-indicator absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-transparent"></div>
-                    <div class="p-2.5 rounded-xl bg-slate-200/50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fas fa-file-medical-alt text-sm"></i></div>
+                    <div class="p-2.5 rounded-xl bg-slate-200/50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 flex-shrink-0 group-hover:scale-110 transition-transform"><svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2zM9 8h4"></path></svg></div>
                     <div class="min-w-0">
                         <span class="block text-[10px] font-bold text-slate-400 font-mono">eob_data_extractor.py</span>
                         <span class="block text-sm font-bold text-slate-800 dark:text-white mt-0.5">EOB Data Extraction Pipeline</span>
@@ -364,7 +216,7 @@
                 </button>
                 <button id="btn-bot-heal" onclick="selectBotProfile('heal')" class="bot-btn bot-profile-btn w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-start gap-3 group relative overflow-hidden">
                     <div class="bot-indicator absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-transparent"></div>
-                    <div class="p-2.5 rounded-xl bg-slate-200/50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fas fa-heartbeat text-sm"></i></div>
+                    <div class="p-2.5 rounded-xl bg-slate-200/50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 flex-shrink-0 group-hover:scale-110 transition-transform"><svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></div>
                     <div class="min-w-0">
                         <span class="block text-[10px] font-bold text-slate-400 font-mono">self_healing_agent.py</span>
                         <span class="block text-sm font-bold text-slate-800 dark:text-white mt-0.5">Self-Healing Claim Retrieval</span>
@@ -373,7 +225,15 @@
                 </button>
             </div>
             <button id="run-bot-btn" onclick="triggerBotExecution()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold flex items-center justify-center gap-3 text-sm">
-                <i class="fas fa-play" id="btn-icon-run"></i><span id="btn-text-run">Execute Bot Script</span>
+                <!-- Play SVG -->
+                <svg id="btn-icon-play" class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                </svg>
+                <!-- Spinner SVG (hidden by default) -->
+                <svg id="btn-icon-spinner" class="animate-spin h-4 w-4 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg><span id="btn-text-run">Execute Bot Script</span>
             </button>
         </div>
         <!-- Terminal -->
@@ -384,7 +244,7 @@
                     <span class="ml-2 font-mono text-xs text-slate-500 dark:text-slate-400 font-medium" id="terminal-title">sreerag@orchestrator:~/bots/claim_submitter.py</span>
                 </div>
                 <div class="flex items-center gap-2 font-mono text-xs">
-                    <span class="flex items-center gap-1.5 text-slate-400"><i class="fas fa-circle text-[7px] text-brandGreen" id="terminal-status-dot"></i><span id="terminal-status-text" class="text-slate-500 dark:text-slate-400">READY</span></span>
+                    <span class="flex items-center gap-1.5 text-slate-400"><span class="w-2 h-2 rounded-full inline-block bg-brandGreen" id="terminal-status-dot"></span><span id="terminal-status-text" class="text-slate-500 dark:text-slate-400">READY</span></span>
                     <span class="text-slate-300 dark:text-slate-600">v2.1</span>
                 </div>
             </div>
@@ -413,7 +273,7 @@
 <!-- ================================================================ -->
 <section id="architecture" class="space-y-10 reveal">
     <div class="text-center space-y-3">
-        <span class="section-label bg-brandViolet/10 text-brandViolet border border-brandViolet/20"><i class="fas fa-sitemap text-[10px]"></i> Infrastructure Design</span>
+        <span class="section-label bg-brandViolet/10 text-brandViolet border border-brandViolet/20"><svg class="w-3 h-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.97 5.97 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"></path></svg> Infrastructure Design</span>
         <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Distributed Bot <span class="bg-gradient-to-r from-brandViolet to-fuchsia-400 bg-clip-text text-transparent">Orchestration System</span></h2>
         <p class="text-slate-500 dark:text-slate-400 text-base max-w-xl mx-auto">Click any component to explore how claims and scrapers are dispatched at scale.</p>
     </div>
@@ -494,7 +354,7 @@
 <!-- ================================================================ -->
 <section id="experience" class="space-y-10">
     <div class="text-center space-y-3 reveal">
-        <span class="section-label bg-brandBlue/10 text-brandBlue border border-brandBlue/20"><i class="fas fa-briefcase text-[10px]"></i> Career History</span>
+        <span class="section-label bg-brandBlue/10 text-brandBlue border border-brandBlue/20"><svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> Career History</span>
         <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Professional <span class="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">Experience</span></h2>
         <p class="text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">Building high-reliability automation systems across enterprise teams.</p>
     </div>
@@ -517,11 +377,11 @@
                     <div class="text-center p-3 rounded-2xl experience-stat-card"><div class="text-xl font-black text-brandGreen">80hr+</div><div class="text-[9px] text-slate-400 dark:text-slate-400 uppercase font-bold mt-0.5">Saved/Month</div></div>
                 </div>
                 <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandBlue text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Bot Orchestration Gateway:</strong> Architected a high-performance FastAPI gateway layer routing 100+ daily jobs dynamically based on incoming JSON payloads.</span></li>
-                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandBlue text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Containerized Worker Pools:</strong> Orchestrated containers on AWS ECS communicating via AWS SQS to run 500+ asynchronous portal transactions weekly.</span></li>
-                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandBlue text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">HIPAA Compliance:</strong> Implemented data masking, encryption, and secure screenshot evidence captures for HIPAA auditing.</span></li>
-                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandBlue text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Self-Healing Selectors:</strong> Engineered POM-based selector recovery logic decreasing maintenance overhead by 30%.</span></li>
-                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandBlue text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Billing Analytics:</strong> Built Pandas pipelines cutting billing system mismatches by 25%.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-2.5 h-2.5 inline-block text-brandBlue mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg><span><strong class="text-slate-800 dark:text-slate-200">Bot Orchestration Gateway:</strong> Architected a high-performance FastAPI gateway layer routing 100+ daily jobs dynamically based on incoming JSON payloads.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-2.5 h-2.5 inline-block text-brandBlue mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg><span><strong class="text-slate-800 dark:text-slate-200">Containerized Worker Pools:</strong> Orchestrated containers on AWS ECS communicating via AWS SQS to run 500+ asynchronous portal transactions weekly.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-2.5 h-2.5 inline-block text-brandBlue mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg><span><strong class="text-slate-800 dark:text-slate-200">HIPAA Compliance:</strong> Implemented data masking, encryption, and secure screenshot evidence captures for HIPAA auditing.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-2.5 h-2.5 inline-block text-brandBlue mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg><span><strong class="text-slate-800 dark:text-slate-200">Self-Healing Selectors:</strong> Engineered POM-based selector recovery logic decreasing maintenance overhead by 30%.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-2.5 h-2.5 inline-block text-brandBlue mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg><span><strong class="text-slate-800 dark:text-slate-200">Billing Analytics:</strong> Built Pandas pipelines cutting billing system mismatches by 25%.</span></li>
                 </ul>
             </div>
         </div>
@@ -542,9 +402,9 @@
                     <div class="text-center p-3 rounded-2xl experience-stat-card"><div class="text-xl font-black text-slate-900 dark:text-white">200+</div><div class="text-[9px] text-slate-400 dark:text-slate-400 uppercase font-bold mt-0.5">Users</div></div>
                 </div>
                 <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandViolet text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">API Engineering:</strong> Developed REST endpoints using Django Rest Framework and MySQL, optimizing response latency by 20%.</span></li>
-                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandViolet text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Auth Infrastructure:</strong> Configured secure OAuth 2.0 (Google OAuth) onboarding 200+ internal users.</span></li>
-                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandViolet text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Team Integration:</strong> Implemented interactive Swagger schemas and reviewed 15+ pull requests.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-2.5 h-2.5 inline-block text-brandViolet mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg><span><strong class="text-slate-800 dark:text-slate-200">API Engineering:</strong> Developed REST endpoints using Django Rest Framework and MySQL, optimizing response latency by 20%.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-2.5 h-2.5 inline-block text-brandViolet mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg><span><strong class="text-slate-800 dark:text-slate-200">Auth Infrastructure:</strong> Configured secure OAuth 2.0 (Google OAuth) onboarding 200+ internal users.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-2.5 h-2.5 inline-block text-brandViolet mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg><span><strong class="text-slate-800 dark:text-slate-200">Team Integration:</strong> Implemented interactive Swagger schemas and reviewed 15+ pull requests.</span></li>
                 </ul>
             </div>
         </div>
@@ -560,8 +420,8 @@
                     <span class="px-4 py-2 rounded-xl text-xs font-bold bg-brandGreen/10 text-brandGreen border border-brandGreen/20 shrink-0 w-fit">May 2024 &ndash; Nov 2024</span>
                 </div>
                 <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandGreen text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">Legacy Bot Migration:</strong> Re-architected 30+ brittle Selenium scripts into POM-based frameworks, cutting failure rates by 50%.</span></li>
-                    <li class="flex items-start gap-3"><i class="fas fa-chevron-right text-brandGreen text-[10px] mt-1 shrink-0"></i><span><strong class="text-slate-800 dark:text-slate-200">REST API Integrations:</strong> Connected verification APIs to automation workflows, boosting processing efficiency by 15%.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-2.5 h-2.5 inline-block text-brandGreen mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg><span><strong class="text-slate-800 dark:text-slate-200">Legacy Bot Migration:</strong> Re-architected 30+ brittle Selenium scripts into POM-based frameworks, cutting failure rates by 50%.</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-2.5 h-2.5 inline-block text-brandGreen mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg><span><strong class="text-slate-800 dark:text-slate-200">REST API Integrations:</strong> Connected verification APIs to automation workflows, boosting processing efficiency by 15%.</span></li>
                 </ul>
             </div>
         </div>
@@ -573,14 +433,14 @@
 <!-- ================================================================ -->
 <section id="projects" class="space-y-10 reveal">
     <div class="text-center space-y-3">
-        <span class="section-label bg-brandGreen/10 text-brandGreen border border-brandGreen/20"><i class="fas fa-code-branch text-[10px]"></i> Selected Works</span>
+        <span class="section-label bg-brandGreen/10 text-brandGreen border border-brandGreen/20"><svg class="w-3 h-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7a3 3 0 100-6 3 3 0 000 6zM8 7V17M8 17a3 3 0 100 6 3 3 0 000-6zM16 17a3 3 0 100-6 3 3 0 000 6zM8 12h8V11"></path></svg> Selected Works</span>
         <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Featured <span class="bg-gradient-to-r from-brandGreen to-brandBlue bg-clip-text text-transparent">Projects</span></h2>
         <p class="text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">Demonstrating automation engineering and robust backend architecture.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="project-card glass card-hover rounded-3xl p-7 flex flex-col border-slate-200/60 dark:border-slate-700/40 group">
             <div class="flex items-start justify-between mb-4">
-                <div class="project-icon-wrap p-3 rounded-2xl bg-brandBlue/10 text-brandBlue group-hover:bg-brandBlue group-hover:text-white transition-all duration-300"><i class="fas fa-database text-xl"></i></div>
+                <div class="project-icon-wrap p-3 rounded-2xl bg-brandBlue/10 text-brandBlue group-hover:bg-brandBlue group-hover:text-white transition-all duration-300"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg></div>
                 <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-brandBlue/10 text-brandBlue border border-brandBlue/20">Production</span>
             </div>
             <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white group-hover:text-brandBlue transition-colors mb-3">Structured Claim-Data Extraction Pipeline</h3>
@@ -591,12 +451,12 @@
                     <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800/30">FastAPI</span>
                     <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800/30">Playwright</span>
                 </div>
-                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandBlue hover:text-sky-500 transition-colors">Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandBlue hover:text-sky-500 transition-colors">Details <svg class="w-3 h-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
             </div>
         </div>
         <div class="project-card glass card-hover rounded-3xl p-7 flex flex-col border-slate-200/60 dark:border-slate-700/40 group">
             <div class="flex items-start justify-between mb-4">
-                <div class="project-icon-wrap p-3 rounded-2xl bg-brandViolet/10 text-brandViolet group-hover:bg-brandViolet group-hover:text-white transition-all duration-300"><i class="fas fa-project-diagram text-xl"></i></div>
+                <div class="project-icon-wrap p-3 rounded-2xl bg-brandViolet/10 text-brandViolet group-hover:bg-brandViolet group-hover:text-white transition-all duration-300"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg></div>
                 <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-brandViolet/10 text-brandViolet border border-brandViolet/20">Scalable</span>
             </div>
             <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white group-hover:text-brandViolet transition-colors mb-3">Multi-Portal RPA Bot Orchestrator Gateway</h3>
@@ -607,12 +467,12 @@
                     <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800/30">AWS SQS</span>
                     <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800/30">ECS</span>
                 </div>
-                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandViolet hover:text-fuchsia-400 transition-colors">Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandViolet hover:text-fuchsia-400 transition-colors">Details <svg class="w-3 h-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
             </div>
         </div>
         <div class="project-card glass card-hover rounded-3xl p-7 flex flex-col border-slate-200/60 dark:border-slate-700/40 group">
             <div class="flex items-start justify-between mb-4">
-                <div class="project-icon-wrap p-3 rounded-2xl bg-brandGreen/10 text-brandGreen group-hover:bg-brandGreen group-hover:text-white transition-all duration-300"><i class="fas fa-wrench text-xl"></i></div>
+                <div class="project-icon-wrap p-3 rounded-2xl bg-brandGreen/10 text-brandGreen group-hover:bg-brandGreen group-hover:text-white transition-all duration-300"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
                 <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-brandGreen/10 text-brandGreen border border-brandGreen/20">Migration</span>
             </div>
             <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white group-hover:text-brandGreen transition-colors mb-3">Legacy Page Object Model (POM) Migration</h3>
@@ -623,12 +483,12 @@
                     <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30">Selenium</span>
                     <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/30">POM Design</span>
                 </div>
-                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandGreen hover:text-emerald-400 transition-colors">Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandGreen hover:text-emerald-400 transition-colors">Details <svg class="w-3 h-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
             </div>
         </div>
         <div class="project-card glass card-hover rounded-3xl p-7 flex flex-col border-slate-200/60 dark:border-slate-700/40 group">
             <div class="flex items-start justify-between mb-4">
-                <div class="project-icon-wrap p-3 rounded-2xl bg-brandAmber/10 text-brandAmber group-hover:bg-brandAmber group-hover:text-white transition-all duration-300"><i class="fas fa-eye text-xl"></i></div>
+                <div class="project-icon-wrap p-3 rounded-2xl bg-brandAmber/10 text-brandAmber group-hover:bg-brandAmber group-hover:text-white transition-all duration-300"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></div>
                 <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-brandAmber/10 text-brandAmber border border-brandAmber/20">Accessibility</span>
             </div>
             <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white group-hover:text-brandAmber transition-colors mb-3">AVI &ndash; App for Visually Impaired</h3>
@@ -639,7 +499,7 @@
                     <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800/30">Python</span>
                     <span class="skill-pill px-2.5 py-1 rounded-lg text-[10px] font-bold bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800/30">CV</span>
                 </div>
-                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandAmber hover:text-orange-400 transition-colors">Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                <a href="#contact" class="flex items-center gap-1.5 text-xs font-bold text-brandAmber hover:text-orange-400 transition-colors">Details <svg class="w-3 h-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
             </div>
         </div>
     </div>
@@ -650,13 +510,13 @@
 <!-- ================================================================ -->
 <section id="skills" class="space-y-10 reveal">
     <div class="text-center space-y-3">
-        <span class="section-label bg-brandViolet/10 text-brandViolet border border-brandViolet/20"><i class="fas fa-layer-group text-[10px]"></i> Technical Stack</span>
+        <span class="section-label bg-brandViolet/10 text-brandViolet border border-brandViolet/20"><svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg> Technical Stack</span>
         <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Core <span class="bg-gradient-to-r from-brandViolet to-brandBlue bg-clip-text text-transparent">Competencies</span></h2>
         <p class="text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">Languages, automation frameworks, cloud infrastructure, and domain expertise.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="glass card-hover rounded-3xl p-6 border-slate-200/60 dark:border-slate-700/40 space-y-5 group">
-            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-2xl bg-brandBlue/10 text-brandBlue flex items-center justify-center group-hover:bg-brandBlue group-hover:text-white transition-all duration-300"><i class="fas fa-robot"></i></div><h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">RPA &amp; Automation</h3></div>
+            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-2xl bg-brandBlue/10 text-brandBlue flex items-center justify-center group-hover:bg-brandBlue group-hover:text-white transition-all duration-300"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V9a2 2 0 00-2-2H7a2 2 0 00-2 2v8a2 2 0 002 2zM9 9h.01M15 9h.01M8 13h8"></path></svg></div><h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">RPA &amp; Automation</h3></div>
             <div class="flex flex-wrap gap-2">
                 <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/30">Playwright</span>
                 <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/30">Selenium</span>
@@ -668,7 +528,7 @@
             </div>
         </div>
         <div class="glass card-hover rounded-3xl p-6 border-slate-200/60 dark:border-slate-700/40 space-y-5 group">
-            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-2xl bg-brandViolet/10 text-brandViolet flex items-center justify-center group-hover:bg-brandViolet group-hover:text-white transition-all duration-300"><i class="fas fa-server"></i></div><h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Backend &amp; API</h3></div>
+            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-2xl bg-brandViolet/10 text-brandViolet flex items-center justify-center group-hover:bg-brandViolet group-hover:text-white transition-all duration-300"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg></div><h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Backend &amp; API</h3></div>
             <div class="flex flex-wrap gap-2">
                 <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/30">FastAPI</span>
                 <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/30">Django</span>
@@ -680,7 +540,7 @@
             </div>
         </div>
         <div class="glass card-hover rounded-3xl p-6 border-slate-200/60 dark:border-slate-700/40 space-y-5 group">
-            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-2xl bg-brandGreen/10 text-brandGreen flex items-center justify-center group-hover:bg-brandGreen group-hover:text-white transition-all duration-300"><i class="fas fa-cloud"></i></div><h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Cloud &amp; Infra</h3></div>
+            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-2xl bg-brandGreen/10 text-brandGreen flex items-center justify-center group-hover:bg-brandGreen group-hover:text-white transition-all duration-300"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg></div><h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Cloud &amp; Infra</h3></div>
             <div class="flex flex-wrap gap-2">
                 <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/30">AWS ECS</span>
                 <span class="skill-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/30">AWS SQS</span>
@@ -699,33 +559,33 @@
 <!-- ================================================================ -->
 <section id="education" class="space-y-10 reveal">
     <div class="text-center space-y-3">
-        <span class="section-label bg-brandBlue/10 text-brandBlue border border-brandBlue/20"><i class="fas fa-graduation-cap text-[10px]"></i> Academics</span>
+        <span class="section-label bg-brandBlue/10 text-brandBlue border border-brandBlue/20"><svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg> Academics</span>
         <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Education &amp; <span class="bg-gradient-to-r from-brandBlue to-brandViolet bg-clip-text text-transparent">Certifications</span></h2>
         <p class="text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">Engineering credentials and ongoing technical advancements.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="glass card-hover rounded-3xl p-7 border-slate-200/60 dark:border-slate-700/40 flex items-start gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-brandBlue/10 text-brandBlue flex items-center justify-center text-xl shrink-0"><i class="fas fa-graduation-cap"></i></div>
+            <div class="w-14 h-14 rounded-2xl bg-brandBlue/10 text-brandBlue flex items-center justify-center text-xl shrink-0"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg></div>
             <div class="space-y-2">
                 <div class="text-xs font-extrabold text-brandBlue font-mono uppercase tracking-widest">2020 &ndash; 2024</div>
                 <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white">B.Tech in Computer Science &amp; Engineering</h3>
                 <p class="text-sm font-semibold text-slate-600 dark:text-slate-300">Christ College of Engineering</p>
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandBlue/10 border border-brandBlue/20">
-                    <i class="fas fa-star text-brandAmber text-[10px]"></i>
+                    <svg class="w-3 h-3 inline-block text-brandAmber" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 9.21l8.2-1.192L12 .587z"/></svg>
                     <span class="text-xs font-bold text-brandBlue">7.85 CGPA</span>
                 </div>
             </div>
         </div>
         <div class="glass card-hover rounded-3xl p-7 border-slate-200/60 dark:border-slate-700/40 flex items-start gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-brandViolet/10 text-brandViolet flex items-center justify-center text-xl shrink-0"><i class="fas fa-certificate"></i></div>
+            <div class="w-14 h-14 rounded-2xl bg-brandViolet/10 text-brandViolet flex items-center justify-center text-xl shrink-0"><svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
             <div class="space-y-3 w-full">
                 <div class="text-xs font-extrabold text-brandViolet font-mono uppercase tracking-widest">Verified Credentials</div>
                 <h3 class="font-heading font-black text-xl text-slate-900 dark:text-white">Technical Accreditations</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-[9px]"></i></div>Django Web Development</div>
-                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-[9px]"></i></div>Data Engineering with PySpark</div>
-                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-[9px]"></i></div>IBM Python for Data Science</div>
-                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><i class="fas fa-check text-[9px]"></i></div>AI For Everyone (Andrew Ng)</div>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><svg class="w-2.5 h-2.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>Django Web Development</div>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><svg class="w-2.5 h-2.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>Data Engineering with PySpark</div>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><svg class="w-2.5 h-2.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>IBM Python for Data Science</div>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400"><div class="w-5 h-5 rounded-md bg-brandViolet/10 text-brandViolet flex items-center justify-center flex-shrink-0"><svg class="w-2.5 h-2.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>AI For Everyone (Andrew Ng)</div>
                 </div>
             </div>
         </div>
@@ -737,7 +597,7 @@
 <!-- ================================================================ -->
 <section id="contact" class="space-y-10 reveal">
     <div class="text-center space-y-3">
-        <span class="section-label bg-brandGreen/10 text-brandGreen border border-brandGreen/20"><i class="fas fa-paper-plane text-[10px]"></i> Get In Touch</span>
+        <span class="section-label bg-brandGreen/10 text-brandGreen border border-brandGreen/20"><svg class="w-3 h-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg> Get In Touch</span>
         <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 dark:text-white">Let's <span class="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">Connect</span></h2>
         <p class="text-slate-500 dark:text-slate-400 text-base max-w-lg mx-auto">Open to RPA solutions, SDET architectures, and Python development opportunities.</p>
     </div>
@@ -754,13 +614,13 @@
                     <div><div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Phone</div><div class="text-sm font-semibold text-slate-800 dark:text-slate-200">+91 9567870963</div></div>
                 </a>
                 <div class="flex items-center gap-4 p-3 rounded-2xl">
-                    <div class="w-10 h-10 rounded-xl bg-brandGreen/10 text-brandGreen flex items-center justify-center shrink-0"><i class="fas fa-map-marker-alt text-sm"></i></div>
+                    <div class="w-10 h-10 rounded-xl bg-brandGreen/10 text-brandGreen flex items-center justify-center shrink-0"><svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
                     <div><div class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Location</div><div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Thrissur, Kerala, India</div></div>
                 </div>
             </div>
             <div class="flex gap-3 pt-1">
-                <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener" class="flex-1 py-2.5 rounded-xl bg-[#0077B5]/10 text-[#0077B5] border border-[#0077B5]/20 hover:bg-[#0077B5] hover:text-white hover:scale-[1.02] transition-all text-xs font-bold flex items-center justify-center gap-2"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-                <a href="https://github.com/sreerageg" target="_blank" rel="noopener" class="flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60 hover:bg-slate-700 hover:text-white hover:scale-[1.02] transition-all text-xs font-bold flex items-center justify-center gap-2"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 rounded-xl bg-[#0077B5]/10 text-[#0077B5] border border-[#0077B5]/20 hover:bg-[#0077B5] hover:text-white hover:scale-[1.02] transition-all text-xs font-bold flex items-center justify-center gap-2"><svg class="w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> LinkedIn</a>
+                <a href="https://github.com/sreerageg" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60 hover:bg-slate-700 hover:text-white hover:scale-[1.02] transition-all text-xs font-bold flex items-center justify-center gap-2"><svg class="w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
             </div>
         </div>
         <div class="glass rounded-3xl p-7 shadow-xl border-slate-200/60 dark:border-slate-700/40 lg:col-span-3">
@@ -787,13 +647,13 @@
                         </button>
                     </div>
                 </div>
-                <button type="submit" id="submit-btn" class="btn-primary w-full py-4 rounded-2xl text-white font-bold flex items-center justify-center gap-2 text-sm"><i class="fas fa-paper-plane"></i> Send Message</button>
+                <button type="submit" id="submit-btn" class="btn-primary w-full py-4 rounded-2xl text-white font-bold flex items-center justify-center gap-2 text-sm"><svg class="w-4 h-4 inline-block mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg> Send Message</button>
             </form>
             <!-- SUCCESS CARD -->
             <div id="contact-success" class="hidden flex flex-col items-center justify-center text-center py-10 space-y-4 animate-fade-in">
                 <div class="w-14 h-14 rounded-full bg-brandGreen/10 text-brandGreen flex items-center justify-center text-xl relative">
                     <span class="absolute inset-0 rounded-full bg-brandGreen/20 animate-ping opacity-75"></span>
-                    <i class="fas fa-check-circle z-10 text-2xl"></i>
+                    <svg class="w-6 h-6 inline-block z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <h3 class="text-lg font-bold text-slate-800 dark:text-white">Message Sent Successfully!</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400 max-w-sm">
@@ -826,263 +686,22 @@
         </div>
         <div class="flex flex-col items-center md:items-end gap-3">
             <div class="flex gap-2">
-                <a href="mailto:sreerageg@gmail.com" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><i class="fas fa-envelope"></i></a>
-                <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/sreerageg" target="_blank" rel="noopener" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><i class="fab fa-github"></i></a>
+                <a href="mailto:sreerageg@gmail.com" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></a>
+                <a href="https://linkedin.com/in/sreerag-e-g" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><svg class="w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="https://github.com/sreerageg" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 hover:scale-110 transition-all text-sm"><svg class="w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
             </div>
-            <p class="text-[10px] text-slate-400 dark:text-slate-600">&copy; 2026 Sreerag E G &middot; Built with <i class="fas fa-heart text-brandViolet text-[9px]"></i> &amp; precision</p>
-            <p id="visitor-count-badge" class="hidden text-[10px] text-slate-400 dark:text-slate-600"><i class="fas fa-eye text-[9px] text-brandBlue mr-1"></i> <span id="visitor-count-val">0 views</span></p>
+            <p class="text-[10px] text-slate-400 dark:text-slate-600">&copy; 2026 Sreerag E G &middot; Built with <svg class="w-2.5 h-2.5 inline-block text-brandViolet" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.419C12 4.419 10.082 0 6.5 0 2.918 0 0 2.918 0 6.5c0 5.25 7 11.75 12 16.5 5-4.75 12-11.25 12-16.5C24 2.918 21.082 0 17.5 0 13.918 0 12 4.419 12 4.419z"/></svg> &amp; precision</p>
+            <p id="visitor-count-badge" class="hidden text-[10px] text-slate-400 dark:text-slate-600"><svg class="w-2.5 h-2.5 inline-block text-brandBlue mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg> <span id="visitor-count-val">0 views</span></p>
         </div>
     </div>
 </footer>
 
 </div>
 
-<script>
-const AI_SUGGESTIONS = {
-    subject: [
-        "Exploring RPA Automation Opportunities",
-        "Healthcare RCM Automation Inquiry",
-        "Hiring — RPA & Python Automation Engineer",
-        "Bot Orchestration Architecture Consultation",
-        "HIPAA-Compliant Automation Solutions Needed",
-        "FastAPI + AWS Workflow Collaboration",
-        "Self-Healing Bot Framework Discussion",
-        "US Healthcare Portal Automation Project",
-        "Python SDET Architecture Partnership",
-        "Let\u2019s Connect \u2014 Automation Engineering"
-    ],
-    message: [
-        `Hi Sreerag,\n\nI came across your portfolio and was really impressed by your work in RPA automation and bot orchestration at scale.\n\nI\u2019d love to explore potential collaboration or opportunities. Looking forward to connecting!`,
-        `Hi Sreerag,\n\nWe\u2019re building HIPAA-compliant bots for our US healthcare RCM workflows and your background looks like a perfect fit.\n\nWould love to schedule a quick call to discuss the opportunity!`,
-        `Hello Sreerag,\n\nI found your portfolio through LinkedIn and was blown away by your FastAPI bot orchestration architecture. We have a similar challenge at our company and would love your input.\n\nLooking forward to your response!`,
-        `Hi Sreerag,\n\nYour experience with self-healing automation bots and AWS ECS/SQS is exactly what our team needs. We\u2019re building a large-scale process automation pipeline and want to bring you on board.\n\nCan we connect this week?`,
-        `Hello Sreerag,\n\nI\u2019m reaching out regarding a Python automation architect opportunity. Your hands-on experience with Playwright, Selenium, and FastAPI is highly relevant to what we\u2019re building.\n\nPlease let me know if you\u2019re open to a conversation!`,
-        `Hi Sreerag,\n\nWe\u2019re a healthcare technology startup working on automating insurance verification and prior authorization workflows. Your expertise in US healthcare portal automation is exactly what we need.\n\nWould you be interested in learning more?`,
-        `Hello Sreerag,\n\nI saw your RPA bot simulator demo and was genuinely impressed by your automation architecture knowledge. I\u2019d love to collaborate on a similar project for our organization.\n\nLet\u2019s connect!`,
-        `Hi Sreerag,\n\nWe\u2019re looking to scale our bot infrastructure using AWS ECS and SQS \u2014 something you\u2019ve clearly mastered. I\u2019d love to get your advice and potentially bring you in as a consultant.\n\nHope to hear from you soon!`,
-        `Hello Sreerag,\n\nYour work on HIPAA-compliant claim submission bots is remarkable. We\u2019re a US-based RCM company looking to modernize our automation stack and your profile stood out.\n\nWould love to discuss a full-time or contract engagement.`,
-        `Hi Sreerag,\n\nI\u2019m a fellow automation engineer and stumbled upon your portfolio. Your approach to self-healing selectors and distributed bot execution is genuinely inspiring.\n\nWould love to exchange ideas and possibly collaborate on open-source tooling!`
-    ]
-};
-// Keep tracks of random queues
-let shuffledSuggestions = { subject: [], message: [] };
-let currentAIIndex = { subject: 0, message: 0 };
 
-// Shuffle array helper
-function shuffleArray(arr) {
-    const newArr = [...arr];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-}
 
-// Initialize randomized lists
-try {
-    shuffledSuggestions.subject = shuffleArray(AI_SUGGESTIONS.subject);
-    shuffledSuggestions.message = shuffleArray(AI_SUGGESTIONS.message);
-} catch (e) {
-    console.error("Failed to initialize suggestions:", e);
-}
 
-function aiTypewriter(fieldId, btn) {
-    const field = document.getElementById(fieldId);
-    if (!field || btn.classList.contains('typing')) return;
-    
-    // Fallback if shuffle failed or arrays are empty
-    if (!shuffledSuggestions[fieldId] || shuffledSuggestions[fieldId].length === 0) {
-        shuffledSuggestions[fieldId] = shuffleArray(AI_SUGGESTIONS[fieldId]);
-    }
-    
-    const suggestions = shuffledSuggestions[fieldId];
-    const text = suggestions[currentAIIndex[fieldId] % suggestions.length];
-    currentAIIndex[fieldId]++;
-    
-    field.value = '';
-    if (field.tagName === 'TEXTAREA') { field.style.height = 'auto'; }
-    field.focus();
-    
-    btn.classList.add('typing');
-    btn.innerHTML = `<span style="font-size:11px">&#10022;</span> Typing...`;
-    
-    let i = 0;
-    const speed = fieldId === 'subject' ? 36 : 16;
-    function typeChar() {
-        if (i < text.length) {
-            field.value += text[i];
-            if (field.tagName === 'TEXTAREA') {
-                field.style.height = 'auto';
-                field.style.height = field.scrollHeight + 'px';
-            }
-            i++;
-            setTimeout(typeChar, speed + Math.random() * 22);
-        } else {
-            btn.classList.remove('typing');
-            btn.innerHTML = `<span style="font-size:11px">&#10022;</span> Suggest Another`;
-        }
-    }
-    typeChar();
-}
-</script>
 
-<script>
-const BOT_LOGS={claim:[{text:"Initializing claim submission run...",type:"info",speed:200},{text:"Connecting to AWS SQS Claim queue client...",type:"info",speed:300},{text:"Successfully polled message ID: sqs-claim-482a9b",type:"system",speed:400},{text:"Received claim data payload validation checklist...",type:"system",speed:200},{text:"Patient Name: [MASKED] (HIPAA Secure)",type:"secure",speed:300},{text:"Portal login triggered: UnitedHealthcare Commercial",type:"info",speed:500},{text:"Filling input elements dynamically...",type:"info",speed:400},{text:"Checking form CAPTCHA presence...",type:"system",speed:300},{text:"CAPTCHA element detected. Launching solver fallback...",type:"recover",speed:600},{text:"CAPTCHA solved successfully in 1.4s.",type:"recover",speed:300},{text:"Verifying form data fields before submission...",type:"info",speed:400},{text:"Submitting CMS-1500 layout form data...",type:"info",speed:700},{text:"SUCCESS: Claim submitted. Transaction ID: TX-84729104",type:"success",speed:500},{text:"Extracting submit proof PDF confirmation...",type:"system",speed:400},{text:"Uploading receipt to AWS S3: claims-receipts-2026/...",type:"system",speed:300},{text:"Sending callback status to webhooks...",type:"info",speed:400},{text:"Execution finished. Worker thread released.",type:"success",speed:300}],eob:[{text:"Starting structured EOB data extraction job...",type:"info",speed:200},{text:"Downloading raw PDF content from portal folder...",type:"info",speed:500},{text:"Parsing binary PDF streams directly (replacing OCR)...",type:"system",speed:400},{text:"Reading tabular payment items on Page 1...",type:"system",speed:300},{text:"Detected 4 claim lines. Normalizing coordinates...",type:"info",speed:250},{text:"Extracting: Charged, Allowed, Paid, Copay, Coinsurance",type:"system",speed:450},{text:"Standardizing to canonical ClaimRecord envelope...",type:"info",speed:300},{text:"JSON Payload schema validation...",type:"info",speed:200},{text:"SUCCESS: Payload conforms to HIPAA claim schemas.",type:"secure",speed:300},{text:"Reconciliation Check: Sum matched EOB totals ($450.00).",type:"success",speed:400},{text:"Updating claims repository databases...",type:"info",speed:500},{text:"Job completed. ClaimRecord envelope outputted.",type:"success",speed:300}],heal:[{text:"Starting self-healing retrieval process...",type:"info",speed:200},{text:"Accessing target BlueCross BlueShield claim portal...",type:"info",speed:400},{text:"Exception: selector not found: '#claims-grid-tbody'",type:"error",speed:500},{text:"Triggering error classification and recovery logic...",type:"recover",speed:400},{text:"Analyzing DOM tree structure layout shifts...",type:"recover",speed:500},{text:"Fuzzy match found: 'table.data-grid-claims tbody'",type:"recover",speed:600},{text:"Self-healing selector updated. Retrying fetch...",type:"recover",speed:300},{text:"Successfully navigated pagination index link.",type:"system",speed:400},{text:"Retrieved 15 claim statuses successfully.",type:"success",speed:300},{text:"Logging diagnostic coordinates for POM update...",type:"system",speed:350},{text:"Job finished safely without manual overhead.",type:"success",speed:200}]};
-const ARCH_NODES={1:{step:"STAGE 1 OF 5",title:"JSON Claims Payload Ingestion",body:"Structured data schemas are generated dynamically by customer ERPs or database triggers, representing claim, patient details, and billing documents. Payload structures are validated by JSON schema validations at ingestion."},2:{step:"STAGE 2 OF 5",title:"FastAPI Bot Orchestration Gateway",body:"A high-performance FastAPI routing service receives the JSON payloads, parses the profile parameters, and automatically forwards execution actions to target message queues."},3:{step:"STAGE 3 OF 5",title:"AWS SQS Asynchronous Message Broker",body:"AWS SQS queues message requests safely, decoupling API endpoints from selenium/playwright workers. This ensures traffic spikes are flattened and no bot runs are dropped due to concurrent execution limits."},4:{step:"STAGE 4 OF 5",title:"AWS ECS Containerized Worker Pool",body:"Docker-packaged worker containers run inside AWS ECS. They autonomously pull task messages from the SQS queue, executing browser automation tasks asynchronously at enterprise scale."},5:{step:"STAGE 5 OF 5",title:"Target Commercial Insurance Portals",body:"The bots automate standard browsers to upload claims, extract EOB details, or verify enrollment statuses, uploading audit proof PDFs to AWS S3 and sending API status callbacks."}};
-let selectedBot="claim",botRunning=false;
-function selectBotProfile(p){if(botRunning)return;selectedBot=p;document.querySelectorAll(".bot-btn").forEach(b=>{b.className="bot-btn bot-profile-btn w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-start gap-3 group relative overflow-hidden";const i=b.querySelector(".bot-indicator");if(i)i.className="bot-indicator absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-transparent";});const ab=document.getElementById("btn-bot-"+p);ab.className="bot-btn bot-active bot-profile-btn-active w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-start gap-3 group relative overflow-hidden";const ai=ab.querySelector(".bot-indicator");if(ai)ai.className="bot-indicator absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-brandBlue";const fm={claim:"claim_submitter.py",eob:"eob_data_extractor.py",heal:"self_healing_agent.py"};document.getElementById("terminal-title").textContent="sreerag@orchestrator:~/bots/"+fm[p];const con=document.getElementById("terminal-console");con.innerHTML='<div class="text-slate-400 dark:text-slate-600">Selected: bots/'+fm[p]+'</div><div class="text-sky-600 dark:text-sky-400 font-semibold">Profile loaded. Click "Execute Bot Script" to trigger workflow.</div>';document.getElementById("bot-progress-bar").style.width="0%";document.getElementById("bot-progress-pct").textContent="0%";document.getElementById("terminal-status-dot").className="fas fa-circle text-[7px] text-brandGreen";document.getElementById("terminal-status-text").textContent="READY";}
-function triggerBotExecution(){if(botRunning)return;botRunning=true;const rb=document.getElementById("run-bot-btn");document.getElementById("btn-icon-run").className="fas fa-spinner fa-spin";document.getElementById("btn-text-run").textContent="Worker running...";rb.disabled=true;rb.style.opacity="0.7";rb.style.cursor="not-allowed";document.getElementById("terminal-status-dot").className="fas fa-circle text-[7px] text-yellow-400";document.getElementById("terminal-status-text").textContent="RUNNING";const con=document.getElementById("terminal-console");con.innerHTML='<div class="text-slate-400 dark:text-slate-600">[SYSTEM] Worker thread allocated. Connecting...</div>';const logs=BOT_LOGS[selectedBot];let cl=0;function nextLine(){if(cl<logs.length){const log=logs[cl],div=document.createElement("div");const cm={info:"text-slate-500 dark:text-slate-400",system:"text-sky-600 dark:text-sky-400",secure:"text-fuchsia-600 dark:text-fuchsia-400",recover:"text-amber-600 dark:text-amber-400",success:"text-emerald-600 dark:text-emerald-400 font-bold",error:"text-red-600 dark:text-red-400 font-bold"};const pm={info:"[INFO]",system:"[SYSTEM]",secure:"[SECURE]",recover:"[RECOVER]",success:"[SUCCESS]",error:"[ERROR]"};const ts=new Date().toISOString().substring(11,19);div.innerHTML='<span class="text-slate-300 dark:text-slate-600">'+ts+'</span> <span class="'+(cm[log.type]||"")+'">'+pm[log.type]+" "+log.text+"</span>";con.appendChild(div);con.scrollTop=con.scrollHeight;const pct=Math.round(((cl+1)/logs.length)*100);document.getElementById("bot-progress-bar").style.width=pct+"%";document.getElementById("bot-progress-pct").textContent=pct+"%";cl++;setTimeout(nextLine,log.speed);}else{botRunning=false;rb.disabled=false;rb.style.opacity="1";rb.style.cursor="pointer";document.getElementById("btn-icon-run").className="fas fa-play";document.getElementById("btn-text-run").textContent="Execute Bot Script";document.getElementById("terminal-status-dot").className="fas fa-circle text-[7px] text-brandBlue";document.getElementById("terminal-status-text").textContent="COMPLETED";const fd=document.createElement("div");fd.className="mt-3 p-3 bg-slate-100 dark:bg-slate-900/80 rounded-xl border border-slate-200 dark:border-slate-800/80 text-[10px] font-mono whitespace-pre text-emerald-600 dark:text-emerald-400";const jo={claim:'{\n  "claim_id": "CLM-2026-94812",\n  "status": "SUBMITTED",\n  "portal": "UHC_COMMERCIAL",\n  "hipaa_validation": "PASSED",\n  "solver_logs": { "captcha_required": true, "duration_ms": 1400 },\n  "evidence_receipt_s3": "s3://receipts/TX-84729104.pdf"\n}',eob:'{\n  "extraction_job_id": "EOB-84712",\n  "status": "SUCCESS",\n  "normalized_envelope": {\n    "claim_reference": "REF-BCBS-38291",\n    "payment_reconciliation": {\n      "total_charged": 600.00,\n      "total_allowed": 450.00,\n      "total_paid": 450.00,\n      "patient_copay": 0.00\n    }\n  }\n}',heal:'{\n  "job_id": "RECOVER-847",\n  "status": "HEALED_SUCCESS",\n  "exception_logged": "SelectorNotFound: #claims-grid-tbody",\n  "fuzzy_match": {\n    "original": "#claims-grid-tbody",\n    "healed": "table.data-grid-claims tbody"\n  }\n}'};fd.textContent="Output JSON ClaimRecord:\n"+jo[selectedBot];con.appendChild(fd);con.scrollTop=con.scrollHeight;}}nextLine();}
-function setActiveArchNode(n){document.querySelectorAll("svg g[id^='arch-node-'] rect").forEach(r=>r.setAttribute("stroke-width","1.5"));const a=document.getElementById("arch-node-"+n);if(a)a.querySelector("rect").setAttribute("stroke-width","3");const d=ARCH_NODES[n];document.getElementById("arch-detail-step").textContent=d.step;document.getElementById("arch-detail-title").textContent=d.title;document.getElementById("arch-detail-body").textContent=d.body;}
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded",()=>{
-    const tt=document.getElementById("theme-toggle"),ti=document.getElementById("theme-toggle-icon"),html=document.documentElement;
-    function applyTheme(t){if(t==="dark"){html.classList.add("dark");ti.className="fas fa-sun text-base text-yellow-400";}else{html.classList.remove("dark");ti.className="fas fa-moon text-base text-slate-500";}}
-    applyTheme(localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
-    tt.addEventListener("click",()=>{const n=html.classList.contains("dark")?"light":"dark";applyTheme(n);localStorage.setItem("theme",n);});
-    const mmb=document.getElementById("mobile-menu-toggle"),mm=document.getElementById("mobile-menu");
-    mmb.addEventListener("click",()=>mm.classList.toggle("hidden"));
-    document.querySelectorAll(".mobile-nav-link").forEach(l=>l.addEventListener("click",()=>mm.classList.add("hidden")));
-    document.addEventListener("click",e=>{if(!mmb.contains(e.target)&&!mm.contains(e.target))mm.classList.add("hidden");});
-    const el=document.getElementById("typing-text");
-    const roles=["RPA Process Automations","FastAPI Orchestration Layers","AWS Serverless Worker Pools","Self-Healing Scraper Engines"];
-    let ri=0,ci=0,del=false,sp=100;
-    function tw(){const cur=roles[ri];el.textContent=del?cur.substring(0,ci-1):cur.substring(0,ci+1);if(del){ci--;sp=40;}else{ci++;sp=90;}if(!del&&ci===cur.length){del=true;sp=2200;}else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;sp=500;}setTimeout(tw,sp);}
-    tw();
-    // Supabase serverless logging configuration
-    const SUPABASE_URL = "https://jdgitfslhkllqznwycrg.supabase.co";
-    const SUPABASE_ANON_KEY = "sb_publishable_O2fCotryD1GtN7Vvr49ZgA_PhgiGygX";
-    const hasSupabase = SUPABASE_URL && SUPABASE_URL !== "YOUR_SUPABASE_URL" && SUPABASE_ANON_KEY && SUPABASE_ANON_KEY !== "YOUR_SUPABASE_ANON_KEY";
-
-    const form=document.getElementById("contact-form"),sb=document.getElementById("submit-btn");
-    if(form){form.addEventListener("submit",e=>{
-        e.preventDefault();
-        const n=document.getElementById("name").value,em=document.getElementById("email").value,s=document.getElementById("subject").value,m=document.getElementById("message").value;
-        sb.disabled=true;
-        const orig=sb.innerHTML;
-        sb.innerHTML='<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
-
-        const promises = [];
-
-        // 1. Log to Supabase database (if configured)
-        if (hasSupabase) {
-            promises.push(
-                fetch(`${SUPABASE_URL}/rest/v1/visitors`, {
-                    method: "POST",
-                    headers: {
-                        "apikey": SUPABASE_ANON_KEY,
-                        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-                        "Content-Type": "application/json",
-                        "Prefer": "return=minimal"
-                    },
-                    body: JSON.stringify({ name: n, email: em, subject: s, message: m, is_unique_visit: false })
-                }).catch(err => console.error("Database logging failed:", err))
-            );
-        }
-
-        // 2. Send email notification via Formspree
-        promises.push(
-            fetch("https://formspree.io/f/mrengeod", {
-                method: "POST",
-                headers: { "Content-Type": "application/json", "Accept": "application/json" },
-                body: JSON.stringify({ name: n, email: em, subject: s, message: m })
-            })
-        );
-
-        Promise.all(promises)
-            .then(results => {
-                sb.disabled=false;
-                sb.innerHTML=orig;
-                
-                // Formspree result is the last item
-                const formspreeRes = results[results.length - 1];
-                if (formspreeRes && formspreeRes.ok) {
-                    form.classList.add("hidden");
-                    const successCard = document.getElementById("contact-success");
-                    if (successCard) successCard.classList.remove("hidden");
-                    form.reset();
-                } else {
-                    alert("Something went wrong with the email delivery. Please email me directly at sreerageg@gmail.com");
-                }
-            })
-            .catch(() => {
-                sb.disabled=false;
-                sb.innerHTML=orig;
-                window.location.href="mailto:sreerageg@gmail.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+em+"\n\nMessage:\n"+m);
-            });
-    });}
-
-    const successCard = document.getElementById("contact-success"),
-          sendAnotherBtn = document.getElementById("send-another-btn");
-    if (sendAnotherBtn && successCard && form) {
-        sendAnotherBtn.addEventListener("click", () => {
-            successCard.classList.add("hidden");
-            form.classList.remove("hidden");
-        });
-    }
-
-    const secs=document.querySelectorAll("section[id]"),nls=document.querySelectorAll(".nav-link");
-    function updateNav(){let cur="";secs.forEach(s=>{if(window.scrollY>=s.offsetTop-180)cur=s.id;});nls.forEach(l=>{l.classList.remove("active");if(l.getAttribute("href")==="#"+cur)l.classList.add("active");});}
-    window.addEventListener("scroll",updateNav,{passive:true});updateNav();
-    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:"0px 0px -60px 0px"});
-    document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
-
-    // Handle anonymous page logging & total counter
-    if (hasSupabase) {
-        const fetchCounts = () => {
-            fetch(`${SUPABASE_URL}/rest/v1/visitors?is_unique_visit=eq.true&select=id`, {
-                method: "GET",
-                headers: {
-                    "apikey": SUPABASE_ANON_KEY,
-                    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-                    "Prefer": "count=exact"
-                }
-            })
-                .then(r => {
-                    const range = r.headers.get("content-range");
-                    const uniqueCount = range ? range.split("/")[1] : "0";
-                    const badge = document.getElementById("visitor-count-badge");
-                    const val = document.getElementById("visitor-count-val");
-                    if (badge && val) {
-                        val.innerHTML = `<span class="text-brandBlue font-semibold">${uniqueCount} views</span>`;
-                        badge.classList.remove("hidden");
-                    }
-                })
-                .catch(err => console.error("Database count query failed:", err));
-        };
-
-        const hasVisited = localStorage.getItem("has_visited_portfolio");
-        if (!hasVisited) {
-            fetch(`${SUPABASE_URL}/rest/v1/visitors`, {
-                method: "POST",
-                headers: {
-                    "apikey": SUPABASE_ANON_KEY,
-                    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-                    "Content-Type": "application/json",
-                    "Prefer": "return=minimal"
-                },
-                body: JSON.stringify({ is_unique_visit: true })
-            }).then(res => {
-                if (res.ok) localStorage.setItem("has_visited_portfolio", "true");
-            }).catch(err => console.error("Database unique logging failed:", err))
-            .finally(() => fetchCounts());
-        } else {
-            fetch(`${SUPABASE_URL}/rest/v1/visitors`, {
-                method: "POST",
-                headers: {
-                    "apikey": SUPABASE_ANON_KEY,
-                    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-                    "Content-Type": "application/json",
-                    "Prefer": "return=minimal"
-                },
-                body: JSON.stringify({ is_unique_visit: false })
-            }).catch(err => console.error("Database repeat logging failed:", err))
-            .finally(() => fetchCounts());
-        }
-    }
-});
-</script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
