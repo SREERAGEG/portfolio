@@ -174,6 +174,13 @@
             background-color: rgba(14, 165, 233, 0.12) !important;
             border-color: rgba(14, 165, 233, 0.5) !important;
         }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-darkBg text-slate-600 dark:text-slate-300 transition-colors duration-500 overflow-x-hidden min-h-screen font-sans selection:bg-sky-200 dark:selection:bg-brandBlue/30 selection:text-slate-900 dark:selection:text-white">
@@ -782,6 +789,20 @@
                 </div>
                 <button type="submit" id="submit-btn" class="btn-primary w-full py-4 rounded-2xl text-white font-bold flex items-center justify-center gap-2 text-sm"><i class="fas fa-paper-plane"></i> Send Message</button>
             </form>
+            <!-- SUCCESS CARD -->
+            <div id="contact-success" class="hidden flex flex-col items-center justify-center text-center py-10 space-y-4 animate-fade-in">
+                <div class="w-14 h-14 rounded-full bg-brandGreen/10 text-brandGreen flex items-center justify-center text-xl relative">
+                    <span class="absolute inset-0 rounded-full bg-brandGreen/20 animate-ping opacity-75"></span>
+                    <i class="fas fa-check-circle z-10 text-2xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 dark:text-white">Message Sent Successfully!</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 max-w-sm">
+                    Thank you! Your message has been logged in the database and sent to my inbox. I'll get back to you shortly.
+                </p>
+                <button type="button" id="send-another-btn" class="mt-2 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all">
+                    Send Another Message
+                </button>
+            </div>
         </div>
     </div>
 </section>
@@ -978,7 +999,9 @@ document.addEventListener("DOMContentLoaded",()=>{
                 // Formspree result is the last item
                 const formspreeRes = results[results.length - 1];
                 if (formspreeRes && formspreeRes.ok) {
-                    alert("Thank you! Your message has been sent successfully.");
+                    form.classList.add("hidden");
+                    const successCard = document.getElementById("contact-success");
+                    if (successCard) successCard.classList.remove("hidden");
                     form.reset();
                 } else {
                     alert("Something went wrong with the email delivery. Please email me directly at sreerageg@gmail.com");
@@ -990,6 +1013,15 @@ document.addEventListener("DOMContentLoaded",()=>{
                 window.location.href="mailto:sreerageg@gmail.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+em+"\n\nMessage:\n"+m);
             });
     });}
+
+    const successCard = document.getElementById("contact-success"),
+          sendAnotherBtn = document.getElementById("send-another-btn");
+    if (sendAnotherBtn && successCard && form) {
+        sendAnotherBtn.addEventListener("click", () => {
+            successCard.classList.add("hidden");
+            form.classList.remove("hidden");
+        });
+    }
 
     const secs=document.querySelectorAll("section[id]"),nls=document.querySelectorAll(".nav-link");
     function updateNav(){let cur="";secs.forEach(s=>{if(window.scrollY>=s.offsetTop-180)cur=s.id;});nls.forEach(l=>{l.classList.remove("active");if(l.getAttribute("href")==="#"+cur)l.classList.add("active");});}
