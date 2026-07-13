@@ -943,24 +943,52 @@ document.addEventListener("DOMContentLoaded",()=>{
         const orig=sb.innerHTML;
         sb.innerHTML='<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
 
-        fetch("https://formspree.io/f/mrengeod", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify({ name: n, email: em, subject: s, message: m })
-        }).then(res => {
-            sb.disabled=false;
-            sb.innerHTML=orig;
-            if (res.ok) {
-                alert("Thank you! Your message has been sent successfully.");
-                form.reset();
-            } else {
-                alert("Something went wrong. Please email me directly at sreerageg@gmail.com");
-            }
-        }).catch(() => {
-            sb.disabled=false;
-            sb.innerHTML=orig;
-            window.location.href="mailto:sreerageg@gmail.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+em+"\n\nMessage:\n"+m);
-        });
+        const promises = [];
+
+        // 1. Log to Supabase database (if configured)
+        if (hasSupabase) {
+            promises.push(
+                fetch(`${SUPABASE_URL}/rest/v1/visitors`, {
+                    method: "POST",
+                    headers: {
+                        "apikey": SUPABASE_ANON_KEY,
+                        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+                        "Content-Type": "application/json",
+                        "Prefer": "return=minimal"
+                    },
+                    body: JSON.stringify({ name: n, email: em, subject: s, message: m, is_unique_visit: false })
+                }).catch(err => console.error("Database logging failed:", err))
+            );
+        }
+
+        // 2. Send email notification via Formspree
+        promises.push(
+            fetch("https://formspree.io/f/mrengeod", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                body: JSON.stringify({ name: n, email: em, subject: s, message: m })
+            })
+        );
+
+        Promise.all(promises)
+            .then(results => {
+                sb.disabled=false;
+                sb.innerHTML=orig;
+                
+                // Formspree result is the last item
+                const formspreeRes = results[results.length - 1];
+                if (formspreeRes && formspreeRes.ok) {
+                    alert("Thank you! Your message has been sent successfully.");
+                    form.reset();
+                } else {
+                    alert("Something went wrong with the email delivery. Please email me directly at sreerageg@gmail.com");
+                }
+            })
+            .catch(() => {
+                sb.disabled=false;
+                sb.innerHTML=orig;
+                window.location.href="mailto:sreerageg@gmail.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+em+"\n\nMessage:\n"+m);
+            });
     });}
 
     const secs=document.querySelectorAll("section[id]"),nls=document.querySelectorAll(".nav-link");
