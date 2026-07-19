@@ -2,6 +2,8 @@
 
 A modern, highly-interactive responsive portfolio website showcasing the professional background and expertise of Sreerag E G, an RPA & Automation Engineer specializing in designing distributed, HIPAA-compliant process-automation infrastructure using Python, FastAPI, and AWS.
 
+🔗 **Live Demo:** [sreerageg.github.io/portfolio/](https://sreerageg.github.io/portfolio/)
+
 ---
 
 ## 🌟 Features
