@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates | Sreerag E G — RPA & Automation Architect</title>
+    <meta name="description" content="Verified technical certifications of Sreerag E G — Django, PySpark, IBM Python, AI For Everyone and more.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://www.googleapis.com https://lh3.googleusercontent.com; img-src 'self' data: https://lh3.googleusercontent.com https://drive.google.com https://drive-thirdparty.googleusercontent.com; frame-src https://drive.google.com;">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* ── Certificates Page Specific Styles ── */
+
+        /* Shimmer / skeleton loader */
+        @keyframes shimmer {
+            0%   { background-position: -400px 0; }
+            100% { background-position: 400px 0; }
+        }
+        .skeleton {
+            background: linear-gradient(90deg, rgba(148,163,184,0.1) 25%, rgba(148,163,184,0.22) 37%, rgba(148,163,184,0.1) 63%);
+            background-size: 800px 100%;
+            animation: shimmer 1.4s infinite;
+            border-radius: 12px;
+        }
+        .dark .skeleton {
+            background: linear-gradient(90deg, rgba(30,41,59,0.5) 25%, rgba(51,65,85,0.7) 37%, rgba(30,41,59,0.5) 63%);
+            background-size: 800px 100%;
+        }
+
+        /* Card entrance animation */
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(28px) scale(0.96); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .cert-card-enter {
+            animation: cardEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* Floating shimmer badge on cert thumb */
+        @keyframes badge-pulse {
+            0%,100% { box-shadow: 0 0 0 0 rgba(14,165,233,0.35); }
+            50%      { box-shadow: 0 0 0 6px rgba(14,165,233,0); }
+        }
+        .cert-type-badge { animation: badge-pulse 2.5s ease-in-out infinite; }
+
+        /* Thumbnail overlay */
+        .cert-thumb-wrap {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px 16px 0 0;
+        }
+        .cert-thumb-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.55) 100%);
+            transition: opacity 0.3s ease;
+            opacity: 0.6;
+        }
+        .cert-card:hover .cert-thumb-wrap::after { opacity: 0.85; }
+
+        /* PDF icon overlay for PDF files */
+        .cert-pdf-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(168,85,247,0.12));
+            z-index: 1;
+        }
+
+        /* Hover lift on cert card */
+        .cert-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .cert-card:hover {
+            transform: translateY(-8px) scale(1.008);
+            box-shadow: 0 32px 56px -16px rgba(14,165,233,0.22);
+            border-color: rgba(14,165,233,0.4) !important;
+        }
+        .dark .cert-card:hover {
+            box-shadow: 0 32px 56px -16px rgba(14,165,233,0.35);
+        }
+
+        /* Hero glow orbs */
+        .cert-orb-1 { animation: blob-float 16s ease-in-out infinite; }
+        .cert-orb-2 { animation: blob-float 20s ease-in-out infinite 4s; }
+
+        /* Error / empty state */
+        @keyframes float-icon {
+            0%,100% { transform: translateY(0); }
+            50%      { transform: translateY(-10px); }
+        }
+        .float-icon { animation: float-icon 3.5s ease-in-out infinite; }
+
+        /* Filter pill active */
+        .filter-pill {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .filter-pill:hover {
+            transform: translateY(-2px);
+        }
+        .filter-pill.active {
+            background: rgba(14,165,233,0.12);
+            border-color: rgba(14,165,233,0.45);
+            color: #0ea5e9 !important;
+        }
+        .dark .filter-pill.active {
+            background: rgba(14,165,233,0.15);
+        }
+
+        /* Search box focus */
+        .cert-search:focus {
+            outline: none;
+            border-color: rgba(14,165,233,0.5);
+            box-shadow: 0 0 0 3px rgba(14,165,233,0.12);
+        }
+
+        /* Spinner */
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spinner { animation: spin 0.8s linear infinite; }
+
+        /* Lightbox backdrop */
+        #cert-lightbox {
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        @keyframes lightbox-in {
+            from { opacity: 0; transform: scale(0.9); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+        .lightbox-content { animation: lightbox-in 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-darkBg text-slate-600 dark:text-slate-300 transition-colors duration-500 overflow-x-hidden min-h-screen font-sans selection:bg-sky-200 dark:selection:bg-brandBlue/30 selection:text-slate-900 dark:selection:text-white">
+
+<!-- ANIMATED BACKGROUND -->
+<div class="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
+    <div class="cert-orb-1 absolute -top-48 -left-48 w-[700px] h-[700px] rounded-full blur-[140px]" style="background:var(--blob1)"></div>
+    <div class="cert-orb-2 absolute bottom-0 right-0 w-[800px] h-[800px] rounded-full blur-[160px]" style="background:var(--blob2)"></div>
+    <div class="grid-pattern absolute inset-0 opacity-70 dark:opacity-100"></div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10">
+
+<!-- NAVBAR -->
+<header class="sticky top-4 z-50 mb-12">
+    <nav class="glass-nav rounded-2xl px-5 py-3.5 flex items-center justify-between">
+        <a href="index.html" class="font-heading font-black text-xl tracking-tight">
+            <span class="bg-gradient-to-r from-brandBlue via-sky-400 to-brandViolet bg-clip-text text-transparent">SREERAG</span><span class="text-slate-300 dark:text-slate-600">.dev</span>
+        </a>
+        <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-brandBlue border border-transparent hover:border-brandBlue/20 hover:bg-brandBlue/5 transition-all">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                Back to Portfolio
+            </a>
+            <button id="cert-theme-toggle" class="glass w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brandBlue hover:scale-105 active:scale-95 transition-all" aria-label="Toggle theme">
+                <svg id="cert-sun" class="w-5 h-5 text-yellow-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+                <svg id="cert-moon" class="w-5 h-5 text-slate-500 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<main class="pb-24">
+
+    <!-- HERO -->
+    <section class="text-center space-y-6 mb-14 reveal">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-brandViolet/10 text-brandViolet border border-brandViolet/25">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            Verified Credentials
+        </div>
+        <h1 class="font-heading font-black text-5xl sm:text-6xl text-slate-900 dark:text-white glow-text">
+            My <span class="gradient-text-animate">Certificates</span>
+        </h1>
+        <p class="text-slate-500 dark:text-slate-400 text-base max-w-md mx-auto">
+            A curated collection of my technical certifications — loaded directly from Google Drive.
+        </p>
+        <!-- Stats bar — filled dynamically -->
+        <div id="cert-stats" class="hidden flex justify-center gap-6 pt-2">
+            <div class="text-center">
+                <div id="stat-total" class="font-heading font-black text-2xl text-brandBlue">—</div>
+                <div class="text-xs text-slate-400 font-semibold mt-0.5">Total</div>
+            </div>
+            <div class="w-px bg-slate-200 dark:bg-slate-700"></div>
+            <div class="text-center">
+                <div id="stat-pdfs" class="font-heading font-black text-2xl text-brandViolet">—</div>
+                <div class="text-xs text-slate-400 font-semibold mt-0.5">PDFs</div>
+            </div>
+            <div class="w-px bg-slate-200 dark:bg-slate-700"></div>
+            <div class="text-center">
+                <div id="stat-images" class="font-heading font-black text-2xl text-brandGreen">—</div>
+                <div class="text-xs text-slate-400 font-semibold mt-0.5">Images</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRIGGER CARD (shown before load) -->
+    <div id="cert-trigger-section" class="reveal">
+        <div class="glass rounded-3xl border border-slate-200/60 dark:border-slate-700/40 p-12 text-center space-y-8 relative overflow-hidden max-w-2xl mx-auto">
+            <!-- decorative glows -->
+            <div class="absolute -top-16 -right-16 w-56 h-56 bg-brandViolet/8 rounded-full blur-[70px] pointer-events-none"></div>
+            <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-brandBlue/8 rounded-full blur-[70px] pointer-events-none"></div>
+            <!-- icon -->
+            <div class="relative inline-flex items-center justify-center">
+                <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-brandViolet/15 to-brandBlue/10 border border-brandViolet/20 flex items-center justify-center float-icon">
+                    <svg class="w-11 h-11 text-brandViolet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                </div>
+                <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-brandGreen border-2 border-white dark:border-darkBg flex items-center justify-center">
+                    <svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+            </div>
+            <div class="space-y-3 relative z-10">
+                <h2 class="font-heading font-black text-2xl text-slate-900 dark:text-white">Certificates Ready to Load</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-sm max-w-xs mx-auto leading-relaxed">
+                    Certificates load on demand to keep this page fast &amp; data-friendly. Click below to fetch them from Google Drive.
+                </p>
+                <div class="flex flex-wrap justify-center gap-3 pt-1">
+                    <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/30 px-3 py-1.5 rounded-full">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Zero data on page load
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800/30 px-3 py-1.5 rounded-full">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        Instant once loaded
+                    </span>
+                </div>
+            </div>
+            <button id="load-certs-btn" class="btn-primary px-8 py-3.5 rounded-xl text-white font-bold text-sm inline-flex items-center gap-2 relative z-10">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/></svg>
+                Load My Certificates
+            </button>
+        </div>
+    </div>
+
+    <!-- GALLERY SECTION (hidden until loaded) -->
+    <div id="cert-gallery-section" class="hidden space-y-8">
+
+        <!-- Search + Filter bar -->
+        <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+            <div class="relative flex-1 max-w-sm">
+                <svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0"/></svg>
+                <input id="cert-search" type="text" placeholder="Search certificates…"
+                    class="cert-search w-full pl-9 pr-4 py-2.5 rounded-xl text-sm font-medium bg-white/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 placeholder-slate-400 transition-all">
+            </div>
+            <div class="flex items-center gap-2">
+                <button data-filter="all"   class="filter-pill active px-4 py-2 rounded-xl text-xs font-bold bg-white/70 dark:bg-slate-900/50 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50">All</button>
+                <button data-filter="pdf"   class="filter-pill px-4 py-2 rounded-xl text-xs font-bold bg-white/70 dark:bg-slate-900/50 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50">PDFs</button>
+                <button data-filter="image" class="filter-pill px-4 py-2 rounded-xl text-xs font-bold bg-white/70 dark:bg-slate-900/50 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700/50">Images</button>
+            </div>
+        </div>
+
+        <!-- Result count -->
+        <div id="cert-count-label" class="text-xs text-slate-400 font-semibold"></div>
+
+        <!-- Card grid -->
+        <div id="cert-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
+
+        <!-- No results state -->
+        <div id="cert-no-results" class="hidden text-center py-20 space-y-4">
+            <div class="float-icon inline-block text-slate-300 dark:text-slate-700">
+                <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0"/></svg>
+            </div>
+            <p class="text-slate-400 font-semibold">No certificates match your search.</p>
+            <button id="clear-search-btn" class="text-brandBlue text-sm font-bold hover:underline">Clear search</button>
+        </div>
+
+        <!-- Open Drive folder link -->
+        <div class="text-center pt-4">
+            <a id="drive-folder-link" href="https://drive.google.com/drive/folders/1BAFyZKJ2S8emWn9L58gHeXAQB1GXkVLu" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700/60 bg-white/60 dark:bg-slate-900/50 text-slate-500 dark:text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 transition-all hover:scale-105">
+                <svg class="w-4 h-4" viewBox="0 0 87.3 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8H0c0 1.55.4 3.1 1.2 4.5l5.4 9.35z" fill="#0066DA"/>
+                    <path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 49.5C.4 50.9 0 52.45 0 54h27.5l16.15-29z" fill="#00AC47"/>
+                    <path d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H59.8l5.85 11.95 7.9 11.85z" fill="#EA4335"/>
+                    <path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2L43.65 25z" fill="#00832D"/>
+                    <path d="M59.8 54H27.5L13.75 77.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2L59.8 54z" fill="#2684FC"/>
+                    <path d="M73.4 27.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 59.8 54h27.45c0-1.55-.4-3.1-1.2-4.5L73.4 27.5z" fill="#FFBA00"/>
+                </svg>
+                Open in Google Drive
+            </a>
+        </div>
+    </div>
+
+    <!-- ERROR STATE -->
+    <div id="cert-error-section" class="hidden text-center py-20 space-y-6 max-w-md mx-auto">
+        <div class="float-icon inline-block">
+            <div class="w-20 h-20 mx-auto rounded-3xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/30 flex items-center justify-center">
+                <svg class="w-9 h-9 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+        </div>
+        <div class="space-y-2">
+            <h3 class="font-heading font-bold text-xl text-slate-800 dark:text-white">Could not load certificates</h3>
+            <p id="cert-error-msg" class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed"></p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <button id="retry-btn" class="btn-primary px-6 py-2.5 rounded-xl text-white font-bold text-sm inline-flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                Retry
+            </button>
+            <a href="https://drive.google.com/drive/folders/1BAFyZKJ2S8emWn9L58gHeXAQB1GXkVLu" target="_blank" rel="noopener noreferrer"
+               class="px-6 py-2.5 rounded-xl text-sm font-bold border border-slate-200 dark:border-slate-700/60 text-slate-500 dark:text-slate-400 hover:text-brandBlue hover:border-brandBlue/30 transition-all inline-flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                View on Drive
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div id="cert-lightbox" class="fixed inset-0 z-[200] bg-black/80 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Certificate preview">
+    <button id="lightbox-close" class="absolute top-5 right-5 w-10 h-10 rounded-xl glass flex items-center justify-center text-white hover:bg-white/20 transition-all z-10" aria-label="Close preview">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div class="lightbox-content relative max-w-4xl w-full max-h-[90vh] rounded-3xl overflow-hidden glass shadow-2xl">
+        <div id="lightbox-loading" class="absolute inset-0 flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 z-10">
+            <svg class="spinner w-8 h-8 text-brandBlue" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+        </div>
+        <img id="lightbox-img" src="" alt="" class="w-full h-full object-contain max-h-[85vh] hidden">
+        <div id="lightbox-pdf-frame" class="hidden w-full h-[85vh]">
+            <iframe id="lightbox-iframe" src="" class="w-full h-full border-0" title="Certificate PDF"></iframe>
+        </div>
+        <div id="lightbox-footer" class="absolute bottom-0 left-0 right-0 px-6 py-4 bg-gradient-to-t from-black/80 to-transparent flex items-center justify-between gap-4">
+            <p id="lightbox-title" class="font-heading font-bold text-white text-sm truncate"></p>
+            <a id="lightbox-open-link" href="#" target="_blank" rel="noopener noreferrer"
+               class="shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-white/15 hover:bg-white/25 text-white border border-white/20 transition-all">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                Open full
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-slate-200/60 dark:border-slate-700/30 pt-8 mt-16">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 dark:text-slate-600">
+        <p>&copy; 2026 Sreerag E G &middot; Certificates Gallery</p>
+        <a href="index.html#education" class="hover:text-brandBlue transition-colors">Back to Portfolio</a>
+    </div>
+</footer>
+
+</div><!-- /max-w-7xl -->
+
+<script>
+// ──────────────────────────────────────────────────────────────────────────────
+// CONFIGURATION — replace YOUR_GOOGLE_API_KEY with your actual key
+// ──────────────────────────────────────────────────────────────────────────────
+const CONFIG = {
+    FOLDER_ID: '1BAFyZKJ2S8emWn9L58gHeXAQB1GXkVLu',
+    API_KEY:   '__GOOGLE_API_KEY__',
+    FIELDS:    'files(id,name,mimeType,thumbnailLink,webViewLink,webContentLink,iconLink)',
+    PAGE_SIZE: 100,
+};
+
+// ── Supported MIME types ──────────────────────────────────────────────────────
+const MIME = {
+    pdf:   'application/pdf',
+    jpeg:  'image/jpeg',
+    png:   'image/png',
+    gif:   'image/gif',
+    webp:  'image/webp',
+};
+const IMAGE_MIMES = [MIME.jpeg, MIME.png, MIME.gif, MIME.webp];
+const isImage = (m) => IMAGE_MIMES.includes(m);
+const isPdf   = (m) => m === MIME.pdf;
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let allFiles   = [];
+let activeFilter = 'all';
+let searchQuery  = '';
+let loaded       = false;
+
+// ── DOM refs ──────────────────────────────────────────────────────────────────
+const triggerSection  = document.getElementById('cert-trigger-section');
+const gallerySection  = document.getElementById('cert-gallery-section');
+const errorSection    = document.getElementById('cert-error-section');
+const loadBtn         = document.getElementById('load-certs-btn');
+const retryBtn        = document.getElementById('retry-btn');
+const grid            = document.getElementById('cert-grid');
+const searchInput     = document.getElementById('cert-search');
+const countLabel      = document.getElementById('cert-count-label');
+const statsBlock      = document.getElementById('cert-stats');
+const noResults       = document.getElementById('cert-no-results');
+const clearSearchBtn  = document.getElementById('clear-search-btn');
+const lightbox        = document.getElementById('cert-lightbox');
+const lightboxClose   = document.getElementById('lightbox-close');
+const lightboxImg     = document.getElementById('lightbox-img');
+const lightboxIframe  = document.getElementById('lightbox-iframe');
+const lightboxLoading = document.getElementById('lightbox-loading');
+const lightboxTitle   = document.getElementById('lightbox-title');
+const lightboxOpenLink= document.getElementById('lightbox-open-link');
+const lightboxPdfFrame= document.getElementById('lightbox-pdf-frame');
+const errorMsg        = document.getElementById('cert-error-msg');
+
+// ── Theme (mirrors main portfolio logic) ──────────────────────────────────────
+(function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+    }
+})();
+
+document.getElementById('cert-theme-toggle').addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+});
+
+// ── Reveal animations ─────────────────────────────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── LOAD button ───────────────────────────────────────────────────────────────
+loadBtn.addEventListener('click', () => {
+    if (!loaded) fetchCertificates();
+});
+retryBtn.addEventListener('click', () => {
+    errorSection.classList.add('hidden');
+    fetchCertificates();
+});
+
+// ── Fetch from Google Drive API ───────────────────────────────────────────────
+async function fetchCertificates() {
+    // Show skeleton state
+    triggerSection.classList.add('hidden');
+    errorSection.classList.add('hidden');
+    gallerySection.classList.remove('hidden');
+    showSkeletons(8);
+
+    // Check if API key has been configured
+    if (CONFIG.API_KEY === 'YOUR_GOOGLE_API_KEY') {
+        showError(
+            'Google Drive API key not configured yet. Please follow the setup instructions in the README or contact Sreerag directly to view the full certificates gallery.',
+            true
+        );
+        return;
+    }
+
+    const url = [
+        'https://www.googleapis.com/drive/v3/files',
+        `?q='${CONFIG.FOLDER_ID}'+in+parents+and+trashed=false`,
+        `&key=${CONFIG.API_KEY}`,
+        `&fields=${encodeURIComponent(CONFIG.FIELDS)}`,
+        `&pageSize=${CONFIG.PAGE_SIZE}`,
+        `&orderBy=name`,
+    ].join('');
+
+    try {
+        const res = await fetch(url);
+        if (!res.ok) {
+            const errData = await res.json().catch(() => ({}));
+            throw new Error(errData?.error?.message || `HTTP ${res.status}`);
+        }
+        const data = await res.json();
+        const files = (data.files || []).filter(f => isImage(f.mimeType) || isPdf(f.mimeType));
+
+        if (files.length === 0) {
+            showError('No certificates found in the Google Drive folder. The folder may be empty or not shared publicly.');
+            return;
+        }
+
+        allFiles = files;
+        loaded   = true;
+        updateStats(files);
+        renderCards(getFilteredFiles());
+    } catch (err) {
+        console.error('[Certificates] Fetch error:', err);
+        showError(`Failed to load from Google Drive: ${err.message}. Please check your internet connection and try again.`);
+    }
+}
+
+// ── Stats ─────────────────────────────────────────────────────────────────────
+function updateStats(files) {
+    const pdfs   = files.filter(f => isPdf(f.mimeType)).length;
+    const images = files.filter(f => isImage(f.mimeType)).length;
+    document.getElementById('stat-total').textContent  = files.length;
+    document.getElementById('stat-pdfs').textContent   = pdfs;
+    document.getElementById('stat-images').textContent = images;
+    statsBlock.classList.remove('hidden');
+    statsBlock.classList.add('flex');
+}
+
+// ── Filter & search ───────────────────────────────────────────────────────────
+function getFilteredFiles() {
+    return allFiles.filter(f => {
+        const matchesFilter =
+            activeFilter === 'all' ||
+            (activeFilter === 'pdf'   && isPdf(f.mimeType)) ||
+            (activeFilter === 'image' && isImage(f.mimeType));
+        const matchesSearch = f.name.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesFilter && matchesSearch;
+    });
+}
+
+// Filter buttons
+document.querySelectorAll('.filter-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        renderCards(getFilteredFiles());
+    });
+});
+
+// Search
+searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value;
+    renderCards(getFilteredFiles());
+});
+clearSearchBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    searchQuery = '';
+    renderCards(getFilteredFiles());
+});
+
+// ── Render certificate cards ──────────────────────────────────────────────────
+function renderCards(files) {
+    grid.innerHTML = '';
+    noResults.classList.add('hidden');
+
+    if (files.length === 0) {
+        noResults.classList.remove('hidden');
+        countLabel.textContent = 'No results';
+        return;
+    }
+
+    countLabel.textContent = `Showing ${files.length} certificate${files.length !== 1 ? 's' : ''}`;
+
+    files.forEach((file, idx) => {
+        const card = createCard(file, idx);
+        grid.appendChild(card);
+    });
+}
+
+function createCard(file, idx) {
+    const isPdfFile   = isPdf(file.mimeType);
+    const isImageFile = isImage(file.mimeType);
+
+    // Thumbnail URL — Drive provides thumbnails for both PDFs and images
+    // Use sz=w400 for a reasonable preview size
+    const thumbUrl = file.thumbnailLink
+        ? file.thumbnailLink.replace('=s220', '=s400')
+        : null;
+
+    // Clean file name (remove extension for display)
+    const displayName = file.name.replace(/\.(pdf|png|jpg|jpeg|gif|webp)$/i, '');
+
+    const card = document.createElement('div');
+    card.className = 'cert-card glass rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-700/40 cursor-pointer group cert-card-enter';
+    card.style.animationDelay = `${idx * 55}ms`;
+    card.dataset.fileId   = file.id;
+    card.dataset.fileName = displayName;
+    card.dataset.fileType = isPdfFile ? 'pdf' : 'image';
+    card.dataset.viewLink = file.webViewLink;
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `View certificate: ${displayName}`);
+
+    // ── Thumbnail area ──
+    const thumbWrap = document.createElement('div');
+    thumbWrap.className = 'cert-thumb-wrap h-48 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900';
+
+    if (thumbUrl) {
+        const img = document.createElement('img');
+        img.src   = thumbUrl;
+        img.alt   = displayName;
+        img.loading = 'lazy';
+        img.className = 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-105';
+        img.onerror = () => { img.replaceWith(buildFallbackThumb(isPdfFile)); };
+        thumbWrap.appendChild(img);
+    } else {
+        thumbWrap.appendChild(buildFallbackThumb(isPdfFile));
+    }
+
+    // Type badge
+    const badge = document.createElement('div');
+    badge.className = `absolute top-3 right-3 z-10 cert-type-badge px-2 py-0.5 rounded-full text-[10px] font-extrabold border ${
+        isPdfFile
+            ? 'bg-red-500/90 text-white border-red-400/50'
+            : 'bg-sky-500/90 text-white border-sky-400/50'
+    }`;
+    badge.textContent = isPdfFile ? 'PDF' : 'IMG';
+    thumbWrap.appendChild(badge);
+
+    // ── Card body ──
+    const body = document.createElement('div');
+    body.className = 'p-4 space-y-3';
+
+    const title = document.createElement('h3');
+    title.className = 'font-heading font-bold text-sm text-slate-800 dark:text-white leading-snug line-clamp-2';
+    title.textContent = displayName;
+
+    const actions = document.createElement('div');
+    actions.className = 'flex items-center gap-2 pt-1';
+
+    const previewBtn = document.createElement('button');
+    previewBtn.className = 'flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-brandBlue/8 dark:bg-brandBlue/10 text-brandBlue border border-brandBlue/15 hover:bg-brandBlue hover:text-white transition-all duration-200';
+    previewBtn.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>Preview`;
+    previewBtn.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(file, displayName, thumbUrl); });
+
+    const openBtn = document.createElement('a');
+    openBtn.href   = file.webViewLink;
+    openBtn.target = '_blank';
+    openBtn.rel    = 'noopener noreferrer';
+    openBtn.className = 'w-9 h-9 rounded-xl flex items-center justify-center text-slate-400 bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/40 hover:text-brandViolet hover:border-brandViolet/30 transition-all';
+    openBtn.title  = 'Open in Drive';
+    openBtn.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
+    openBtn.addEventListener('click', (e) => e.stopPropagation());
+
+    actions.appendChild(previewBtn);
+    actions.appendChild(openBtn);
+    body.appendChild(title);
+    body.appendChild(actions);
+
+    card.appendChild(thumbWrap);
+    card.appendChild(body);
+
+    // Clicking card also opens preview
+    card.addEventListener('click', () => openLightbox(file, displayName, thumbUrl));
+    card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') openLightbox(file, displayName, thumbUrl); });
+
+    return card;
+}
+
+function buildFallbackThumb(isPdfFile) {
+    const wrap = document.createElement('div');
+    wrap.className = 'cert-pdf-overlay';
+    wrap.innerHTML = isPdfFile
+        ? `<svg class="w-12 h-12 text-red-400/70" fill="currentColor" viewBox="0 0 24 24"><path d="M14.5 2.5c0-1.1-.9-2-2-2h-9c-1.1 0-2 .9-2 2v19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7.5l-5-5zm2.5 17H7V4h6v4.5h4V19.5z"/></svg><span class="text-xs font-bold text-red-400/80">PDF</span>`
+        : `<svg class="w-12 h-12 text-sky-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span class="text-xs font-bold text-sky-400/80">Image</span>`;
+    return wrap;
+}
+
+// ── Skeleton loader ────────────────────────────────────────────────────────────
+function showSkeletons(count) {
+    grid.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+        const skel = document.createElement('div');
+        skel.className = 'glass rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-700/40';
+        skel.innerHTML = `
+            <div class="skeleton h-48 w-full"></div>
+            <div class="p-4 space-y-3">
+                <div class="skeleton h-4 w-3/4 rounded-lg"></div>
+                <div class="skeleton h-3 w-1/2 rounded-lg"></div>
+                <div class="skeleton h-8 w-full rounded-xl mt-2"></div>
+            </div>`;
+        grid.appendChild(skel);
+    }
+}
+
+// ── Error state ───────────────────────────────────────────────────────────────
+function showError(msg, showDriveFallback = false) {
+    gallerySection.classList.add('hidden');
+    errorSection.classList.remove('hidden');
+    errorMsg.textContent = msg;
+    // If API not configured, show drive link as primary action
+    if (showDriveFallback) {
+        triggerSection.classList.add('hidden');
+    }
+}
+
+// ── Lightbox ──────────────────────────────────────────────────────────────────
+function openLightbox(file, displayName, thumbUrl) {
+    const isPdfFile = isPdf(file.mimeType);
+
+    lightboxImg.classList.add('hidden');
+    lightboxPdfFrame.classList.add('hidden');
+    lightboxLoading.classList.remove('hidden');
+    lightboxTitle.textContent = displayName;
+    lightboxOpenLink.href = file.webViewLink;
+
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+
+    if (isPdfFile) {
+        // Embed PDF via Google Drive viewer (no download, works inline)
+        const viewerUrl = `https://drive.google.com/file/d/${file.id}/preview`;
+        lightboxIframe.src = viewerUrl;
+        lightboxIframe.onload = () => { lightboxLoading.classList.add('hidden'); };
+        lightboxPdfFrame.classList.remove('hidden');
+    } else {
+        // Load full-res image
+        const fullUrl = thumbUrl ? thumbUrl.replace('=s400', '=s1200') : `https://drive.google.com/thumbnail?id=${file.id}&sz=w1200`;
+        lightboxImg.src = fullUrl;
+        lightboxImg.alt = displayName;
+        lightboxImg.onload  = () => { lightboxLoading.classList.add('hidden'); lightboxImg.classList.remove('hidden'); };
+        lightboxImg.onerror = () => { lightboxLoading.classList.add('hidden'); lightboxImg.classList.remove('hidden'); };
+    }
+}
+
+function closeLightbox() {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+    lightboxIframe.src = '';
+    lightboxImg.classList.add('hidden');
+    lightboxPdfFrame.classList.add('hidden');
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
