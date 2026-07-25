@@ -352,13 +352,20 @@
 
 </div><!-- /max-w-7xl -->
 
+<!-- Local dev override (gitignored) — provides real API key without modifying source -->
+<script src="local-config.js" onerror="/* not present in production, that's fine */"></script>
+
 <script>
 // ──────────────────────────────────────────────────────────────────────────────
 // CONFIGURATION — replace YOUR_GOOGLE_API_KEY with your actual key
 // ──────────────────────────────────────────────────────────────────────────────
 const CONFIG = {
     FOLDER_ID: '1BAFyZKJ2S8emWn9L58gHeXAQB1GXkVLu',
-    API_KEY:   '__GOOGLE_API_KEY__',
+    // In production: injected by GitHub Actions (sed replaces the placeholder).
+    // Locally: overridden by local-config.js (gitignored) via window.__LOCAL_CONFIG__.
+    API_KEY:   (window.__LOCAL_CONFIG__ && window.__LOCAL_CONFIG__.GOOGLE_API_KEY)
+                   ? window.__LOCAL_CONFIG__.GOOGLE_API_KEY
+                   : '__GOOGLE_API_KEY__',
     FIELDS:    'files(id,name,mimeType,thumbnailLink,webViewLink,webContentLink,iconLink)',
     PAGE_SIZE: 100,
 };

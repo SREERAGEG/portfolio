@@ -4,3 +4,4 @@ package-lock.json
 .gemini/
 .agents/
 *.log
+local-config.js
