@@ -6,6 +6,10 @@ on:
     - cron: '0 6 */5 * *'   # Every 5 days at 06:00 UTC
   workflow_dispatch:         # Allow manual trigger from GitHub Actions UI
 
+env:
+  SUPABASE_URL: "https://jdgitfslhkllqznwycrg.supabase.co"
+  SUPABASE_ANON_KEY: "sb_publishable_O2fCotryD1GtN7Vvr49ZgA_PhgiGygX"
+
 jobs:
   ping-supabase:
     name: Ping Supabase DB
@@ -16,15 +20,15 @@ jobs:
       - name: Ping Supabase visitors table
         run: |
           HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-            -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/visitors?select=id&limit=1" \
-            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
+            -X GET "${SUPABASE_URL}/rest/v1/visitors?select=id&limit=1" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}")
 
           echo "Supabase ping status: $HTTP_STATUS"
 
           if [ "$HTTP_STATUS" -ne 200 ]; then
-            echo "❌ Ping failed with status $HTTP_STATUS"
+            echo "Ping failed with status $HTTP_STATUS"
             exit 1
           else
-            echo "✅ Supabase is alive and responding!"
+            echo "Supabase is alive and responding!"
           fi
