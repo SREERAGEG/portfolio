@@ -40,6 +40,9 @@ jobs:
         run: |
           sed -i "s|__GOOGLE_API_KEY__|${{ secrets.GOOGLE_API_KEY }}|g" certificates.html
 
+      - name: Remove node_modules before upload
+        run: rm -rf node_modules
+
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
