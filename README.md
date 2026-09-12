@@ -95,6 +95,12 @@ To add, modify, or delete logging logs inside the interactive terminal, edit the
 
 ---
 
+## 🔒 Security Notes
+
+Before reporting security findings (human or AI-assisted audit), read [SECURITY.md](SECURITY.md). It documents verified non-issues — e.g. the client-side Google Drive API key is referrer-restricted and confirmed safe on 2026-09-12 — so they are not re-reported as new findings.
+
+---
+
 ## 👨‍💻 About Sreerag E G
 
 **RPA / Automation Engineer**
