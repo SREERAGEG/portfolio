@@ -29,16 +29,39 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Tailwind CSS
         run: npm run build
 
       - name: Inject Google API Key
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
-          sed -i "s|__GOOGLE_API_KEY__|${{ secrets.GOOGLE_API_KEY }}|g" certificates.html
+          python3 - <<'EOF'
+          import os
+
+          path = "certificates.html"
+          key = os.environ.get("GOOGLE_API_KEY", "")
+
+          with open(path, "r", encoding="utf-8") as f:
+              content = f.read()
+
+          if "__GOOGLE_API_KEY__" not in content:
+              raise SystemExit("Placeholder __GOOGLE_API_KEY__ not found in certificates.html")
+
+          if not key:
+              print("::warning::GOOGLE_API_KEY secret is empty — certificates page will show its configuration-error state")
+          else:
+              content = content.replace("__GOOGLE_API_KEY__", key)
+              print("Injected Google API key into certificates.html")
+
+          with open(path, "w", encoding="utf-8") as f:
+              f.write(content)
+          EOF
 
       - name: Remove node_modules before upload
         run: rm -rf node_modules

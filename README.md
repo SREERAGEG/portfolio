@@ -16,8 +16,10 @@ A modern, highly-interactive responsive portfolio website showcasing the profess
 
 ### Technical & Interactive Features
 - **Interactive RPA Bot Simulator Console**: A live terminal mockup where visitors select configurations (e.g. `claim_submitter.py`, `eob_data_extractor.py`, `self_healing_agent.py`) and "execute" the scripts to stream color-coded, realistic runtime logs, progress bars, self-healing occurrences, and HIPAA-secure final JSON payload envelopes.
-- **AWS Pipelines Visualizer**: An interactive SVG-based systems architecture diagram displaying the orchestration workflow (`JSON Payload` ➔ `FastAPI Router` ➔ `AWS SQS Broker` ➔ `AWS ECS Container Workers` ➔ `Commercial Portals`). Hovering on diagram nodes displays descriptive details about each stage dynamically.
-- **No Compilation Build Setup**: Built directly on single-file HTML5, Tailwind Play CDN configuration, and Vanilla Javascript. Performs instantly on mobile and desktop without packaging systems.
+- **AWS Pipelines Visualizer**: An interactive, keyboard-accessible SVG-based systems architecture diagram displaying the orchestration workflow (`JSON Payload` ➔ `FastAPI Router` ➔ `AWS SQS Broker` ➔ `AWS ECS Container Workers` ➔ `Commercial Portals`). Activating a diagram node (click or Enter/Space) displays descriptive details about each stage dynamically.
+- **Certificates Gallery**: A dedicated [certificates.html](certificates.html) page that lazy-loads credential images/PDFs directly from a public Google Drive folder via the Drive API, with skeleton loaders, search, type filters, and a lightbox preview.
+- **Precompiled Tailwind, Zero Runtime Compilation**: Utility CSS is built locally with the Tailwind CLI (`npm run build`) and committed as a static stylesheet — no Play CDN compiler in production.
+- **Serverless Contact Pipeline**: The contact form posts to Formspree for email delivery and optionally logs submissions to a Supabase table; a graceful inline error card covers delivery failures.
 
 ### Portfolio Sections
 1. **Hero**: Visual introduction, dynamic typewriter roles loop, resume download trigger, and social shortcuts.
@@ -34,10 +36,11 @@ A modern, highly-interactive responsive portfolio website showcasing the profess
 ## 🚀 Technologies Used
 
 ### Frontend Stack
-- **HTML5**: Semantic layout.
-- **Tailwind CSS Play CDN**: Tailwind configurations and utility frameworks.
-- **Vanilla JavaScript**: Programmatic engines managing typing effects, bot simulation logs, interactive SVGs, contact validation, and dark/light modes.
-- **Font Awesome Icons**: Translucent icons.
+- **HTML5**: Semantic layout (two pages: `index.html`, `certificates.html`).
+- **Tailwind CSS v3**: Compiled locally via the CLI (`assets/css/input.css` ➔ `assets/css/styles.css`), configured in [tailwind.config.js](tailwind.config.js). The compiled stylesheet is committed so the site deploys as pure static files.
+- **Vanilla JavaScript**: Programmatic engines ([assets/js/main.js](assets/js/main.js)) managing typing effects, bot simulation logs, interactive SVGs, contact validation, and dark/light modes.
+- **Google Drive API v3**: Client-side fetch of the certificates gallery (API key injected at deploy time — see [SECURITY.md](SECURITY.md)).
+- **Supabase + Formspree**: Visitor counter / message logging and contact email delivery.
 - **Google Fonts**: `Outfit` (headings), `Plus Jakarta Sans` (body text), and `Fira Code` (monospace code/terminal block).
 
 ---
@@ -46,14 +49,28 @@ A modern, highly-interactive responsive portfolio website showcasing the profess
 
 ```
 portfolio/
-├── index.html                 # Complete portfolio (HTML, Tailwind Config, and JS logic)
+├── index.html                     # Main one-page portfolio (structure & content)
+├── certificates.html              # Certificates gallery (lazy-loads from Google Drive)
 ├── assets/
-│   ├── favicon.svg           # Custom page tab icon
+│   ├── favicon.svg                # Custom page tab icon
+│   ├── css/
+│   │   ├── input.css              # Tailwind entry file
+│   │   ├── styles.css             # Compiled Tailwind output (committed)
+│   │   └── custom.css             # Hand-written glassmorphism & animation styles
+│   ├── js/
+│   │   └── main.js                # All homepage JS (theme, console, form, counter)
 │   ├── img/
-│   │   └── myphoto.jpg       # Developer profile portrait
+│   │   └── myphoto.jpg            # Developer profile portrait
 │   └── resume/
-│       └── Sreerag_EG_resume_rpa_updated.pdf # Latest PDF resume
-└── README.md                 # Project documentation
+│       └── Sreerag_EG_resume_rpa_updated.pdf  # Latest PDF resume
+├── .github/workflows/
+│   ├── deploy.yml                 # Pages deploy: build CSS, inject API key, publish
+│   └── keep-supabase-alive.yml    # Periodic ping to prevent Supabase free-tier pause
+├── SECURITY.md                    # Security notes & audit log
+├── robots.txt / sitemap.xml       # Search engine directives
+├── tailwind.config.js             # Tailwind theme configuration
+├── local-config.js                # (gitignored) Local dev Google API key
+└── package.json                   # Tailwind build scripts
 ```
 
 ---
@@ -61,7 +78,7 @@ portfolio/
 ## 🎨 Design System
 
 ### Color Palette
-- **Deep Space Theme (Dark)**: Cosmic dark background (`#05070f`), card slots (`rgba(10, 15, 30, 0.45)`), neon borders, and glowing highlights (Sky Blue `#0ea5e9`, Neon Violet `#d946ef`, Emerald Green `#10b981`).
+- **Deep Space Theme (Dark)**: Cosmic dark background (`#040610`), card slots (`rgba(10, 15, 30, 0.45)`), neon borders, and glowing highlights (Sky Blue `#0ea5e9`, Neon Violet `#a855f7`, Emerald Green `#10b981`).
 - **Frosted Light Theme (Light)**: Clean background (`#f8fafc`), panels (`rgba(255, 255, 255, 0.65)`), soft drop shadows, and sky accents.
 - **Monospace Elements**: Deep slate backing (`#02040a`) with terminal text classes.
 
@@ -74,24 +91,30 @@ portfolio/
 
 ## 🔧 Customization Guide
 
-### Configs Customization
-To adjust the theme color extensions or fonts, edit the Tailwind settings in [index.html](file:///c:/Users/sreer/Documents/GitHub/portfolio/index.html):
+### Build & Development
+```bash
+npm install        # install Tailwind (package-lock.json pins exact versions)
+npm run dev        # watch mode: rebuilds styles.css on every change
+npm run build      # one-off minified production build
+```
+
+### Theme Customization
+To adjust the theme colors or fonts, edit [tailwind.config.js](tailwind.config.js):
 ```javascript
-tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                darkBg: '#05070f',
-                brandBlue: '#0ea5e9',
-                // Adjust colors here
-            }
+theme: {
+    extend: {
+        colors: {
+            darkBg: '#040610',
+            brandBlue: '#0ea5e9',
+            // Adjust colors here
         }
     }
 }
 ```
+Then run `npm run build` to regenerate `assets/css/styles.css`.
 
 ### Bot Simulation Customization
-To add, modify, or delete logging logs inside the interactive terminal, edit the `BOT_LOGS` object located inside the `<script>` tag of `index.html`.
+To add, modify, or delete terminal log lines, edit the `BOT_LOGS` object in [assets/js/main.js](assets/js/main.js).
 
 ---
 
