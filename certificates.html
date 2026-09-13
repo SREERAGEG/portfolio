@@ -8,6 +8,20 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://www.googleapis.com https://lh3.googleusercontent.com; img-src 'self' data: https://lh3.googleusercontent.com https://drive.google.com https://drive-thirdparty.googleusercontent.com; frame-src https://drive.google.com;">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="canonical" href="https://sreerageg.github.io/portfolio/certificates.html">
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#040610" media="(prefers-color-scheme: dark)">
+    <script>
+        // Apply saved theme before first paint to avoid a light-mode flash (mirrors footer script logic)
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) { /* storage unavailable — fall back to light */ }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
@@ -190,17 +204,17 @@
         <div id="cert-stats" class="hidden flex justify-center gap-6 pt-2">
             <div class="text-center">
                 <div id="stat-total" class="font-heading font-black text-2xl text-brandBlue">—</div>
-                <div class="text-xs text-slate-400 font-semibold mt-0.5">Total</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">Total</div>
             </div>
             <div class="w-px bg-slate-200 dark:bg-slate-700"></div>
             <div class="text-center">
                 <div id="stat-pdfs" class="font-heading font-black text-2xl text-brandViolet">—</div>
-                <div class="text-xs text-slate-400 font-semibold mt-0.5">PDFs</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">PDFs</div>
             </div>
             <div class="w-px bg-slate-200 dark:bg-slate-700"></div>
             <div class="text-center">
                 <div id="stat-images" class="font-heading font-black text-2xl text-brandGreen">—</div>
-                <div class="text-xs text-slate-400 font-semibold mt-0.5">Images</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">Images</div>
             </div>
         </div>
     </section>
@@ -261,7 +275,7 @@
         </div>
 
         <!-- Result count -->
-        <div id="cert-count-label" class="text-xs text-slate-400 font-semibold"></div>
+        <div id="cert-count-label" class="text-xs text-slate-500 dark:text-slate-400 font-semibold"></div>
 
         <!-- Card grid -->
         <div id="cert-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
@@ -271,7 +285,7 @@
             <div class="float-icon inline-block text-slate-300 dark:text-slate-700">
                 <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0"/></svg>
             </div>
-            <p class="text-slate-400 font-semibold">No certificates match your search.</p>
+            <p class="text-slate-500 dark:text-slate-400 font-semibold">No certificates match your search.</p>
             <button id="clear-search-btn" class="text-brandBlue text-sm font-bold hover:underline">Clear search</button>
         </div>
 
@@ -344,28 +358,35 @@
 
 <!-- FOOTER -->
 <footer class="border-t border-slate-200/60 dark:border-slate-700/30 pt-8 mt-16">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 dark:text-slate-600">
-        <p>&copy; 2026 Sreerag E G &middot; Certificates Gallery</p>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+        <p>&copy; <span id="cert-footer-year">2026</span> Sreerag E G &middot; Certificates Gallery</p>
         <a href="index.html#education" class="hover:text-brandBlue transition-colors">Back to Portfolio</a>
     </div>
 </footer>
 
 </div><!-- /max-w-7xl -->
 
-<!-- Local dev override (gitignored) — provides real API key without modifying source -->
-<script src="local-config.js" onerror="/* not present in production, that's fine */"></script>
-
 <script>
 // ──────────────────────────────────────────────────────────────────────────────
 // CONFIGURATION — replace YOUR_GOOGLE_API_KEY with your actual key
 // ──────────────────────────────────────────────────────────────────────────────
+// Local dev: when served from localhost/127.0.0.1, load the gitignored
+// local-config.js so the real key is available (avoids a 404 in production).
+if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+    var _lc = document.createElement('script');
+    _lc.src = 'local-config.js';
+    document.head.appendChild(_lc);
+}
 const CONFIG = {
     FOLDER_ID: '1BAFyZKJ2S8emWn9L58gHeXAQB1GXkVLu',
     // In production: injected by GitHub Actions (sed replaces the placeholder).
     // Locally: overridden by local-config.js (gitignored) via window.__LOCAL_CONFIG__.
-    API_KEY:   (window.__LOCAL_CONFIG__ && window.__LOCAL_CONFIG__.GOOGLE_API_KEY)
+    // Lazy getter — read at click time so the async local-config.js has loaded.
+    get API_KEY() {
+        return (window.__LOCAL_CONFIG__ && window.__LOCAL_CONFIG__.GOOGLE_API_KEY)
                    ? window.__LOCAL_CONFIG__.GOOGLE_API_KEY
-                   : '__GOOGLE_API_KEY__',
+                   : '__GOOGLE_API_KEY__';
+    },
     FIELDS:    'files(id,name,mimeType,thumbnailLink,webViewLink,webContentLink,iconLink)',
     PAGE_SIZE: 100,
 };
@@ -410,15 +431,7 @@ const lightboxOpenLink= document.getElementById('lightbox-open-link');
 const lightboxPdfFrame= document.getElementById('lightbox-pdf-frame');
 const errorMsg        = document.getElementById('cert-error-msg');
 
-// ── Theme (mirrors main portfolio logic) ──────────────────────────────────────
-(function() {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.classList.add('dark');
-    }
-})();
-
+// ── Theme (class applied pre-paint in <head>; this handles toggling) ──────────
 document.getElementById('cert-theme-toggle').addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
@@ -447,8 +460,8 @@ async function fetchCertificates() {
     gallerySection.classList.remove('hidden');
     showSkeletons(8);
 
-    // Check if API key has been configured
-    if (CONFIG.API_KEY === 'YOUR_GOOGLE_API_KEY') {
+    // Check if API key has been configured (placeholder unreplaced, or injected empty by CI)
+    if (!CONFIG.API_KEY || CONFIG.API_KEY === '__GOOGLE_API_KEY__' || CONFIG.API_KEY === 'YOUR_GOOGLE_API_KEY') {
         showError(
             'Google Drive API key not configured yet. Please follow the setup instructions in the README or contact Sreerag directly to view the full certificates gallery.',
             true
@@ -680,9 +693,12 @@ function showError(msg, showDriveFallback = false) {
 }
 
 // ── Lightbox ──────────────────────────────────────────────────────────────────
+let lastFocusedBeforeLightbox = null;
+
 function openLightbox(file, displayName, thumbUrl) {
     const isPdfFile = isPdf(file.mimeType);
 
+    lastFocusedBeforeLightbox = document.activeElement;
     lightboxImg.classList.add('hidden');
     lightboxPdfFrame.classList.add('hidden');
     lightboxLoading.classList.remove('hidden');
@@ -692,6 +708,7 @@ function openLightbox(file, displayName, thumbUrl) {
     lightbox.classList.remove('hidden');
     lightbox.classList.add('flex');
     document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
 
     if (isPdfFile) {
         // Embed PDF via Google Drive viewer (no download, works inline)
@@ -705,7 +722,12 @@ function openLightbox(file, displayName, thumbUrl) {
         lightboxImg.src = fullUrl;
         lightboxImg.alt = displayName;
         lightboxImg.onload  = () => { lightboxLoading.classList.add('hidden'); lightboxImg.classList.remove('hidden'); };
-        lightboxImg.onerror = () => { lightboxLoading.classList.add('hidden'); lightboxImg.classList.remove('hidden'); };
+        // On error keep the image hidden — the footer "Open full" link still works
+        lightboxImg.onerror = () => {
+            lightboxLoading.classList.add('hidden');
+            lightboxImg.classList.add('hidden');
+            lightboxTitle.textContent = displayName + ' — preview failed to load, use "Open full"';
+        };
     }
 }
 
@@ -717,11 +739,32 @@ function closeLightbox() {
     lightboxIframe.src = '';
     lightboxImg.classList.add('hidden');
     lightboxPdfFrame.classList.add('hidden');
+    if (lastFocusedBeforeLightbox && typeof lastFocusedBeforeLightbox.focus === 'function') {
+        lastFocusedBeforeLightbox.focus();
+        lastFocusedBeforeLightbox = null;
+    }
 }
 
 lightboxClose.addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') {
+        closeLightbox();
+    } else if (e.key === 'Tab') {
+        // Simple focus trap between the lightbox's two focusable controls
+        const focusables = [lightboxClose, lightboxOpenLink];
+        const first = focusables[0], last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+});
+
+// Dynamic copyright year
+(function() {
+    var y = document.getElementById('cert-footer-year');
+    if (y) y.textContent = new Date().getFullYear();
+})();
 </script>
 </body>
 </html>

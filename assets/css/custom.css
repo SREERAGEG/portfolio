@@ -59,6 +59,8 @@ section { scroll-margin-top: 100px; }
 .project-card:hover .project-icon-wrap{transform:scale(1.12)}
 .timeline-line{position:relative}
 .timeline-line::before{content:'';position:absolute;left:-1px;top:0;height:100%;width:2px;background:linear-gradient(180deg,#0ea5e9 0%,#a855f7 50%,#10b981 100%);opacity:.6}
+g[id^='arch-node-']:focus{outline:none}
+g[id^='arch-node-']:focus rect{stroke-width:3}
 .grid-pattern{background-image:linear-gradient(var(--grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--grid-color) 1px,transparent 1px);background-size:24px 24px}
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}

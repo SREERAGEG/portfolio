@@ -166,7 +166,7 @@ function selectBotProfile(p) {
     const con = document.getElementById("terminal-console");
     con.innerHTML = '';
     const _sel1 = document.createElement('div');
-    _sel1.className = 'text-slate-400 dark:text-slate-600';
+    _sel1.className = 'text-slate-500 dark:text-slate-400';
     _sel1.textContent = 'Selected: bots/' + fm[p];
     const _sel2 = document.createElement('div');
     _sel2.className = 'text-sky-600 dark:text-sky-400 font-semibold';
@@ -209,7 +209,7 @@ function triggerBotExecution() {
     const con = document.getElementById("terminal-console");
     con.innerHTML = '';
     const _sysDiv = document.createElement('div');
-    _sysDiv.className = 'text-slate-400 dark:text-slate-600';
+    _sysDiv.className = 'text-slate-500 dark:text-slate-400';
     _sysDiv.textContent = '[SYSTEM] Worker thread allocated. Connecting...';
     con.appendChild(_sysDiv);
     
@@ -239,7 +239,7 @@ function triggerBotExecution() {
             const ts = new Date().toISOString().substring(11, 19);
             
             const _tsSpan = document.createElement('span');
-            _tsSpan.className = 'text-slate-300 dark:text-slate-600';
+            _tsSpan.className = 'text-slate-400 dark:text-slate-500';
             _tsSpan.textContent = ts;
             const _logSpan = document.createElement('span');
             _logSpan.className = cm[log.type] || '';
@@ -299,6 +299,9 @@ function setActiveArchNode(n) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const tt = document.getElementById("theme-toggle"), html = document.documentElement;
+
+    const yr = document.getElementById("footer-year");
+    if (yr) yr.textContent = new Date().getFullYear();
     
     function applyTheme(t) {
         if (t === "dark") {
@@ -364,7 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Supabase serverless logging configuration
     const SUPABASE_URL = "https://jdgitfslhkllqznwycrg.supabase.co";
     const SUPABASE_ANON_KEY = "sb_publishable_O2fCotryD1GtN7Vvr49ZgA_PhgiGygX";
-    const hasSupabase = SUPABASE_URL && SUPABASE_URL !== "YOUR_SUPABASE_URL" && SUPABASE_ANON_KEY && SUPABASE_ANON_KEY !== "YOUR_SUPABASE_ANON_KEY";
+    const hasSupabase = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 
     const form = document.getElementById("contact-form"), sb = document.getElementById("submit-btn");
     if (form) {
@@ -375,62 +378,64 @@ document.addEventListener("DOMContentLoaded", () => {
             const orig = sb.innerHTML;
             sb.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
 
-            const promises = [];
-
-            // 1. Log to Supabase database (if configured)
+            // 1. Log to Supabase database (if configured) — failure is non-fatal
             if (hasSupabase) {
-                promises.push(
-                    fetch(`${SUPABASE_URL}/rest/v1/visitors`, {
-                        method: "POST",
-                        headers: {
-                            "apikey": SUPABASE_ANON_KEY,
-                            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-                            "Content-Type": "application/json",
-                            "Prefer": "return=minimal"
-                        },
-                        body: JSON.stringify({ name: n, email: em, subject: s, message: m, is_unique_visit: false })
-                    }).catch(err => console.error("Database logging failed:", err))
-                );
+                fetch(`${SUPABASE_URL}/rest/v1/visitors`, {
+                    method: "POST",
+                    headers: {
+                        "apikey": SUPABASE_ANON_KEY,
+                        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+                        "Content-Type": "application/json",
+                        "Prefer": "return=minimal"
+                    },
+                    body: JSON.stringify({ name: n, email: em, subject: s, message: m, is_unique_visit: false })
+                }).catch(err => console.error("Database logging failed:", err));
             }
 
-            // 2. Send email notification via Formspree
-            promises.push(
-                fetch("https://formspree.io/f/mrengeod", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json", "Accept": "application/json" },
-                    body: JSON.stringify({ name: n, email: em, subject: s, message: m })
-                })
-            );
-
-            Promise.all(promises)
-                .then(results => {
+            // 2. Send email notification via Formspree — this decides success/failure
+            fetch("https://formspree.io/f/mrengeod", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                body: JSON.stringify({ name: n, email: em, subject: s, message: m })
+            })
+                .then(res => {
                     sb.disabled = false;
                     sb.innerHTML = orig;
-                    
-                    // Formspree result is the last item
-                    const formspreeRes = results[results.length - 1];
-                    if (formspreeRes && formspreeRes.ok) {
+
+                    if (res && res.ok) {
                         form.classList.add("hidden");
                         const successCard = document.getElementById("contact-success");
                         if (successCard) successCard.classList.remove("hidden");
                         form.reset();
                     } else {
-                        alert("Something went wrong with the email delivery. Please email me directly at sreerageg@gmail.com");
+                        form.classList.add("hidden");
+                        const errorCard = document.getElementById("contact-error");
+                        if (errorCard) errorCard.classList.remove("hidden");
                     }
                 })
                 .catch(() => {
                     sb.disabled = false;
                     sb.innerHTML = orig;
-                    window.location.href = "mailto:sreerageg@gmail.com?subject=" + encodeURIComponent(s) + "&body=" + encodeURIComponent("Name: " + n + "\nEmail: " + em + "\n\nMessage:\n" + m);
+                    form.classList.add("hidden");
+                    const errorCard = document.getElementById("contact-error");
+                    if (errorCard) errorCard.classList.remove("hidden");
                 });
         });
     }
 
     const successCard = document.getElementById("contact-success"),
-          sendAnotherBtn = document.getElementById("send-another-btn");
+          errorCard = document.getElementById("contact-error"),
+          sendAnotherBtn = document.getElementById("send-another-btn"),
+          retryMsgBtn = document.getElementById("retry-message-btn");
     if (sendAnotherBtn && successCard && form) {
         sendAnotherBtn.addEventListener("click", () => {
             successCard.classList.add("hidden");
+            form.classList.remove("hidden");
+        });
+    }
+    if (retryMsgBtn && errorCard && form) {
+        retryMsgBtn.addEventListener("click", () => {
+            errorCard.classList.add("hidden");
             form.classList.remove("hidden");
         });
     }
@@ -458,6 +463,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, {threshold: 0.1, rootMargin: "0px 0px -60px 0px"});
     document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+
+    // Keyboard support for the clickable architecture SVG nodes
+    document.querySelectorAll("svg g[id^='arch-node-']").forEach(g => {
+        g.addEventListener("keydown", e => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setActiveArchNode(parseInt(g.id.replace("arch-node-", ""), 10));
+            }
+        });
+    });
 
     // Handle anonymous page logging & total counter
     if (hasSupabase) {
