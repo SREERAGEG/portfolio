@@ -461,7 +461,7 @@ async function fetchCertificates() {
     showSkeletons(8);
 
     // Check if API key has been configured (placeholder unreplaced, or injected empty by CI)
-    if (!CONFIG.API_KEY || CONFIG.API_KEY === '__GOOGLE_API_KEY__' || CONFIG.API_KEY === 'YOUR_GOOGLE_API_KEY') {
+    if (!CONFIG.API_KEY || CONFIG.API_KEY.startsWith('__') || CONFIG.API_KEY.startsWith('YOUR_')) {
         showError(
             'Google Drive API key not configured yet. Please follow the setup instructions in the README or contact Sreerag directly to view the full certificates gallery.',
             true
