@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sreerageg.github.io/portfolio/sitemap.xml
